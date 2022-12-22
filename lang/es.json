@@ -1,0 +1,35 @@
+{
+	"The :attribute must contain at least one letter.": "El campo :attribute debe contener al menos una letra.",
+	"The :attribute must contain at least one number.": "El campo :attribute debe contener al menos un número.",
+	"The :attribute must contain at least one symbol.": "El campo :attribute debe contener al menos un símbolo.",
+	"The :attribute must contain at least one uppercase and one lowercase letter.": "El campo :attribute debe contener al menos una letra mayúscula y una minúscula.",
+	"The given :attribute has appeared in a data leak. Please choose a different :attribute.": "El campo :attribute ha aparecido en una fuga de datos. Por facor elija un/a :attribute diferente.",
+
+	"Unauthenticated.": "No autenticado.",
+	"You don't have the right permissions to access the resource.": "No tiene los permisos necesarios para acceder al recurso.",
+	":model not found.": ":model no encontrado/a.",
+	"Url doesn't exist.": "La url no existe.",
+	"Specified method on request not valid.": "El método especificado en la petición no es válido.",
+	"Specified accept header on request not valid.": "El encabezado de aceptación especificado en la petición no es válido.",
+	"A error ocurred, cannot process query.": "Ocurrió un error, no se puede procesar la consulta.",
+	"Request body is too large.": "El cuerpo de la petición es demasiado grande.",
+	"Specified media type on request not valid.": "El tipo de medio especificado en la petición no es válido.",
+    "Too many attempts. Please try again later.": "Demasiados intentos. Por favor, inténtelo de nuevo más tarde.",
+	"A server error has ocurred.": "Un error de servidor ha ocurrido.",
+
+	"Incorrect email/password.": "Correo y/o contraseña incorrectos.",
+    "Cannot delete record.": "No se puede eliminar el registro.",
+	"Cannot delete record because it has already associated.": "No se puede eliminar el registro porque ya está asociado.",
+	"Your account is not verified.": "Su cuenta no está verificada.",
+	"Your account has already been verified.": "Su cuenta ya ha sido verificada.",
+	"SMS could not be sent.": "El SMS no pudo ser enviado.",
+	"File :filename not found.": "El archivo :filename no existe.",
+
+	"Address": "Dirección",
+	"Admin": "Administrador",
+	"Permission": "Permiso",
+	"Profile": "Perfil",
+	"Role": "Rol",
+	"State": "Estado",
+	"User": "Usuario"
+}
