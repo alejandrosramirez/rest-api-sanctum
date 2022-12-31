@@ -1,0 +1,64 @@
+name: 'State Endpoints'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/states
+    metadata:
+      groupName: 'State Endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a paginated states.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      size:
+        name: size
+        description: 'The number of elements for listing.'
+        required: false
+        example: 20
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: 'The criteria to search in list.'
+        required: false
+        example: Jalisco
+        type: string
+        custom: []
+    cleanQueryParameters:
+      size: 20
+      search: Jalisco
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"current_page":1,"data":[{"id":15,"uuid":"83f96fe8-8ae9-48fb-8a70-d43961f90ef4","name":"Jalisco","short_name":"JAL","created_at":"2022-12-24T04:39:09.000000Z","updated_at":"2022-12-24T04:39:09.000000Z","deleted_at":null}],"first_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/states?page=1","from":1,"last_page":1,"last_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/states?page=1","links":[{"url":null,"label":"&laquo; Anterior","active":false},{"url":"http:\/\/rest-api-sanctum.develop:8080\/api\/states?page=1","label":"1","active":true},{"url":null,"label":"Siguiente &raquo;","active":false}],"next_page_url":null,"path":"http:\/\/rest-api-sanctum.develop:8080\/api\/states","per_page":20,"prev_page_url":null,"to":1,"total":1}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '51'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer VdEkcaP63haZbg6f5v1eD48'
+    controller: null
+    method: null
+    route: null
+    custom: []

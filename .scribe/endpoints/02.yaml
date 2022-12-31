@@ -1,0 +1,365 @@
+name: 'Permission Endpoints'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/permissions
+    metadata:
+      groupName: 'Permission Endpoints'
+      groupDescription: ''
+      subgroup: Permissions
+      subgroupDescription: ''
+      title: 'Display a paginated permissions.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      size:
+        name: size
+        description: 'The number of items by page.'
+        required: false
+        example: 20
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: 'The criteria to search.'
+        required: false
+        example: 'Editar usuarios'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      size: 20
+      search: 'Editar usuarios'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"current_page":1,"data":[{"id":19,"uuid":"4e6aa5f5-5e5b-4b30-84f0-fa65fa9737ca","name":"users_update","description":"Editar usuarios","guard_name":"web","created_at":"2022-12-24T04:39:09.000000Z","updated_at":"2022-12-24T04:39:09.000000Z"}],"first_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/permissions?page=1","from":1,"last_page":1,"last_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/permissions?page=1","links":[{"url":null,"label":"&laquo; Anterior","active":false},{"url":"http:\/\/rest-api-sanctum.develop:8080\/api\/permissions?page=1","label":"1","active":true},{"url":null,"label":"Siguiente &raquo;","active":false}],"next_page_url":null,"path":"http:\/\/rest-api-sanctum.develop:8080\/api\/permissions","per_page":20,"prev_page_url":null,"to":1,"total":1}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 8c6D5Z3a4egEvadh1kb6fVP'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/roles
+    metadata:
+      groupName: 'Permission Endpoints'
+      groupDescription: ''
+      subgroup: Roles
+      subgroupDescription: ''
+      title: 'Display a paginated roles.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      size:
+        name: size
+        description: 'The number of elements for listing.'
+        required: false
+        example: 20
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: 'The criteria to search in list.'
+        required: false
+        example: Administrador
+        type: string
+        custom: []
+    cleanQueryParameters:
+      size: 20
+      search: Administrador
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"current_page":1,"data":[{"id":2,"uuid":"e61d12c0-3644-4cc4-8b5f-7db4188405f6","name":"administrator","description":"Administrador","guard_name":"web","created_at":"2022-12-24T04:39:09.000000Z","updated_at":"2022-12-24T04:39:09.000000Z","deleted_at":null}],"first_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/roles?page=1","from":1,"last_page":1,"last_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/roles?page=1","links":[{"url":null,"label":"&laquo; Anterior","active":false},{"url":"http:\/\/rest-api-sanctum.develop:8080\/api\/roles?page=1","label":"1","active":true},{"url":null,"label":"Siguiente &raquo;","active":false}],"next_page_url":null,"path":"http:\/\/rest-api-sanctum.develop:8080\/api\/roles","per_page":20,"prev_page_url":null,"to":1,"total":1}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '56'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer EaZv6D5bgcf61k3P4eVah8d'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/roles
+    metadata:
+      groupName: 'Permission Endpoints'
+      groupDescription: ''
+      subgroup: Roles
+      subgroupDescription: ''
+      title: 'Store a new role.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: 'The description for this role.'
+        required: true
+        example: 'Super Admin'
+        type: string
+        custom: []
+      permissions:
+        name: permissions
+        description: 'The selected permissions names for this role.'
+        required: true
+        example:
+          - non
+        type: 'string[]'
+        custom: []
+    cleanBodyParameters:
+      description: 'Super Admin'
+      permissions:
+        - non
+    fileParameters: []
+    responses:
+      -
+        status: 422
+        content: '{"code":"0","type":"validation_error","body":{"description":["El campo descripci\u00f3n ya ha sido tomado."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer E5dhZVP6k31aD84gfbc6ave'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/roles/{role_uuid}'
+    metadata:
+      groupName: 'Permission Endpoints'
+      groupDescription: ''
+      subgroup: Roles
+      subgroupDescription: ''
+      title: 'Display the specified role.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      role_uuid:
+        name: role_uuid
+        description: 'The role uuid.'
+        required: true
+        example: 04dbb552-6595-3282-bbfa-f2946189bd06
+        type: string
+        custom: []
+    cleanUrlParameters:
+      role_uuid: 04dbb552-6595-3282-bbfa-f2946189bd06
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"code":"0","type":"model_error","body":"Rol no encontrado\/a."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '54'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer b5Zvd1e3kfP8ha6cgV6ED4a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/roles/{role_uuid}'
+    metadata:
+      groupName: 'Permission Endpoints'
+      groupDescription: ''
+      subgroup: Roles
+      subgroupDescription: ''
+      title: 'Update the specified role.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      role_uuid:
+        name: role_uuid
+        description: 'The role uuid.'
+        required: true
+        example: cbf2276d-a95e-3d82-9f6e-e956a12b7098
+        type: string
+        custom: []
+    cleanUrlParameters:
+      role_uuid: cbf2276d-a95e-3d82-9f6e-e956a12b7098
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: 'The description for this role.'
+        required: true
+        example: 'Super Admin'
+        type: string
+        custom: []
+      permissions:
+        name: permissions
+        description: 'The selected permission names for this role.'
+        required: true
+        example:
+          - magnam
+        type: 'string[]'
+        custom: []
+    cleanBodyParameters:
+      description: 'Super Admin'
+      permissions:
+        - magnam
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"code":"0","type":"model_error","body":"Rol no encontrado\/a."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '53'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6kE1c6hVZaP4bvfa3egd5D8'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/roles/{role_uuid}'
+    metadata:
+      groupName: 'Permission Endpoints'
+      groupDescription: ''
+      subgroup: Roles
+      subgroupDescription: ''
+      title: 'Remove the specified role.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      role_uuid:
+        name: role_uuid
+        description: 'The role uuid.'
+        required: true
+        example: 55255019-655d-39a0-bcb4-094329418b2a
+        type: string
+        custom: []
+    cleanUrlParameters:
+      role_uuid: 55255019-655d-39a0-bcb4-094329418b2a
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"code":"0","type":"model_error","body":"Rol no encontrado\/a."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer f63DcgVZbav581edhEP6a4k'
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -7,10 +7,18 @@ use App\Models\Permission\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+/**
+ * @group Permission Endpoints
+ * @subGroup Roles
+ * @authenticated
+ */
 class RoleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a paginated roles.
+     *
+     * @queryParam size int The number of elements for listing. Example: 20
+     * @queryParam search string The criteria to search in list. Example: Administrador
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
@@ -28,7 +36,10 @@ class RoleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new role.
+     *
+     * @bodyParam description string required The description for this role. Example: Super Admin
+     * @bodyParam permissions string[] required The selected permissions names for this role. Example: ['users_read']
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
@@ -49,7 +60,9 @@ class RoleController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified role.
+     *
+     * @urlParam role_uuid string required The role uuid.
      *
      * @param  \App\Models\Permission\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
@@ -60,7 +73,11 @@ class RoleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified role.
+     *
+     * @urlParam role_uuid string required The role uuid.
+     * @bodyParam description string required The description for this role. Example: Super Admin
+     * @bodyParam permissions string[] required The selected permission names for this role. Example: ['users_read']
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Permission\Role  $role
@@ -80,7 +97,9 @@ class RoleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified role.
+     *
+     * @urlParam role_uuid string required The role uuid.
      *
      * @param  \App\Models\Permission\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
@@ -106,6 +125,7 @@ class RoleController extends Controller
         $request->validate([
             'description' => ['required', 'string', 'max:255', $uniqueNameValidation],
             'permissions' => ['required', 'array', 'min:1'],
+            'permissions.*' => ['required', 'string'],
         ]);
 
         $validated->name = Str::snake($request->input('description'));

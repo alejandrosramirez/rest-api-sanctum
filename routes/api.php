@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Auth\AuthenticateController;
 use App\Http\Controllers\Api\Permission\PermissionController;
 use App\Http\Controllers\Api\Permission\RoleController;
+use App\Http\Controllers\Api\State\StateController;
 use App\Http\Controllers\Api\Stripe\WebhookController;
 use App\Http\Controllers\Api\User\UserController;
 use Illuminate\Support\Facades\Route;

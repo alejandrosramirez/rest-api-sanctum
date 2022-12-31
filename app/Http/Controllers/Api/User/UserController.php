@@ -11,12 +11,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group User Endpoints
+ * @authenticated
+ */
 class UserController extends Controller
 {
     use HandleUpload;
 
     /**
-     * Display a listing of the resource.
+     * Display a paginated users.
+     *
+     * @queryParam size int The number of elements for listing. Example: 20
+     * @queryParam search string The criteria to search in list. Example: alejandrosram@outlook.com
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
@@ -35,7 +42,15 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new user.
+     *
+     * @bodyParam avatar file The avatar image for this user.
+     * @bodyParam name string required The name for this user. Example: Luis
+     * @bodyParam lastname string required The lastname for this user. Example: Gonzalez
+     * @bodyParam phone string required The phone for this user. Example: 3322332233
+     * @bodyParam email string required The email for this user. Example: luis@mail.com
+     * @bodyParam password string required The password for this user. Example: 1234567890
+     * @bodyParam role string required The roles name for this user. Example: administrator
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
@@ -65,7 +80,9 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified user.
+     *
+     * @urlParam user_uuid string required The user uuid.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
@@ -76,7 +93,16 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user.
+     *
+     * @urlParam user_uuid string required The user uuid.
+     * @bodyParam avatar file The avatar image for this user.
+     * @bodyParam name string required The name for this user. Example: Luis
+     * @bodyParam lastname string required The lastname for this user. Example: Gonzalez
+     * @bodyParam phone string required The phone for this user. Example: 3322332233
+     * @bodyParam email string required The email for this user. Example: luis@mail.com
+     * @bodyParam password string required The password for this user. Example: 1234567890
+     * @bodyParam role string required The roles name for this user. Example: administrator
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\User  $user
@@ -106,7 +132,9 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified user.
+     *
+     * @urlParam user_uuid string required The user uuid.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
@@ -117,7 +145,9 @@ class UserController extends Controller
     }
 
     /**
-     * Disable the specified resource from storage.
+     * Disable the specified user.
+     *
+     * @urlParam user_uuid string required The user uuid.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse

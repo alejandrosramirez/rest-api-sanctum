@@ -1,0 +1,1137 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/rest-api-sanctum.develop:8080"
+        }
+    ],
+    "info": {
+        "name": "Rest API Sanctum",
+        "_postman_id": "b342d893-eac7-4c74-acf7-e48b0fbb6465",
+        "description": "Rest API Sanctum general api docs.",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Handle an incoming login request.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"alejandrosram@outlook.com\",\"password\":\"1234567890\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"token\":\"42|OTETKS9pptWqYhgI2Ne85AqAGN8QVw5EfXyjYL28\",\"user\":{\"id\":1,\"uuid\":\"effee139-e612-43d8-8560-d99133bdd14c\",\"avatar\":\"https:\\\/\\\/www.gravatar.com\\\/avatar\\\/00000000000000000000000000000000?d=mp&s=200&f=y\",\"name\":\"Miguel Alejandro\",\"lastname\":\"Salgado Ram\\u00edrez\",\"phone\":\"3330204397\",\"email\":\"alejandrosram@outlook.com\",\"email_verified_at\":\"2022-12-24T04:39:09.000000Z\",\"disabled\":false,\"created_at\":\"2022-12-24T04:39:09.000000Z\",\"updated_at\":\"2022-12-24T04:39:09.000000Z\",\"deleted_at\":null,\"stripe_id\":null,\"pm_type\":null,\"pm_last_four\":null,\"trial_ends_at\":null,\"fullname\":\"Miguel Alejandro Salgado Ram\\u00edrez\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Handle an incoming logout request.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"logout\":5}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Permission Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Permissions",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Display a paginated permissions.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/permissions",
+                                    "query": [
+                                        {
+                                            "key": "size",
+                                            "value": "20",
+                                            "description": "The number of items by page.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "search",
+                                            "value": "Editar+usuarios",
+                                            "description": "The criteria to search.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/permissions?size=20&search=Editar+usuarios"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-limit",
+                                            "value": "60"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-remaining",
+                                            "value": "57"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 200,
+                                    "body": "{\"current_page\":1,\"data\":[{\"id\":19,\"uuid\":\"4e6aa5f5-5e5b-4b30-84f0-fa65fa9737ca\",\"name\":\"users_update\",\"description\":\"Editar usuarios\",\"guard_name\":\"web\",\"created_at\":\"2022-12-24T04:39:09.000000Z\",\"updated_at\":\"2022-12-24T04:39:09.000000Z\"}],\"first_page_url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/permissions?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/permissions?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Anterior\",\"active\":false},{\"url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/permissions?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Siguiente &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/permissions\",\"per_page\":20,\"prev_page_url\":null,\"to\":1,\"total\":1}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Roles",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Display a paginated roles.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/roles",
+                                    "query": [
+                                        {
+                                            "key": "size",
+                                            "value": "20",
+                                            "description": "The number of elements for listing.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "search",
+                                            "value": "Administrador",
+                                            "description": "The criteria to search in list.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/roles?size=20&search=Administrador"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-limit",
+                                            "value": "60"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-remaining",
+                                            "value": "56"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 200,
+                                    "body": "{\"current_page\":1,\"data\":[{\"id\":2,\"uuid\":\"e61d12c0-3644-4cc4-8b5f-7db4188405f6\",\"name\":\"administrator\",\"description\":\"Administrador\",\"guard_name\":\"web\",\"created_at\":\"2022-12-24T04:39:09.000000Z\",\"updated_at\":\"2022-12-24T04:39:09.000000Z\",\"deleted_at\":null}],\"first_page_url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/roles?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/roles?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Anterior\",\"active\":false},{\"url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/roles?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Siguiente &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/roles\",\"per_page\":20,\"prev_page_url\":null,\"to\":1,\"total\":1}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Store a new role.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/roles",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/roles"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"description\":\"Super Admin\",\"permissions\":[\"non\"]}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-limit",
+                                            "value": "60"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-remaining",
+                                            "value": "55"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 422,
+                                    "body": "{\"code\":\"0\",\"type\":\"validation_error\",\"body\":{\"description\":[\"El campo descripci\\u00f3n ya ha sido tomado.\"]}}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Display the specified role.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/roles\/:role_uuid",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/roles\/:role_uuid",
+                                    "variable": [
+                                        {
+                                            "id": "role_uuid",
+                                            "key": "role_uuid",
+                                            "value": "04dbb552-6595-3282-bbfa-f2946189bd06",
+                                            "description": "The role uuid."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-limit",
+                                            "value": "60"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-remaining",
+                                            "value": "54"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 404,
+                                    "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Rol no encontrado\\\/a.\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update the specified role.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/roles\/:role_uuid",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/roles\/:role_uuid",
+                                    "variable": [
+                                        {
+                                            "id": "role_uuid",
+                                            "key": "role_uuid",
+                                            "value": "cbf2276d-a95e-3d82-9f6e-e956a12b7098",
+                                            "description": "The role uuid."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"description\":\"Super Admin\",\"permissions\":[\"magnam\"]}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-limit",
+                                            "value": "60"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-remaining",
+                                            "value": "53"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 404,
+                                    "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Rol no encontrado\\\/a.\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Remove the specified role.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/roles\/:role_uuid",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/roles\/:role_uuid",
+                                    "variable": [
+                                        {
+                                            "id": "role_uuid",
+                                            "key": "role_uuid",
+                                            "value": "55255019-655d-39a0-bcb4-094329418b2a",
+                                            "description": "The role uuid."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-limit",
+                                            "value": "60"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-remaining",
+                                            "value": "52"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 404,
+                                    "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Rol no encontrado\\\/a.\"}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "State Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a paginated states.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/states",
+                            "query": [
+                                {
+                                    "key": "size",
+                                    "value": "20",
+                                    "description": "The number of elements for listing.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "Jalisco",
+                                    "description": "The criteria to search in list.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/states?size=20&search=Jalisco"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "51"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"current_page\":1,\"data\":[{\"id\":15,\"uuid\":\"83f96fe8-8ae9-48fb-8a70-d43961f90ef4\",\"name\":\"Jalisco\",\"short_name\":\"JAL\",\"created_at\":\"2022-12-24T04:39:09.000000Z\",\"updated_at\":\"2022-12-24T04:39:09.000000Z\",\"deleted_at\":null}],\"first_page_url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/states?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/states?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Anterior\",\"active\":false},{\"url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/states?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Siguiente &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/states\",\"per_page\":20,\"prev_page_url\":null,\"to\":1,\"total\":1}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Stripe Webhook Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Handle stripe events.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/webhook\/stripe",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/webhook\/stripe"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a paginated users.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [
+                                {
+                                    "key": "size",
+                                    "value": "20",
+                                    "description": "The number of elements for listing.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "alejandrosram%40outlook.com",
+                                    "description": "The criteria to search in list.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/users?size=20&search=alejandrosram%40outlook.com"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"current_page\":1,\"data\":[],\"first_page_url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/users?page=1\",\"from\":null,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/users?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Anterior\",\"active\":false},{\"url\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Siguiente &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/rest-api-sanctum.develop:8080\\\/api\\\/users\",\"per_page\":20,\"prev_page_url\":null,\"to\":null,\"total\":0}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a new user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Luis",
+                                    "type": "text",
+                                    "description": "The name for this user."
+                                },
+                                {
+                                    "key": "lastname",
+                                    "value": "Gonzalez",
+                                    "type": "text",
+                                    "description": "The lastname for this user."
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "3322332233",
+                                    "type": "text",
+                                    "description": "The phone for this user."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "luis@mail.com",
+                                    "type": "text",
+                                    "description": "The email for this user."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "1234567890",
+                                    "type": "text",
+                                    "description": "The password for this user."
+                                },
+                                {
+                                    "key": "role",
+                                    "value": "administrator",
+                                    "type": "text",
+                                    "description": "The roles name for this user."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "49"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\"code\":\"0\",\"type\":\"internal_server_error\",\"body\":\"Un error de servidor ha ocurrido.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:user_uuid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:user_uuid",
+                            "variable": [
+                                {
+                                    "id": "user_uuid",
+                                    "key": "user_uuid",
+                                    "value": "077900f2-ec56-3e90-b5c8-6f64b60b2cf7",
+                                    "description": "The user uuid."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "48"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Usuario no encontrado\\\/a.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:user_uuid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:user_uuid",
+                            "variable": [
+                                {
+                                    "id": "user_uuid",
+                                    "key": "user_uuid",
+                                    "value": "8fc36304-e40d-332c-b47f-9039df34c4d1",
+                                    "description": "The user uuid."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Luis",
+                                    "type": "text",
+                                    "description": "The name for this user."
+                                },
+                                {
+                                    "key": "lastname",
+                                    "value": "Gonzalez",
+                                    "type": "text",
+                                    "description": "The lastname for this user."
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "3322332233",
+                                    "type": "text",
+                                    "description": "The phone for this user."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "luis@mail.com",
+                                    "type": "text",
+                                    "description": "The email for this user."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "1234567890",
+                                    "type": "text",
+                                    "description": "The password for this user."
+                                },
+                                {
+                                    "key": "role",
+                                    "value": "administrator",
+                                    "type": "text",
+                                    "description": "The roles name for this user."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "47"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Usuario no encontrado\\\/a.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:user_uuid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:user_uuid",
+                            "variable": [
+                                {
+                                    "id": "user_uuid",
+                                    "key": "user_uuid",
+                                    "value": "cec71e6f-e59c-309f-89b0-0d6f83227e83",
+                                    "description": "The user uuid."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "46"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Usuario no encontrado\\\/a.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Disable the specified user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:user_uuid\/disable",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:user_uuid\/disable",
+                            "variable": [
+                                {
+                                    "id": "user_uuid",
+                                    "key": "user_uuid",
+                                    "value": "d1eed79c-b0c7-3de7-b4c0-e5c4c878d528",
+                                    "description": "The user uuid."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "45"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Usuario no encontrado\\\/a.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "value": null,
+                "type": "string"
+            }
+        ]
+    }
+}

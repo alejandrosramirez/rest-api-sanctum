@@ -1,0 +1,433 @@
+name: 'User Endpoints'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      groupName: 'User Endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a paginated users.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      size:
+        name: size
+        description: 'The number of elements for listing.'
+        required: false
+        example: 20
+        type: integer
+        custom: []
+      search:
+        name: search
+        description: 'The criteria to search in list.'
+        required: false
+        example: alejandrosram@outlook.com
+        type: string
+        custom: []
+    cleanQueryParameters:
+      size: 20
+      search: alejandrosram@outlook.com
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"current_page":1,"data":[],"first_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/users?page=1","from":null,"last_page":1,"last_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/users?page=1","links":[{"url":null,"label":"&laquo; Anterior","active":false},{"url":"http:\/\/rest-api-sanctum.develop:8080\/api\/users?page=1","label":"1","active":true},{"url":null,"label":"Siguiente &raquo;","active":false}],"next_page_url":null,"path":"http:\/\/rest-api-sanctum.develop:8080\/api\/users","per_page":20,"prev_page_url":null,"to":null,"total":0}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '50'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6aeP3fcd4ba51gEVv86khDZ'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/users
+    metadata:
+      groupName: 'User Endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a new user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: multipart/form-data
+      Accept: '*/*'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      avatar:
+        name: avatar
+        description: 'The avatar image for this user.'
+        required: false
+        example: null
+        type: file
+        custom: []
+      name:
+        name: name
+        description: 'The name for this user.'
+        required: true
+        example: Luis
+        type: string
+        custom: []
+      lastname:
+        name: lastname
+        description: 'The lastname for this user.'
+        required: true
+        example: Gonzalez
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'The phone for this user.'
+        required: true
+        example: '3322332233'
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'The email for this user.'
+        required: true
+        example: luis@mail.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The password for this user.'
+        required: true
+        example: '1234567890'
+        type: string
+        custom: []
+      role:
+        name: role
+        description: 'The roles name for this user.'
+        required: true
+        example: administrator
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: Luis
+      lastname: Gonzalez
+      phone: '3322332233'
+      email: luis@mail.com
+      password: '1234567890'
+      role: administrator
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 500
+        content: '{"code":"0","type":"internal_server_error","body":"Un error de servidor ha ocurrido."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '49'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer DVkgae6Pvd86ca4hZE5f13b'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{user_uuid}'
+    metadata:
+      groupName: 'User Endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      user_uuid:
+        name: user_uuid
+        description: 'The user uuid.'
+        required: true
+        example: 077900f2-ec56-3e90-b5c8-6f64b60b2cf7
+        type: string
+        custom: []
+    cleanUrlParameters:
+      user_uuid: 077900f2-ec56-3e90-b5c8-6f64b60b2cf7
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"code":"0","type":"model_error","body":"Usuario no encontrado\/a."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '48'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4Df16EV6gkv85hbcaPa3edZ'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/users/{user_uuid}'
+    metadata:
+      groupName: 'User Endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: multipart/form-data
+      Accept: '*/*'
+    urlParameters:
+      user_uuid:
+        name: user_uuid
+        description: 'The user uuid.'
+        required: true
+        example: 8fc36304-e40d-332c-b47f-9039df34c4d1
+        type: string
+        custom: []
+    cleanUrlParameters:
+      user_uuid: 8fc36304-e40d-332c-b47f-9039df34c4d1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      avatar:
+        name: avatar
+        description: 'The avatar image for this user.'
+        required: false
+        example: null
+        type: file
+        custom: []
+      name:
+        name: name
+        description: 'The name for this user.'
+        required: true
+        example: Luis
+        type: string
+        custom: []
+      lastname:
+        name: lastname
+        description: 'The lastname for this user.'
+        required: true
+        example: Gonzalez
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'The phone for this user.'
+        required: true
+        example: '3322332233'
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'The email for this user.'
+        required: true
+        example: luis@mail.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The password for this user.'
+        required: true
+        example: '1234567890'
+        type: string
+        custom: []
+      role:
+        name: role
+        description: 'The roles name for this user.'
+        required: true
+        example: administrator
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: Luis
+      lastname: Gonzalez
+      phone: '3322332233'
+      email: luis@mail.com
+      password: '1234567890'
+      role: administrator
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 404
+        content: '{"code":"0","type":"model_error","body":"Usuario no encontrado\/a."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '47'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ag4D1dPV8ecfv5bkahEZ366'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/users/{user_uuid}'
+    metadata:
+      groupName: 'User Endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove the specified user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      user_uuid:
+        name: user_uuid
+        description: 'The user uuid.'
+        required: true
+        example: cec71e6f-e59c-309f-89b0-0d6f83227e83
+        type: string
+        custom: []
+    cleanUrlParameters:
+      user_uuid: cec71e6f-e59c-309f-89b0-0d6f83227e83
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"code":"0","type":"model_error","body":"Usuario no encontrado\/a."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '46'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4163eE6afd8Vgva5ZbchDkP'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/users/{user_uuid}/disable'
+    metadata:
+      groupName: 'User Endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Disable the specified user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      user_uuid:
+        name: user_uuid
+        description: 'The user uuid.'
+        required: true
+        example: d1eed79c-b0c7-3de7-b4c0-e5c4c878d528
+        type: string
+        custom: []
+    cleanUrlParameters:
+      user_uuid: d1eed79c-b0c7-3de7-b4c0-e5c4c878d528
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{"code":"0","type":"model_error","body":"Usuario no encontrado\/a."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '45'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer fhav6g6a1c4ZV5DEe3dbP8k'
+    controller: null
+    method: null
+    route: null
+    custom: []

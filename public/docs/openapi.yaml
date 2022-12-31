@@ -1,0 +1,1438 @@
+openapi: 3.0.3
+info:
+  title: 'Rest API Sanctum'
+  description: 'Rest API Sanctum general api docs.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://rest-api-sanctum.develop:8080'
+paths:
+  /api/auth/login:
+    post:
+      summary: 'Handle an incoming login request.'
+      operationId: handleAnIncomingLoginRequest
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 42|OTETKS9pptWqYhgI2Ne85AqAGN8QVw5EfXyjYL28
+                  user:
+                    id: 1
+                    uuid: effee139-e612-43d8-8560-d99133bdd14c
+                    avatar: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&s=200&f=y'
+                    name: 'Miguel Alejandro'
+                    lastname: 'Salgado Ramírez'
+                    phone: '3330204397'
+                    email: alejandrosram@outlook.com
+                    email_verified_at: '2022-12-24T04:39:09.000000Z'
+                    disabled: false
+                    created_at: '2022-12-24T04:39:09.000000Z'
+                    updated_at: '2022-12-24T04:39:09.000000Z'
+                    deleted_at: null
+                    stripe_id: null
+                    pm_type: null
+                    pm_last_four: null
+                    trial_ends_at: null
+                    fullname: 'Miguel Alejandro Salgado Ramírez'
+                properties:
+                  token:
+                    type: string
+                    example: 42|OTETKS9pptWqYhgI2Ne85AqAGN8QVw5EfXyjYL28
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      uuid:
+                        type: string
+                        example: effee139-e612-43d8-8560-d99133bdd14c
+                      avatar:
+                        type: string
+                        example: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&s=200&f=y'
+                      name:
+                        type: string
+                        example: 'Miguel Alejandro'
+                      lastname:
+                        type: string
+                        example: 'Salgado Ramírez'
+                      phone:
+                        type: string
+                        example: '3330204397'
+                      email:
+                        type: string
+                        example: alejandrosram@outlook.com
+                      email_verified_at:
+                        type: string
+                        example: '2022-12-24T04:39:09.000000Z'
+                      disabled:
+                        type: boolean
+                        example: false
+                      created_at:
+                        type: string
+                        example: '2022-12-24T04:39:09.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2022-12-24T04:39:09.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+                      stripe_id:
+                        type: string
+                        example: null
+                      pm_type:
+                        type: string
+                        example: null
+                      pm_last_four:
+                        type: string
+                        example: null
+                      trial_ends_at:
+                        type: string
+                        example: null
+                      fullname:
+                        type: string
+                        example: 'Miguel Alejandro Salgado Ramírez'
+      tags:
+        - 'Auth Endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: alejandrosram@outlook.com
+                password:
+                  type: string
+                  description: ''
+                  example: '1234567890'
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: 'Handle an incoming logout request.'
+      operationId: handleAnIncomingLogoutRequest
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  logout: 5
+                properties:
+                  logout:
+                    type: integer
+                    example: 5
+      tags:
+        - 'Auth Endpoints'
+  /api/permissions:
+    get:
+      summary: 'Display a paginated permissions.'
+      operationId: displayAPaginatedPermissions
+      description: ''
+      parameters:
+        -
+          in: query
+          name: size
+          description: 'The number of items by page.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'The number of items by page.'
+            example: 20
+        -
+          in: query
+          name: search
+          description: 'The criteria to search.'
+          example: 'Editar usuarios'
+          required: false
+          schema:
+            type: string
+            description: 'The criteria to search.'
+            example: 'Editar usuarios'
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 1
+                  data:
+                    -
+                      id: 19
+                      uuid: 4e6aa5f5-5e5b-4b30-84f0-fa65fa9737ca
+                      name: users_update
+                      description: 'Editar usuarios'
+                      guard_name: web
+                      created_at: '2022-12-24T04:39:09.000000Z'
+                      updated_at: '2022-12-24T04:39:09.000000Z'
+                  first_page_url: 'http://rest-api-sanctum.develop:8080/api/permissions?page=1'
+                  from: 1
+                  last_page: 1
+                  last_page_url: 'http://rest-api-sanctum.develop:8080/api/permissions?page=1'
+                  links:
+                    -
+                      url: null
+                      label: '&laquo; Anterior'
+                      active: false
+                    -
+                      url: 'http://rest-api-sanctum.develop:8080/api/permissions?page=1'
+                      label: '1'
+                      active: true
+                    -
+                      url: null
+                      label: 'Siguiente &raquo;'
+                      active: false
+                  next_page_url: null
+                  path: 'http://rest-api-sanctum.develop:8080/api/permissions'
+                  per_page: 20
+                  prev_page_url: null
+                  to: 1
+                  total: 1
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 19
+                        uuid: 4e6aa5f5-5e5b-4b30-84f0-fa65fa9737ca
+                        name: users_update
+                        description: 'Editar usuarios'
+                        guard_name: web
+                        created_at: '2022-12-24T04:39:09.000000Z'
+                        updated_at: '2022-12-24T04:39:09.000000Z'
+                    items:
+                      type: object
+                  first_page_url:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/permissions?page=1'
+                  from:
+                    type: integer
+                    example: 1
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/permissions?page=1'
+                  links:
+                    type: array
+                    example:
+                      -
+                        url: null
+                        label: '&laquo; Anterior'
+                        active: false
+                      -
+                        url: 'http://rest-api-sanctum.develop:8080/api/permissions?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Siguiente &raquo;'
+                        active: false
+                    items:
+                      type: object
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/permissions'
+                  per_page:
+                    type: integer
+                    example: 20
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: integer
+                    example: 1
+                  total:
+                    type: integer
+                    example: 1
+      tags:
+        - 'Permission Endpoints'
+  /api/roles:
+    get:
+      summary: 'Display a paginated roles.'
+      operationId: displayAPaginatedRoles
+      description: ''
+      parameters:
+        -
+          in: query
+          name: size
+          description: 'The number of elements for listing.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'The number of elements for listing.'
+            example: 20
+        -
+          in: query
+          name: search
+          description: 'The criteria to search in list.'
+          example: Administrador
+          required: false
+          schema:
+            type: string
+            description: 'The criteria to search in list.'
+            example: Administrador
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 1
+                  data:
+                    -
+                      id: 2
+                      uuid: e61d12c0-3644-4cc4-8b5f-7db4188405f6
+                      name: administrator
+                      description: Administrador
+                      guard_name: web
+                      created_at: '2022-12-24T04:39:09.000000Z'
+                      updated_at: '2022-12-24T04:39:09.000000Z'
+                      deleted_at: null
+                  first_page_url: 'http://rest-api-sanctum.develop:8080/api/roles?page=1'
+                  from: 1
+                  last_page: 1
+                  last_page_url: 'http://rest-api-sanctum.develop:8080/api/roles?page=1'
+                  links:
+                    -
+                      url: null
+                      label: '&laquo; Anterior'
+                      active: false
+                    -
+                      url: 'http://rest-api-sanctum.develop:8080/api/roles?page=1'
+                      label: '1'
+                      active: true
+                    -
+                      url: null
+                      label: 'Siguiente &raquo;'
+                      active: false
+                  next_page_url: null
+                  path: 'http://rest-api-sanctum.develop:8080/api/roles'
+                  per_page: 20
+                  prev_page_url: null
+                  to: 1
+                  total: 1
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        uuid: e61d12c0-3644-4cc4-8b5f-7db4188405f6
+                        name: administrator
+                        description: Administrador
+                        guard_name: web
+                        created_at: '2022-12-24T04:39:09.000000Z'
+                        updated_at: '2022-12-24T04:39:09.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                  first_page_url:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/roles?page=1'
+                  from:
+                    type: integer
+                    example: 1
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/roles?page=1'
+                  links:
+                    type: array
+                    example:
+                      -
+                        url: null
+                        label: '&laquo; Anterior'
+                        active: false
+                      -
+                        url: 'http://rest-api-sanctum.develop:8080/api/roles?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Siguiente &raquo;'
+                        active: false
+                    items:
+                      type: object
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/roles'
+                  per_page:
+                    type: integer
+                    example: 20
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: integer
+                    example: 1
+                  total:
+                    type: integer
+                    example: 1
+      tags:
+        - 'Permission Endpoints'
+    post:
+      summary: 'Store a new role.'
+      operationId: storeANewRole
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: validation_error
+                  body:
+                    description:
+                      - 'El campo descripción ya ha sido tomado.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: validation_error
+                  body:
+                    type: object
+                    properties:
+                      description:
+                        type: array
+                        example:
+                          - 'El campo descripción ya ha sido tomado.'
+                        items:
+                          type: string
+      tags:
+        - 'Permission Endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: 'The description for this role.'
+                  example: 'Super Admin'
+                permissions:
+                  type: array
+                  description: 'The selected permissions names for this role.'
+                  example:
+                    - non
+                  items:
+                    type: string
+              required:
+                - description
+                - permissions
+  '/api/roles/{role_uuid}':
+    get:
+      summary: 'Display the specified role.'
+      operationId: displayTheSpecifiedRole
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: model_error
+                  body: 'Rol no encontrado/a.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: model_error
+                  body:
+                    type: string
+                    example: 'Rol no encontrado/a.'
+      tags:
+        - 'Permission Endpoints'
+    put:
+      summary: 'Update the specified role.'
+      operationId: updateTheSpecifiedRole
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: model_error
+                  body: 'Rol no encontrado/a.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: model_error
+                  body:
+                    type: string
+                    example: 'Rol no encontrado/a.'
+      tags:
+        - 'Permission Endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: 'The description for this role.'
+                  example: 'Super Admin'
+                permissions:
+                  type: array
+                  description: 'The selected permission names for this role.'
+                  example:
+                    - magnam
+                  items:
+                    type: string
+              required:
+                - description
+                - permissions
+    delete:
+      summary: 'Remove the specified role.'
+      operationId: removeTheSpecifiedRole
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: model_error
+                  body: 'Rol no encontrado/a.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: model_error
+                  body:
+                    type: string
+                    example: 'Rol no encontrado/a.'
+      tags:
+        - 'Permission Endpoints'
+    parameters:
+      -
+        in: path
+        name: role_uuid
+        description: 'The role uuid.'
+        example: 04dbb552-6595-3282-bbfa-f2946189bd06
+        required: true
+        schema:
+          type: string
+  /api/states:
+    get:
+      summary: 'Display a paginated states.'
+      operationId: displayAPaginatedStates
+      description: ''
+      parameters:
+        -
+          in: query
+          name: size
+          description: 'The number of elements for listing.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'The number of elements for listing.'
+            example: 20
+        -
+          in: query
+          name: search
+          description: 'The criteria to search in list.'
+          example: Jalisco
+          required: false
+          schema:
+            type: string
+            description: 'The criteria to search in list.'
+            example: Jalisco
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 1
+                  data:
+                    -
+                      id: 15
+                      uuid: 83f96fe8-8ae9-48fb-8a70-d43961f90ef4
+                      name: Jalisco
+                      short_name: JAL
+                      created_at: '2022-12-24T04:39:09.000000Z'
+                      updated_at: '2022-12-24T04:39:09.000000Z'
+                      deleted_at: null
+                  first_page_url: 'http://rest-api-sanctum.develop:8080/api/states?page=1'
+                  from: 1
+                  last_page: 1
+                  last_page_url: 'http://rest-api-sanctum.develop:8080/api/states?page=1'
+                  links:
+                    -
+                      url: null
+                      label: '&laquo; Anterior'
+                      active: false
+                    -
+                      url: 'http://rest-api-sanctum.develop:8080/api/states?page=1'
+                      label: '1'
+                      active: true
+                    -
+                      url: null
+                      label: 'Siguiente &raquo;'
+                      active: false
+                  next_page_url: null
+                  path: 'http://rest-api-sanctum.develop:8080/api/states'
+                  per_page: 20
+                  prev_page_url: null
+                  to: 1
+                  total: 1
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 15
+                        uuid: 83f96fe8-8ae9-48fb-8a70-d43961f90ef4
+                        name: Jalisco
+                        short_name: JAL
+                        created_at: '2022-12-24T04:39:09.000000Z'
+                        updated_at: '2022-12-24T04:39:09.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                  first_page_url:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/states?page=1'
+                  from:
+                    type: integer
+                    example: 1
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/states?page=1'
+                  links:
+                    type: array
+                    example:
+                      -
+                        url: null
+                        label: '&laquo; Anterior'
+                        active: false
+                      -
+                        url: 'http://rest-api-sanctum.develop:8080/api/states?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Siguiente &raquo;'
+                        active: false
+                    items:
+                      type: object
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/states'
+                  per_page:
+                    type: integer
+                    example: 20
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: integer
+                    example: 1
+                  total:
+                    type: integer
+                    example: 1
+      tags:
+        - 'State Endpoints'
+  /api/webhook/stripe:
+    post:
+      summary: 'Handle stripe events.'
+      operationId: handleStripeEvents
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ''
+      tags:
+        - 'Stripe Webhook Endpoints'
+      security: []
+  /api/users:
+    get:
+      summary: 'Display a paginated users.'
+      operationId: displayAPaginatedUsers
+      description: ''
+      parameters:
+        -
+          in: query
+          name: size
+          description: 'The number of elements for listing.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'The number of elements for listing.'
+            example: 20
+        -
+          in: query
+          name: search
+          description: 'The criteria to search in list.'
+          example: alejandrosram@outlook.com
+          required: false
+          schema:
+            type: string
+            description: 'The criteria to search in list.'
+            example: alejandrosram@outlook.com
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 1
+                  data: []
+                  first_page_url: 'http://rest-api-sanctum.develop:8080/api/users?page=1'
+                  from: null
+                  last_page: 1
+                  last_page_url: 'http://rest-api-sanctum.develop:8080/api/users?page=1'
+                  links:
+                    -
+                      url: null
+                      label: '&laquo; Anterior'
+                      active: false
+                    -
+                      url: 'http://rest-api-sanctum.develop:8080/api/users?page=1'
+                      label: '1'
+                      active: true
+                    -
+                      url: null
+                      label: 'Siguiente &raquo;'
+                      active: false
+                  next_page_url: null
+                  path: 'http://rest-api-sanctum.develop:8080/api/users'
+                  per_page: 20
+                  prev_page_url: null
+                  to: null
+                  total: 0
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    example: []
+                  first_page_url:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/users?page=1'
+                  from:
+                    type: string
+                    example: null
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/users?page=1'
+                  links:
+                    type: array
+                    example:
+                      -
+                        url: null
+                        label: '&laquo; Anterior'
+                        active: false
+                      -
+                        url: 'http://rest-api-sanctum.develop:8080/api/users?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Siguiente &raquo;'
+                        active: false
+                    items:
+                      type: object
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://rest-api-sanctum.develop:8080/api/users'
+                  per_page:
+                    type: integer
+                    example: 20
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: string
+                    example: null
+                  total:
+                    type: integer
+                    example: 0
+      tags:
+        - 'User Endpoints'
+    post:
+      summary: 'Store a new user.'
+      operationId: storeANewUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: internal_server_error
+                  body: 'Un error de servidor ha ocurrido.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: internal_server_error
+                  body:
+                    type: string
+                    example: 'Un error de servidor ha ocurrido.'
+      tags:
+        - 'User Endpoints'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                  description: 'The avatar image for this user.'
+                name:
+                  type: string
+                  description: 'The name for this user.'
+                  example: Luis
+                lastname:
+                  type: string
+                  description: 'The lastname for this user.'
+                  example: Gonzalez
+                phone:
+                  type: string
+                  description: 'The phone for this user.'
+                  example: '3322332233'
+                email:
+                  type: string
+                  description: 'The email for this user.'
+                  example: luis@mail.com
+                password:
+                  type: string
+                  description: 'The password for this user.'
+                  example: '1234567890'
+                role:
+                  type: string
+                  description: 'The roles name for this user.'
+                  example: administrator
+              required:
+                - name
+                - lastname
+                - phone
+                - email
+                - password
+                - role
+  '/api/users/{user_uuid}':
+    get:
+      summary: 'Display the specified user.'
+      operationId: displayTheSpecifiedUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: model_error
+                  body: 'Usuario no encontrado/a.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: model_error
+                  body:
+                    type: string
+                    example: 'Usuario no encontrado/a.'
+      tags:
+        - 'User Endpoints'
+    put:
+      summary: 'Update the specified user.'
+      operationId: updateTheSpecifiedUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: model_error
+                  body: 'Usuario no encontrado/a.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: model_error
+                  body:
+                    type: string
+                    example: 'Usuario no encontrado/a.'
+      tags:
+        - 'User Endpoints'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                  description: 'The avatar image for this user.'
+                name:
+                  type: string
+                  description: 'The name for this user.'
+                  example: Luis
+                lastname:
+                  type: string
+                  description: 'The lastname for this user.'
+                  example: Gonzalez
+                phone:
+                  type: string
+                  description: 'The phone for this user.'
+                  example: '3322332233'
+                email:
+                  type: string
+                  description: 'The email for this user.'
+                  example: luis@mail.com
+                password:
+                  type: string
+                  description: 'The password for this user.'
+                  example: '1234567890'
+                role:
+                  type: string
+                  description: 'The roles name for this user.'
+                  example: administrator
+              required:
+                - name
+                - lastname
+                - phone
+                - email
+                - password
+                - role
+    delete:
+      summary: 'Remove the specified user.'
+      operationId: removeTheSpecifiedUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: model_error
+                  body: 'Usuario no encontrado/a.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: model_error
+                  body:
+                    type: string
+                    example: 'Usuario no encontrado/a.'
+      tags:
+        - 'User Endpoints'
+    parameters:
+      -
+        in: path
+        name: user_uuid
+        description: 'The user uuid.'
+        example: 077900f2-ec56-3e90-b5c8-6f64b60b2cf7
+        required: true
+        schema:
+          type: string
+  '/api/users/{user_uuid}/disable':
+    patch:
+      summary: 'Disable the specified user.'
+      operationId: disableTheSpecifiedUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: '0'
+                  type: model_error
+                  body: 'Usuario no encontrado/a.'
+                properties:
+                  code:
+                    type: string
+                    example: '0'
+                  type:
+                    type: string
+                    example: model_error
+                  body:
+                    type: string
+                    example: 'Usuario no encontrado/a.'
+      tags:
+        - 'User Endpoints'
+    parameters:
+      -
+        in: path
+        name: user_uuid
+        description: 'The user uuid.'
+        example: d1eed79c-b0c7-3de7-b4c0-e5c4c878d528
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: 'Auth Endpoints'
+    description: ''
+  -
+    name: 'Permission Endpoints'
+    description: ''
+  -
+    name: 'State Endpoints'
+    description: ''
+  -
+    name: 'Stripe Webhook Endpoints'
+    description: ''
+  -
+    name: 'User Endpoints'
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

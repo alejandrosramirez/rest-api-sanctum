@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravel\Cashier\Http\Controllers\WebhookController as CashierController;
 
+/**
+ * @group Stripe Webhook Endpoints
+ * @unauthenticated
+ */
 class WebhookController extends CashierController
 {
     /**
@@ -16,7 +20,7 @@ class WebhookController extends CashierController
      */
     public function handle(Request $request)
     {
-        $event = $request->type;
+        $event = $request->input('type');
 
         $payload = $request->all();
 
