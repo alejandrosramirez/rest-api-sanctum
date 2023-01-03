@@ -1,0 +1,2345 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Rest API Sanctum</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="./css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+                    body .content .php-example code { display: none; }
+                    body .content .python-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://rest-api-sanctum.develop:8080";
+        var useCsrf = Boolean(1);
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="./js/tryitout-4.10.1.js"></script>
+
+    <script src="./js/theme-default-4.10.1.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="./images/navbar.png" alt="navbar-image"/>
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                            <button type="button" class="lang-button" data-language-name="php">php</button>
+                                            <button type="button" class="lang-button" data-language-name="python">python</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi_admin-auth-login">
+                                <a href="#endpoints-POSTapi_admin-auth-login">Handle an incoming login request.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi_admin-auth-logout">
+                                <a href="#endpoints-POSTapi_admin-auth-logout">Handle and incoming logout request</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi_admin-permissions">
+                                <a href="#endpoints-GETapi_admin-permissions">Display a listing of the resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi_admin-roles">
+                                <a href="#endpoints-GETapi_admin-roles">Display a listing of the resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi_admin-roles">
+                                <a href="#endpoints-POSTapi_admin-roles">Store a newly created resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi_admin-roles--role_uuid-">
+                                <a href="#endpoints-GETapi_admin-roles--role_uuid-">Display the specified resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi_admin-roles--role_uuid-">
+                                <a href="#endpoints-PUTapi_admin-roles--role_uuid-">Update the specified resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi_admin-roles--role_uuid-">
+                                <a href="#endpoints-DELETEapi_admin-roles--role_uuid-">Remove the specified resource from storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi_admin-admins">
+                                <a href="#endpoints-GETapi_admin-admins">Display a listing of the resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi_admin-admins">
+                                <a href="#endpoints-POSTapi_admin-admins">Store a newly created resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi_admin-admins--admin_uuid-">
+                                <a href="#endpoints-GETapi_admin-admins--admin_uuid-">Display the specified resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi_admin-admins--admin_uuid-">
+                                <a href="#endpoints-PUTapi_admin-admins--admin_uuid-">Update the specified resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi_admin-admins--admin_uuid-">
+                                <a href="#endpoints-DELETEapi_admin-admins--admin_uuid-">Remove the specified resource from storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PATCHapi_admin-admins--admin_uuid--disable">
+                                <a href="#endpoints-PATCHapi_admin-admins--admin_uuid--disable">Disable the specified resource from storage.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="./collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="./openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: January 3, 2023</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>Rest API Sanctum general api admin docs.</p>
+<aside>
+    <strong>Base URL</strong>: <code>http://rest-api-sanctum.develop:8080</code>
+</aside>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-POSTapi_admin-auth-login">Handle an incoming login request.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi_admin-auth-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://rest-api-sanctum.develop:8080/api_admin/auth/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"email\": \"stroman.emerald@example.com\",
+    \"password\": \"z~a}F]LU&gt;*cE\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/auth/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "email": "stroman.emerald@example.com",
+    "password": "z~a}F]LU&gt;*cE"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://rest-api-sanctum.develop:8080/api_admin/auth/login',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'stroman.emerald@example.com',
+            'password' =&gt; 'z~a}F]LU&gt;*cE',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/auth/login'
+payload = {
+    "email": "stroman.emerald@example.com",
+    "password": "z~a}F]LU&gt;*cE"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi_admin-auth-login">
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;validation_error&quot;,
+    &quot;body&quot;: {
+        &quot;email&quot;: [
+            &quot;Las credecnciales introducidas son incorrectas.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi_admin-auth-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi_admin-auth-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi_admin-auth-login" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi_admin-auth-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi_admin-auth-login"></code></pre>
+</span>
+<form id="form-POSTapi_admin-auth-login" data-method="POST"
+      data-path="api_admin/auth/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi_admin-auth-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi_admin-auth-login"
+                    onclick="tryItOut('POSTapi_admin-auth-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi_admin-auth-login"
+                    onclick="cancelTryOut('POSTapi_admin-auth-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi_admin-auth-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api_admin/auth/login</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi_admin-auth-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi_admin-auth-login"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="POSTapi_admin-auth-login"
+               value="stroman.emerald@example.com"
+               data-component="body">
+    <br>
+<p>El formato del value es inválido. Example: <code>stroman.emerald@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="password"                data-endpoint="POSTapi_admin-auth-login"
+               value="z~a}F]LU>*cE"
+               data-component="body">
+    <br>
+<p>El campo value debe tener al menos 8 caracteres. Example: <code>z~a}F]LU&gt;*cE</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-POSTapi_admin-auth-logout">Handle and incoming logout request</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi_admin-auth-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://rest-api-sanctum.develop:8080/api_admin/auth/logout" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/auth/logout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://rest-api-sanctum.develop:8080/api_admin/auth/logout',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/auth/logout'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi_admin-auth-logout">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi_admin-auth-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi_admin-auth-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi_admin-auth-logout" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi_admin-auth-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi_admin-auth-logout"></code></pre>
+</span>
+<form id="form-POSTapi_admin-auth-logout" data-method="POST"
+      data-path="api_admin/auth/logout"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi_admin-auth-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi_admin-auth-logout"
+                    onclick="tryItOut('POSTapi_admin-auth-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi_admin-auth-logout"
+                    onclick="cancelTryOut('POSTapi_admin-auth-logout');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi_admin-auth-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api_admin/auth/logout</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi_admin-auth-logout"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi_admin-auth-logout"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi_admin-permissions">Display a listing of the resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi_admin-permissions">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://rest-api-sanctum.develop:8080/api_admin/permissions" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/permissions"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://rest-api-sanctum.develop:8080/api_admin/permissions',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/permissions'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi_admin-permissions">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi_admin-permissions" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi_admin-permissions"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi_admin-permissions" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi_admin-permissions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi_admin-permissions"></code></pre>
+</span>
+<form id="form-GETapi_admin-permissions" data-method="GET"
+      data-path="api_admin/permissions"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi_admin-permissions', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi_admin-permissions"
+                    onclick="tryItOut('GETapi_admin-permissions');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi_admin-permissions"
+                    onclick="cancelTryOut('GETapi_admin-permissions');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi_admin-permissions" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api_admin/permissions</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi_admin-permissions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi_admin-permissions"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi_admin-roles">Display a listing of the resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi_admin-roles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://rest-api-sanctum.develop:8080/api_admin/roles" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/roles"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://rest-api-sanctum.develop:8080/api_admin/roles',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/roles'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi_admin-roles">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi_admin-roles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi_admin-roles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi_admin-roles" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi_admin-roles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi_admin-roles"></code></pre>
+</span>
+<form id="form-GETapi_admin-roles" data-method="GET"
+      data-path="api_admin/roles"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi_admin-roles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi_admin-roles"
+                    onclick="tryItOut('GETapi_admin-roles');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi_admin-roles"
+                    onclick="cancelTryOut('GETapi_admin-roles');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi_admin-roles" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api_admin/roles</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi_admin-roles"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi_admin-roles"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi_admin-roles">Store a newly created resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi_admin-roles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://rest-api-sanctum.develop:8080/api_admin/roles" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/roles"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://rest-api-sanctum.develop:8080/api_admin/roles',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/roles'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi_admin-roles">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi_admin-roles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi_admin-roles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi_admin-roles" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi_admin-roles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi_admin-roles"></code></pre>
+</span>
+<form id="form-POSTapi_admin-roles" data-method="POST"
+      data-path="api_admin/roles"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi_admin-roles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi_admin-roles"
+                    onclick="tryItOut('POSTapi_admin-roles');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi_admin-roles"
+                    onclick="cancelTryOut('POSTapi_admin-roles');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi_admin-roles" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api_admin/roles</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi_admin-roles"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi_admin-roles"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi_admin-roles--role_uuid-">Display the specified resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi_admin-roles--role_uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi_admin-roles--role_uuid-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi_admin-roles--role_uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi_admin-roles--role_uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi_admin-roles--role_uuid-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi_admin-roles--role_uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi_admin-roles--role_uuid-"></code></pre>
+</span>
+<form id="form-GETapi_admin-roles--role_uuid-" data-method="GET"
+      data-path="api_admin/roles/{role_uuid}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi_admin-roles--role_uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi_admin-roles--role_uuid-"
+                    onclick="tryItOut('GETapi_admin-roles--role_uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi_admin-roles--role_uuid-"
+                    onclick="cancelTryOut('GETapi_admin-roles--role_uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi_admin-roles--role_uuid-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api_admin/roles/{role_uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi_admin-roles--role_uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi_admin-roles--role_uuid-"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>role_uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="role_uuid"                data-endpoint="GETapi_admin-roles--role_uuid-"
+               value="49e03671-83ef-4edb-b5c9-416fefbe0f87"
+               data-component="url">
+    <br>
+<p>Example: <code>49e03671-83ef-4edb-b5c9-416fefbe0f87</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi_admin-roles--role_uuid-">Update the specified resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi_admin-roles--role_uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('PUT', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi_admin-roles--role_uuid-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi_admin-roles--role_uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi_admin-roles--role_uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi_admin-roles--role_uuid-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi_admin-roles--role_uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi_admin-roles--role_uuid-"></code></pre>
+</span>
+<form id="form-PUTapi_admin-roles--role_uuid-" data-method="PUT"
+      data-path="api_admin/roles/{role_uuid}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi_admin-roles--role_uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi_admin-roles--role_uuid-"
+                    onclick="tryItOut('PUTapi_admin-roles--role_uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi_admin-roles--role_uuid-"
+                    onclick="cancelTryOut('PUTapi_admin-roles--role_uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi_admin-roles--role_uuid-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api_admin/roles/{role_uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="PUTapi_admin-roles--role_uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="PUTapi_admin-roles--role_uuid-"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>role_uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="role_uuid"                data-endpoint="PUTapi_admin-roles--role_uuid-"
+               value="49e03671-83ef-4edb-b5c9-416fefbe0f87"
+               data-component="url">
+    <br>
+<p>Example: <code>49e03671-83ef-4edb-b5c9-416fefbe0f87</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-DELETEapi_admin-roles--role_uuid-">Remove the specified resource from storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi_admin-roles--role_uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/roles/49e03671-83ef-4edb-b5c9-416fefbe0f87'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi_admin-roles--role_uuid-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi_admin-roles--role_uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi_admin-roles--role_uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi_admin-roles--role_uuid-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi_admin-roles--role_uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi_admin-roles--role_uuid-"></code></pre>
+</span>
+<form id="form-DELETEapi_admin-roles--role_uuid-" data-method="DELETE"
+      data-path="api_admin/roles/{role_uuid}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi_admin-roles--role_uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi_admin-roles--role_uuid-"
+                    onclick="tryItOut('DELETEapi_admin-roles--role_uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi_admin-roles--role_uuid-"
+                    onclick="cancelTryOut('DELETEapi_admin-roles--role_uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi_admin-roles--role_uuid-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api_admin/roles/{role_uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="DELETEapi_admin-roles--role_uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="DELETEapi_admin-roles--role_uuid-"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>role_uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="role_uuid"                data-endpoint="DELETEapi_admin-roles--role_uuid-"
+               value="49e03671-83ef-4edb-b5c9-416fefbe0f87"
+               data-component="url">
+    <br>
+<p>Example: <code>49e03671-83ef-4edb-b5c9-416fefbe0f87</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi_admin-admins">Display a listing of the resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi_admin-admins">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://rest-api-sanctum.develop:8080/api_admin/admins" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/admins"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://rest-api-sanctum.develop:8080/api_admin/admins',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/admins'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi_admin-admins">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi_admin-admins" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi_admin-admins"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi_admin-admins" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi_admin-admins" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi_admin-admins"></code></pre>
+</span>
+<form id="form-GETapi_admin-admins" data-method="GET"
+      data-path="api_admin/admins"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi_admin-admins', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi_admin-admins"
+                    onclick="tryItOut('GETapi_admin-admins');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi_admin-admins"
+                    onclick="cancelTryOut('GETapi_admin-admins');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi_admin-admins" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api_admin/admins</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi_admin-admins"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi_admin-admins"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi_admin-admins">Store a newly created resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi_admin-admins">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://rest-api-sanctum.develop:8080/api_admin/admins" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/admins"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://rest-api-sanctum.develop:8080/api_admin/admins',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/admins'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi_admin-admins">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi_admin-admins" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi_admin-admins"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi_admin-admins" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi_admin-admins" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi_admin-admins"></code></pre>
+</span>
+<form id="form-POSTapi_admin-admins" data-method="POST"
+      data-path="api_admin/admins"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi_admin-admins', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi_admin-admins"
+                    onclick="tryItOut('POSTapi_admin-admins');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi_admin-admins"
+                    onclick="cancelTryOut('POSTapi_admin-admins');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi_admin-admins" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api_admin/admins</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi_admin-admins"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi_admin-admins"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi_admin-admins--admin_uuid-">Display the specified resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi_admin-admins--admin_uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi_admin-admins--admin_uuid-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi_admin-admins--admin_uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi_admin-admins--admin_uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi_admin-admins--admin_uuid-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi_admin-admins--admin_uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi_admin-admins--admin_uuid-"></code></pre>
+</span>
+<form id="form-GETapi_admin-admins--admin_uuid-" data-method="GET"
+      data-path="api_admin/admins/{admin_uuid}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi_admin-admins--admin_uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi_admin-admins--admin_uuid-"
+                    onclick="tryItOut('GETapi_admin-admins--admin_uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi_admin-admins--admin_uuid-"
+                    onclick="cancelTryOut('GETapi_admin-admins--admin_uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi_admin-admins--admin_uuid-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api_admin/admins/{admin_uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi_admin-admins--admin_uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi_admin-admins--admin_uuid-"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>admin_uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="admin_uuid"                data-endpoint="GETapi_admin-admins--admin_uuid-"
+               value="456b0dd8-d10d-4800-a48e-bdab84343648"
+               data-component="url">
+    <br>
+<p>Example: <code>456b0dd8-d10d-4800-a48e-bdab84343648</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi_admin-admins--admin_uuid-">Update the specified resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi_admin-admins--admin_uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('PUT', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi_admin-admins--admin_uuid-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi_admin-admins--admin_uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi_admin-admins--admin_uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi_admin-admins--admin_uuid-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi_admin-admins--admin_uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi_admin-admins--admin_uuid-"></code></pre>
+</span>
+<form id="form-PUTapi_admin-admins--admin_uuid-" data-method="PUT"
+      data-path="api_admin/admins/{admin_uuid}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi_admin-admins--admin_uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi_admin-admins--admin_uuid-"
+                    onclick="tryItOut('PUTapi_admin-admins--admin_uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi_admin-admins--admin_uuid-"
+                    onclick="cancelTryOut('PUTapi_admin-admins--admin_uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi_admin-admins--admin_uuid-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api_admin/admins/{admin_uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="PUTapi_admin-admins--admin_uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="PUTapi_admin-admins--admin_uuid-"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>admin_uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="admin_uuid"                data-endpoint="PUTapi_admin-admins--admin_uuid-"
+               value="456b0dd8-d10d-4800-a48e-bdab84343648"
+               data-component="url">
+    <br>
+<p>Example: <code>456b0dd8-d10d-4800-a48e-bdab84343648</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-DELETEapi_admin-admins--admin_uuid-">Remove the specified resource from storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi_admin-admins--admin_uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi_admin-admins--admin_uuid-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi_admin-admins--admin_uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi_admin-admins--admin_uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi_admin-admins--admin_uuid-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi_admin-admins--admin_uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi_admin-admins--admin_uuid-"></code></pre>
+</span>
+<form id="form-DELETEapi_admin-admins--admin_uuid-" data-method="DELETE"
+      data-path="api_admin/admins/{admin_uuid}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi_admin-admins--admin_uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi_admin-admins--admin_uuid-"
+                    onclick="tryItOut('DELETEapi_admin-admins--admin_uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi_admin-admins--admin_uuid-"
+                    onclick="cancelTryOut('DELETEapi_admin-admins--admin_uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi_admin-admins--admin_uuid-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api_admin/admins/{admin_uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="DELETEapi_admin-admins--admin_uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="DELETEapi_admin-admins--admin_uuid-"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>admin_uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="admin_uuid"                data-endpoint="DELETEapi_admin-admins--admin_uuid-"
+               value="456b0dd8-d10d-4800-a48e-bdab84343648"
+               data-component="url">
+    <br>
+<p>Example: <code>456b0dd8-d10d-4800-a48e-bdab84343648</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PATCHapi_admin-admins--admin_uuid--disable">Disable the specified resource from storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PATCHapi_admin-admins--admin_uuid--disable">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PATCH \
+    "http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648/disable" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648/disable"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "PATCH",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;patch(
+    'http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648/disable',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://rest-api-sanctum.develop:8080/api_admin/admins/456b0dd8-d10d-4800-a48e-bdab84343648/disable'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('PATCH', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-PATCHapi_admin-admins--admin_uuid--disable">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;0&quot;,
+    &quot;type&quot;: &quot;authentication_error&quot;,
+    &quot;body&quot;: &quot;No autenticado.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PATCHapi_admin-admins--admin_uuid--disable" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PATCHapi_admin-admins--admin_uuid--disable"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PATCHapi_admin-admins--admin_uuid--disable" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PATCHapi_admin-admins--admin_uuid--disable" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PATCHapi_admin-admins--admin_uuid--disable"></code></pre>
+</span>
+<form id="form-PATCHapi_admin-admins--admin_uuid--disable" data-method="PATCH"
+      data-path="api_admin/admins/{admin_uuid}/disable"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PATCHapi_admin-admins--admin_uuid--disable', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PATCHapi_admin-admins--admin_uuid--disable"
+                    onclick="tryItOut('PATCHapi_admin-admins--admin_uuid--disable');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PATCHapi_admin-admins--admin_uuid--disable"
+                    onclick="cancelTryOut('PATCHapi_admin-admins--admin_uuid--disable');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PATCHapi_admin-admins--admin_uuid--disable" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api_admin/admins/{admin_uuid}/disable</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="PATCHapi_admin-admins--admin_uuid--disable"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="PATCHapi_admin-admins--admin_uuid--disable"
+               value="*/*"
+               data-component="header">
+    <br>
+<p>Example: <code>*/*</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>admin_uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="admin_uuid"                data-endpoint="PATCHapi_admin-admins--admin_uuid--disable"
+               value="456b0dd8-d10d-4800-a48e-bdab84343648"
+               data-component="url">
+    <br>
+<p>Example: <code>456b0dd8-d10d-4800-a48e-bdab84343648</code></p>
+            </div>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
+                                                        <button type="button" class="lang-button" data-language-name="python">python</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

@@ -13,7 +13,10 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Handle stripe events.'
-      description: ''
+      description: |-
+        <aside class='notice'>
+        For more info, check the <a href='https://stripe.com/docs/webhooks' target='_blank'>stripe official docs</a> about stripe webhooks.
+        </aside>
       authenticated: false
       custom: []
     headers:
@@ -23,8 +26,40 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      payload:
+        name: payload
+        description: 'The stripe payload from webhook.'
+        required: true
+        example: []
+        type: object
+        custom: []
+      payload.id:
+        name: payload.id
+        description: 'The stripe id event from webhook payload.'
+        required: true
+        example: evt_2Zj5zzFU3a9abcZ1aYYYaaZ1
+        type: string
+        custom: []
+      payload.object:
+        name: payload.object
+        description: 'The stripe event type from webhook payload.'
+        required: true
+        example: event
+        type: string
+        custom: []
+      payload.type:
+        name: payload.type
+        description: 'The stripe event from webhook payload.'
+        required: true
+        example: payment_intent.succeeded
+        type: string
+        custom: []
+    cleanBodyParameters:
+      payload:
+        id: evt_2Zj5zzFU3a9abcZ1aYYYaaZ1
+        object: event
+        type: payment_intent.succeeded
     fileParameters: []
     responses:
       -

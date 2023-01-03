@@ -57,7 +57,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6aeP3fcd4ba51gEVv86khDZ'
+      - 'Bearer gcvha4Ef8b566aVedZ1kPD3'
     controller: null
     method: null
     route: null
@@ -158,7 +158,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer DVkgae6Pvd86ca4hZE5f13b'
+      - 'Bearer 5vPehfV86cgkZab631D4Eda'
     controller: null
     method: null
     route: null
@@ -185,11 +185,11 @@ endpoints:
         name: user_uuid
         description: 'The user uuid.'
         required: true
-        example: 077900f2-ec56-3e90-b5c8-6f64b60b2cf7
+        example: 635c116e-bb14-3274-8579-9e2dafb922bc
         type: string
         custom: []
     cleanUrlParameters:
-      user_uuid: 077900f2-ec56-3e90-b5c8-6f64b60b2cf7
+      user_uuid: 635c116e-bb14-3274-8579-9e2dafb922bc
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -211,7 +211,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4Df16EV6gkv85hbcaPa3edZ'
+      - 'Bearer e6dEDf3g18ahbV54vPcZka6'
     controller: null
     method: null
     route: null
@@ -238,11 +238,11 @@ endpoints:
         name: user_uuid
         description: 'The user uuid.'
         required: true
-        example: 8fc36304-e40d-332c-b47f-9039df34c4d1
+        example: 4a2ac7e6-b176-3344-b13b-5de2074721be
         type: string
         custom: []
     cleanUrlParameters:
-      user_uuid: 8fc36304-e40d-332c-b47f-9039df34c4d1
+      user_uuid: 4a2ac7e6-b176-3344-b13b-5de2074721be
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -320,7 +320,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ag4D1dPV8ecfv5bkahEZ366'
+      - 'Bearer 4DaP368keaghVd1ZfEvcb65'
     controller: null
     method: null
     route: null
@@ -347,11 +347,11 @@ endpoints:
         name: user_uuid
         description: 'The user uuid.'
         required: true
-        example: cec71e6f-e59c-309f-89b0-0d6f83227e83
+        example: 098fd37c-21f1-3a6c-ad88-d8d012285125
         type: string
         custom: []
     cleanUrlParameters:
-      user_uuid: cec71e6f-e59c-309f-89b0-0d6f83227e83
+      user_uuid: 098fd37c-21f1-3a6c-ad88-d8d012285125
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -373,7 +373,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4163eE6afd8Vgva5ZbchDkP'
+      - 'Bearer aVd8f5Pvac1k346gZbEDe6h'
     controller: null
     method: null
     route: null
@@ -400,11 +400,11 @@ endpoints:
         name: user_uuid
         description: 'The user uuid.'
         required: true
-        example: d1eed79c-b0c7-3de7-b4c0-e5c4c878d528
+        example: 01bb2aea-7474-377c-b15c-ab665f153de3
         type: string
         custom: []
     cleanUrlParameters:
-      user_uuid: d1eed79c-b0c7-3de7-b4c0-e5c4c878d528
+      user_uuid: 01bb2aea-7474-377c-b15c-ab665f153de3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -426,7 +426,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer fhav6g6a1c4ZV5DEe3dbP8k'
+      - 'Bearer b1ZVefEkh45c86adaP6gD3v'
     controller: null
     method: null
     route: null

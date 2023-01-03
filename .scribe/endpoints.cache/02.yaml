@@ -59,7 +59,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8c6D5Z3a4egEvadh1kb6fVP'
+      - 'Bearer 836vgVecZ6b5kEDfhPa1da4'
     controller: null
     method: null
     route: null
@@ -120,7 +120,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer EaZv6D5bgcf61k3P4eVah8d'
+      - 'Bearer de56ab8Z6ga3c1vEkhfV4PD'
     controller: null
     method: null
     route: null
@@ -159,13 +159,13 @@ endpoints:
         description: 'The selected permissions names for this role.'
         required: true
         example:
-          - non
+          - quas
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       description: 'Super Admin'
       permissions:
-        - non
+        - quas
     fileParameters: []
     responses:
       -
@@ -183,7 +183,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer E5dhZVP6k31aD84gfbc6ave'
+      - 'Bearer 4fkgeV6a36vacdZb1P85hDE'
     controller: null
     method: null
     route: null
@@ -210,11 +210,11 @@ endpoints:
         name: role_uuid
         description: 'The role uuid.'
         required: true
-        example: 04dbb552-6595-3282-bbfa-f2946189bd06
+        example: d19d0d92-82be-3289-88e8-4dabea77dfb7
         type: string
         custom: []
     cleanUrlParameters:
-      role_uuid: 04dbb552-6595-3282-bbfa-f2946189bd06
+      role_uuid: d19d0d92-82be-3289-88e8-4dabea77dfb7
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -236,7 +236,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer b5Zvd1e3kfP8ha6cgV6ED4a'
+      - 'Bearer Efkd5a3V6vg816PcheZ4aDb'
     controller: null
     method: null
     route: null
@@ -263,11 +263,11 @@ endpoints:
         name: role_uuid
         description: 'The role uuid.'
         required: true
-        example: cbf2276d-a95e-3d82-9f6e-e956a12b7098
+        example: b31f1fd7-4054-3797-a7d4-8786036c5a6f
         type: string
         custom: []
     cleanUrlParameters:
-      role_uuid: cbf2276d-a95e-3d82-9f6e-e956a12b7098
+      role_uuid: b31f1fd7-4054-3797-a7d4-8786036c5a6f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -283,13 +283,13 @@ endpoints:
         description: 'The selected permission names for this role.'
         required: true
         example:
-          - magnam
+          - et
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       description: 'Super Admin'
       permissions:
-        - magnam
+        - et
     fileParameters: []
     responses:
       -
@@ -307,7 +307,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6kE1c6hVZaP4bvfa3egd5D8'
+      - 'Bearer v68VPDakZh63dfea5g1b4cE'
     controller: null
     method: null
     route: null
@@ -334,11 +334,11 @@ endpoints:
         name: role_uuid
         description: 'The role uuid.'
         required: true
-        example: 55255019-655d-39a0-bcb4-094329418b2a
+        example: a6685aca-89db-3852-8ef2-2e7b53af9291
         type: string
         custom: []
     cleanUrlParameters:
-      role_uuid: 55255019-655d-39a0-bcb4-094329418b2a
+      role_uuid: a6685aca-89db-3852-8ef2-2e7b53af9291
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -360,7 +360,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer f63DcgVZbav581edhEP6a4k'
+      - 'Bearer 8g5a3fbE146hkZvVdD6ecaP'
     controller: null
     method: null
     route: null

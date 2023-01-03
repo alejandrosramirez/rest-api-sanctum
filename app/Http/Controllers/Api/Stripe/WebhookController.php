@@ -14,6 +14,14 @@ class WebhookController extends CashierController
 {
     /**
      * Handle stripe events.
+     * <aside class='notice'>
+     * For more info, check the <a href='https://stripe.com/docs/webhooks' target='_blank'>stripe official docs</a> about stripe webhooks.
+     * </aside>
+     *
+     * @bodyParam payload object required The stripe payload from webhook.
+     * @bodyParam payload.id string required The stripe id event from webhook payload. Example: evt_2Zj5zzFU3a9abcZ1aYYYaaZ1
+     * @bodyParam payload.object string required The stripe event type from webhook payload. Example: event
+     * @bodyParam payload.type string required The stripe event from webhook payload. Example: payment_intent.succeeded
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void

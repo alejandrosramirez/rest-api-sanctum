@@ -172,7 +172,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 31, 2022</li>
+        <li>Last updated: January 3, 2023</li>
     </ul>
 </div>
 
@@ -189,7 +189,7 @@
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 
         <h1 id="auth-endpoints">Auth Endpoints</h1>
@@ -295,7 +295,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;token&quot;: &quot;42|OTETKS9pptWqYhgI2Ne85AqAGN8QVw5EfXyjYL28&quot;,
+    &quot;token&quot;: &quot;47|XQRM3yqWKuS9zWNHBGCV3wvzGUoZkhSjPARlMGKC&quot;,
     &quot;user&quot;: {
         &quot;id&quot;: 1,
         &quot;uuid&quot;: &quot;effee139-e612-43d8-8560-d99133bdd14c&quot;,
@@ -1073,7 +1073,7 @@ access-control-allow-origin: *
     --data "{
     \"description\": \"Super Admin\",
     \"permissions\": [
-        \"non\"
+        \"quas\"
     ]
 }"
 </code></pre></div>
@@ -1093,7 +1093,7 @@ const headers = {
 let body = {
     "description": "Super Admin",
     "permissions": [
-        "non"
+        "quas"
     ]
 };
 
@@ -1117,7 +1117,7 @@ $response = $client-&gt;post(
         'json' =&gt; [
             'description' =&gt; 'Super Admin',
             'permissions' =&gt; [
-                'non',
+                'quas',
             ],
         ],
     ]
@@ -1134,7 +1134,7 @@ url = 'http://rest-api-sanctum.develop:8080/api/roles'
 payload = {
     "description": "Super Admin",
     "permissions": [
-        "non"
+        "quas"
     ]
 }
 headers = {
@@ -1287,7 +1287,7 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://rest-api-sanctum.develop:8080/api/roles/04dbb552-6595-3282-bbfa-f2946189bd06" \
+    --get "http://rest-api-sanctum.develop:8080/api/roles/d19d0d92-82be-3289-88e8-4dabea77dfb7" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre></div>
@@ -1295,7 +1295,7 @@ access-control-allow-origin: *
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://rest-api-sanctum.develop:8080/api/roles/04dbb552-6595-3282-bbfa-f2946189bd06"
+    "http://rest-api-sanctum.develop:8080/api/roles/d19d0d92-82be-3289-88e8-4dabea77dfb7"
 );
 
 const headers = {
@@ -1313,7 +1313,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://rest-api-sanctum.develop:8080/api/roles/04dbb552-6595-3282-bbfa-f2946189bd06',
+    'http://rest-api-sanctum.develop:8080/api/roles/d19d0d92-82be-3289-88e8-4dabea77dfb7',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1330,7 +1330,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://rest-api-sanctum.develop:8080/api/roles/04dbb552-6595-3282-bbfa-f2946189bd06'
+url = 'http://rest-api-sanctum.develop:8080/api/roles/d19d0d92-82be-3289-88e8-4dabea77dfb7'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1443,10 +1443,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="role_uuid"                data-endpoint="GETapi-roles--role_uuid-"
-               value="04dbb552-6595-3282-bbfa-f2946189bd06"
+               value="d19d0d92-82be-3289-88e8-4dabea77dfb7"
                data-component="url">
     <br>
-<p>The role uuid. Example: <code>04dbb552-6595-3282-bbfa-f2946189bd06</code></p>
+<p>The role uuid. Example: <code>d19d0d92-82be-3289-88e8-4dabea77dfb7</code></p>
             </div>
                     </form>
 
@@ -1464,14 +1464,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://rest-api-sanctum.develop:8080/api/roles/cbf2276d-a95e-3d82-9f6e-e956a12b7098" \
+    "http://rest-api-sanctum.develop:8080/api/roles/b31f1fd7-4054-3797-a7d4-8786036c5a6f" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*" \
     --data "{
     \"description\": \"Super Admin\",
     \"permissions\": [
-        \"magnam\"
+        \"et\"
     ]
 }"
 </code></pre></div>
@@ -1479,7 +1479,7 @@ access-control-allow-origin: *
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://rest-api-sanctum.develop:8080/api/roles/cbf2276d-a95e-3d82-9f6e-e956a12b7098"
+    "http://rest-api-sanctum.develop:8080/api/roles/b31f1fd7-4054-3797-a7d4-8786036c5a6f"
 );
 
 const headers = {
@@ -1491,7 +1491,7 @@ const headers = {
 let body = {
     "description": "Super Admin",
     "permissions": [
-        "magnam"
+        "et"
     ]
 };
 
@@ -1505,7 +1505,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://rest-api-sanctum.develop:8080/api/roles/cbf2276d-a95e-3d82-9f6e-e956a12b7098',
+    'http://rest-api-sanctum.develop:8080/api/roles/b31f1fd7-4054-3797-a7d4-8786036c5a6f',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1515,7 +1515,7 @@ $response = $client-&gt;put(
         'json' =&gt; [
             'description' =&gt; 'Super Admin',
             'permissions' =&gt; [
-                'magnam',
+                'et',
             ],
         ],
     ]
@@ -1528,11 +1528,11 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://rest-api-sanctum.develop:8080/api/roles/cbf2276d-a95e-3d82-9f6e-e956a12b7098'
+url = 'http://rest-api-sanctum.develop:8080/api/roles/b31f1fd7-4054-3797-a7d4-8786036c5a6f'
 payload = {
     "description": "Super Admin",
     "permissions": [
-        "magnam"
+        "et"
     ]
 }
 headers = {
@@ -1647,10 +1647,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="role_uuid"                data-endpoint="PUTapi-roles--role_uuid-"
-               value="cbf2276d-a95e-3d82-9f6e-e956a12b7098"
+               value="b31f1fd7-4054-3797-a7d4-8786036c5a6f"
                data-component="url">
     <br>
-<p>The role uuid. Example: <code>cbf2276d-a95e-3d82-9f6e-e956a12b7098</code></p>
+<p>The role uuid. Example: <code>b31f1fd7-4054-3797-a7d4-8786036c5a6f</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1693,7 +1693,7 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://rest-api-sanctum.develop:8080/api/roles/55255019-655d-39a0-bcb4-094329418b2a" \
+    "http://rest-api-sanctum.develop:8080/api/roles/a6685aca-89db-3852-8ef2-2e7b53af9291" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre></div>
@@ -1701,7 +1701,7 @@ access-control-allow-origin: *
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://rest-api-sanctum.develop:8080/api/roles/55255019-655d-39a0-bcb4-094329418b2a"
+    "http://rest-api-sanctum.develop:8080/api/roles/a6685aca-89db-3852-8ef2-2e7b53af9291"
 );
 
 const headers = {
@@ -1719,7 +1719,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://rest-api-sanctum.develop:8080/api/roles/55255019-655d-39a0-bcb4-094329418b2a',
+    'http://rest-api-sanctum.develop:8080/api/roles/a6685aca-89db-3852-8ef2-2e7b53af9291',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1736,7 +1736,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://rest-api-sanctum.develop:8080/api/roles/55255019-655d-39a0-bcb4-094329418b2a'
+url = 'http://rest-api-sanctum.develop:8080/api/roles/a6685aca-89db-3852-8ef2-2e7b53af9291'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1849,10 +1849,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="role_uuid"                data-endpoint="DELETEapi-roles--role_uuid-"
-               value="55255019-655d-39a0-bcb4-094329418b2a"
+               value="a6685aca-89db-3852-8ef2-2e7b53af9291"
                data-component="url">
     <br>
-<p>The role uuid. Example: <code>55255019-655d-39a0-bcb4-094329418b2a</code></p>
+<p>The role uuid. Example: <code>a6685aca-89db-3852-8ef2-2e7b53af9291</code></p>
             </div>
                     </form>
 
@@ -2108,7 +2108,9 @@ access-control-allow-origin: *
 <p>
 </p>
 
-
+<aside class='notice'>
+For more info, check the <a href='https://stripe.com/docs/webhooks' target='_blank'>stripe official docs</a> about stripe webhooks.
+</aside>
 
 <span id="example-requests-POSTapi-webhook-stripe">
 <blockquote>Example request:</blockquote>
@@ -2118,7 +2120,15 @@ access-control-allow-origin: *
     <pre><code class="language-bash">curl --request POST \
     "http://rest-api-sanctum.develop:8080/api/webhook/stripe" \
     --header "Content-Type: application/json" \
-    --header "Accept: */*"</code></pre></div>
+    --header "Accept: */*" \
+    --data "{
+    \"payload\": {
+        \"id\": \"evt_2Zj5zzFU3a9abcZ1aYYYaaZ1\",
+        \"object\": \"event\",
+        \"type\": \"payment_intent.succeeded\"
+    }
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2131,9 +2141,18 @@ const headers = {
     "Accept": "*/*",
 };
 
+let body = {
+    "payload": {
+        "id": "evt_2Zj5zzFU3a9abcZ1aYYYaaZ1",
+        "object": "event",
+        "type": "payment_intent.succeeded"
+    }
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 
@@ -2146,6 +2165,13 @@ $response = $client-&gt;post(
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; '*/*',
         ],
+        'json' =&gt; [
+            'payload' =&gt; [
+                'id' =&gt; 'evt_2Zj5zzFU3a9abcZ1aYYYaaZ1',
+                'object' =&gt; 'event',
+                'type' =&gt; 'payment_intent.succeeded',
+            ],
+        ],
     ]
 );
 $body = $response-&gt;getBody();
@@ -2157,12 +2183,19 @@ print_r(json_decode((string) $body));</code></pre></div>
 import json
 
 url = 'http://rest-api-sanctum.develop:8080/api/webhook/stripe'
+payload = {
+    "payload": {
+        "id": "evt_2Zj5zzFU3a9abcZ1aYYYaaZ1",
+        "object": "event",
+        "type": "payment_intent.succeeded"
+    }
+}
 headers = {
   'Content-Type': 'application/json',
   'Accept': '*/*'
 }
 
-response = requests.request('POST', url, headers=headers)
+response = requests.request('POST', url, headers=headers, json=payload)
 response.json()</code></pre></div>
 
 </span>
@@ -2246,7 +2279,52 @@ access-control-allow-origin: *
     <br>
 <p>Example: <code>*/*</code></p>
             </div>
-                        </form>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>payload</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+<br>
+<p>The stripe payload from webhook.</p>
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="payload.id"                data-endpoint="POSTapi-webhook-stripe"
+               value="evt_2Zj5zzFU3a9abcZ1aYYYaaZ1"
+               data-component="body">
+    <br>
+<p>The stripe id event from webhook payload. Example: <code>evt_2Zj5zzFU3a9abcZ1aYYYaaZ1</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>object</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="payload.object"                data-endpoint="POSTapi-webhook-stripe"
+               value="event"
+               data-component="body">
+    <br>
+<p>The stripe event type from webhook payload. Example: <code>event</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="payload.type"                data-endpoint="POSTapi-webhook-stripe"
+               value="payment_intent.succeeded"
+               data-component="body">
+    <br>
+<p>The stripe event from webhook payload. Example: <code>payment_intent.succeeded</code></p>
+                    </div>
+                                    </details>
+        </div>
+        </form>
 
                 <h1 id="user-endpoints">User Endpoints</h1>
 
@@ -2505,7 +2583,7 @@ access-control-allow-origin: *
     --form "email=luis@mail.com" \
     --form "password=1234567890" \
     --form "role=administrator" \
-    --form "avatar=@C:\Users\Aleja\AppData\Local\Temp\php9933.tmp" </code></pre></div>
+    --form "avatar=@C:\Users\Aleja\AppData\Local\Temp\php50C5.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2572,7 +2650,7 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('C:\Users\Aleja\AppData\Local\Temp\php9933.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\Aleja\AppData\Local\Temp\php50C5.tmp', 'r')
             ],
         ],
     ]
@@ -2587,7 +2665,7 @@ import json
 
 url = 'http://rest-api-sanctum.develop:8080/api/users'
 files = {
-  'avatar': open('C:\Users\Aleja\AppData\Local\Temp\php9933.tmp', 'rb')
+  'avatar': open('C:\Users\Aleja\AppData\Local\Temp\php50C5.tmp', 'rb')
 }
 payload = {
     "name": "Luis",
@@ -2712,7 +2790,7 @@ access-control-allow-origin: *
                value=""
                data-component="body">
     <br>
-<p>The avatar image for this user. Example: <code>C:\Users\Aleja\AppData\Local\Temp\php9933.tmp</code></p>
+<p>The avatar image for this user. Example: <code>C:\Users\Aleja\AppData\Local\Temp\php50C5.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -2796,7 +2874,7 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://rest-api-sanctum.develop:8080/api/users/077900f2-ec56-3e90-b5c8-6f64b60b2cf7" \
+    --get "http://rest-api-sanctum.develop:8080/api/users/635c116e-bb14-3274-8579-9e2dafb922bc" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre></div>
@@ -2804,7 +2882,7 @@ access-control-allow-origin: *
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://rest-api-sanctum.develop:8080/api/users/077900f2-ec56-3e90-b5c8-6f64b60b2cf7"
+    "http://rest-api-sanctum.develop:8080/api/users/635c116e-bb14-3274-8579-9e2dafb922bc"
 );
 
 const headers = {
@@ -2822,7 +2900,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://rest-api-sanctum.develop:8080/api/users/077900f2-ec56-3e90-b5c8-6f64b60b2cf7',
+    'http://rest-api-sanctum.develop:8080/api/users/635c116e-bb14-3274-8579-9e2dafb922bc',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2839,7 +2917,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://rest-api-sanctum.develop:8080/api/users/077900f2-ec56-3e90-b5c8-6f64b60b2cf7'
+url = 'http://rest-api-sanctum.develop:8080/api/users/635c116e-bb14-3274-8579-9e2dafb922bc'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2952,10 +3030,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="user_uuid"                data-endpoint="GETapi-users--user_uuid-"
-               value="077900f2-ec56-3e90-b5c8-6f64b60b2cf7"
+               value="635c116e-bb14-3274-8579-9e2dafb922bc"
                data-component="url">
     <br>
-<p>The user uuid. Example: <code>077900f2-ec56-3e90-b5c8-6f64b60b2cf7</code></p>
+<p>The user uuid. Example: <code>635c116e-bb14-3274-8579-9e2dafb922bc</code></p>
             </div>
                     </form>
 
@@ -2973,7 +3051,7 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://rest-api-sanctum.develop:8080/api/users/8fc36304-e40d-332c-b47f-9039df34c4d1" \
+    "http://rest-api-sanctum.develop:8080/api/users/4a2ac7e6-b176-3344-b13b-5de2074721be" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: */*" \
@@ -2983,12 +3061,12 @@ access-control-allow-origin: *
     --form "email=luis@mail.com" \
     --form "password=1234567890" \
     --form "role=administrator" \
-    --form "avatar=@C:\Users\Aleja\AppData\Local\Temp\php99A1.tmp" </code></pre></div>
+    --form "avatar=@C:\Users\Aleja\AppData\Local\Temp\php5133.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://rest-api-sanctum.develop:8080/api/users/8fc36304-e40d-332c-b47f-9039df34c4d1"
+    "http://rest-api-sanctum.develop:8080/api/users/4a2ac7e6-b176-3344-b13b-5de2074721be"
 );
 
 const headers = {
@@ -3016,7 +3094,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://rest-api-sanctum.develop:8080/api/users/8fc36304-e40d-332c-b47f-9039df34c4d1',
+    'http://rest-api-sanctum.develop:8080/api/users/4a2ac7e6-b176-3344-b13b-5de2074721be',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3050,7 +3128,7 @@ $response = $client-&gt;put(
             ],
             [
                 'name' =&gt; 'avatar',
-                'contents' =&gt; fopen('C:\Users\Aleja\AppData\Local\Temp\php99A1.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\Aleja\AppData\Local\Temp\php5133.tmp', 'r')
             ],
         ],
     ]
@@ -3063,9 +3141,9 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://rest-api-sanctum.develop:8080/api/users/8fc36304-e40d-332c-b47f-9039df34c4d1'
+url = 'http://rest-api-sanctum.develop:8080/api/users/4a2ac7e6-b176-3344-b13b-5de2074721be'
 files = {
-  'avatar': open('C:\Users\Aleja\AppData\Local\Temp\php99A1.tmp', 'rb')
+  'avatar': open('C:\Users\Aleja\AppData\Local\Temp\php5133.tmp', 'rb')
 }
 payload = {
     "name": "Luis",
@@ -3187,10 +3265,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="user_uuid"                data-endpoint="PUTapi-users--user_uuid-"
-               value="8fc36304-e40d-332c-b47f-9039df34c4d1"
+               value="4a2ac7e6-b176-3344-b13b-5de2074721be"
                data-component="url">
     <br>
-<p>The user uuid. Example: <code>8fc36304-e40d-332c-b47f-9039df34c4d1</code></p>
+<p>The user uuid. Example: <code>4a2ac7e6-b176-3344-b13b-5de2074721be</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3202,7 +3280,7 @@ access-control-allow-origin: *
                value=""
                data-component="body">
     <br>
-<p>The avatar image for this user. Example: <code>C:\Users\Aleja\AppData\Local\Temp\php99A1.tmp</code></p>
+<p>The avatar image for this user. Example: <code>C:\Users\Aleja\AppData\Local\Temp\php5133.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -3286,7 +3364,7 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://rest-api-sanctum.develop:8080/api/users/cec71e6f-e59c-309f-89b0-0d6f83227e83" \
+    "http://rest-api-sanctum.develop:8080/api/users/098fd37c-21f1-3a6c-ad88-d8d012285125" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre></div>
@@ -3294,7 +3372,7 @@ access-control-allow-origin: *
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://rest-api-sanctum.develop:8080/api/users/cec71e6f-e59c-309f-89b0-0d6f83227e83"
+    "http://rest-api-sanctum.develop:8080/api/users/098fd37c-21f1-3a6c-ad88-d8d012285125"
 );
 
 const headers = {
@@ -3312,7 +3390,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://rest-api-sanctum.develop:8080/api/users/cec71e6f-e59c-309f-89b0-0d6f83227e83',
+    'http://rest-api-sanctum.develop:8080/api/users/098fd37c-21f1-3a6c-ad88-d8d012285125',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3329,7 +3407,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://rest-api-sanctum.develop:8080/api/users/cec71e6f-e59c-309f-89b0-0d6f83227e83'
+url = 'http://rest-api-sanctum.develop:8080/api/users/098fd37c-21f1-3a6c-ad88-d8d012285125'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -3442,10 +3520,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="user_uuid"                data-endpoint="DELETEapi-users--user_uuid-"
-               value="cec71e6f-e59c-309f-89b0-0d6f83227e83"
+               value="098fd37c-21f1-3a6c-ad88-d8d012285125"
                data-component="url">
     <br>
-<p>The user uuid. Example: <code>cec71e6f-e59c-309f-89b0-0d6f83227e83</code></p>
+<p>The user uuid. Example: <code>098fd37c-21f1-3a6c-ad88-d8d012285125</code></p>
             </div>
                     </form>
 
@@ -3463,7 +3541,7 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://rest-api-sanctum.develop:8080/api/users/d1eed79c-b0c7-3de7-b4c0-e5c4c878d528/disable" \
+    "http://rest-api-sanctum.develop:8080/api/users/01bb2aea-7474-377c-b15c-ab665f153de3/disable" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre></div>
@@ -3471,7 +3549,7 @@ access-control-allow-origin: *
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://rest-api-sanctum.develop:8080/api/users/d1eed79c-b0c7-3de7-b4c0-e5c4c878d528/disable"
+    "http://rest-api-sanctum.develop:8080/api/users/01bb2aea-7474-377c-b15c-ab665f153de3/disable"
 );
 
 const headers = {
@@ -3489,7 +3567,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;patch(
-    'http://rest-api-sanctum.develop:8080/api/users/d1eed79c-b0c7-3de7-b4c0-e5c4c878d528/disable',
+    'http://rest-api-sanctum.develop:8080/api/users/01bb2aea-7474-377c-b15c-ab665f153de3/disable',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3506,7 +3584,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://rest-api-sanctum.develop:8080/api/users/d1eed79c-b0c7-3de7-b4c0-e5c4c878d528/disable'
+url = 'http://rest-api-sanctum.develop:8080/api/users/01bb2aea-7474-377c-b15c-ab665f153de3/disable'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -3619,10 +3697,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="user_uuid"                data-endpoint="PATCHapi-users--user_uuid--disable"
-               value="d1eed79c-b0c7-3de7-b4c0-e5c4c878d528"
+               value="01bb2aea-7474-377c-b15c-ab665f153de3"
                data-component="url">
     <br>
-<p>The user uuid. Example: <code>d1eed79c-b0c7-3de7-b4c0-e5c4c878d528</code></p>
+<p>The user uuid. Example: <code>01bb2aea-7474-377c-b15c-ab665f153de3</code></p>
             </div>
                     </form>
 
