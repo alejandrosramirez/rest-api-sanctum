@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\Permission;
+namespace App\Http\Controllers\Api\Authorization;
 
 use App\Http\Controllers\Controller;
-use App\Models\Permission\Permission;
+use App\Models\Authorization\Permission;
 use Illuminate\Http\Request;
 
 /**

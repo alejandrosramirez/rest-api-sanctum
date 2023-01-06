@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Permission;
+namespace App\Models\Authorization;
 
 use App\Models\Admin;
 use App\Models\User;
@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Models\Role as RoleModel;
 
 /**
- * App\Models\Permission\Role
+ * App\Models\Authorization\Role
  *
  * @property int $id
  * @property string $uuid
@@ -25,11 +25,11 @@ use Spatie\Permission\Models\Role as RoleModel;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection|Admin[] $admins
  * @property-read int|null $admins_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Permission\Permission[] $permissions
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Authorization\Permission[] $permissions
  * @property-read int|null $permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|User[] $users
  * @property-read int|null $users_count
- * @method static \Database\Factories\Permission\RoleFactory factory(...$parameters)
+ * @method static \Database\Factories\Authorization\RoleFactory factory(...$parameters)
  * @method static Builder|Role newModelQuery()
  * @method static Builder|Role newQuery()
  * @method static \Illuminate\Database\Query\Builder|Role onlyTrashed()

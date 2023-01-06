@@ -3,8 +3,8 @@
 namespace Database\Seeders\Api;
 
 use App\Enums\WebRoles;
-use App\Models\Permission\Permission;
-use App\Models\Permission\Role;
+use App\Models\Authorization\Permission;
+use App\Models\Authorization\Role;
 use Illuminate\Database\Seeder;
 
 class RolesAndPermissionsSeeder extends Seeder

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\Permission;
+namespace App\Http\Controllers\Api\Authorization;
 
 use App\Http\Controllers\Controller;
-use App\Models\Permission\Role;
+use App\Models\Authorization\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -64,7 +64,7 @@ class RoleController extends Controller
      *
      * @urlParam role_uuid string required The role uuid.
      *
-     * @param  \App\Models\Permission\Role  $role
+     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function show(Role $role)
@@ -80,7 +80,7 @@ class RoleController extends Controller
      * @bodyParam permissions string[] required The selected permission names for this role. Example: ['users_read']
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Permission\Role  $role
+     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Role $role)
@@ -101,7 +101,7 @@ class RoleController extends Controller
      *
      * @urlParam role_uuid string required The role uuid.
      *
-     * @param  \App\Models\Permission\Role  $role
+     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function destroy(Role $role)

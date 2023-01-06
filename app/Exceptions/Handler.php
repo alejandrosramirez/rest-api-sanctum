@@ -12,6 +12,7 @@ use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Response;
 use Illuminate\Validation\UnauthorizedException;
 use Illuminate\Validation\ValidationException;
+use Log;
 use Spatie\Permission\Exceptions\UnauthorizedException as SpatieUnauthorizedException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
@@ -80,7 +81,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof DefaultException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'default_error',
                 $e->getMessage(),
                 Response::HTTP_BAD_REQUEST
@@ -89,7 +89,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof AuthenticationException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'authentication_error',
                 __('Unauthenticated.'),
                 Response::HTTP_UNAUTHORIZED
@@ -102,7 +101,6 @@ class Handler extends ExceptionHandler
             $e instanceof SpatieUnauthorizedException
         ) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'unauthorized_error',
                 __('You don\'t have the right permissions to access the resource.'),
                 Response::HTTP_FORBIDDEN
@@ -111,7 +109,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof ModelNotFoundException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'model_error',
                 __(':model not found.', ['model' => __(class_basename($e->getModel()))]),
                 Response::HTTP_NOT_FOUND
@@ -120,7 +117,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof NotFoundHttpException || $e instanceof RouteNotFoundException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'not_found_http_error',
                 __('Url doesn\'t exist.'),
                 Response::HTTP_NOT_FOUND
@@ -129,7 +125,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof MethodNotAllowedHttpException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'method_not_allowed_error',
                 __('Specified method on request not valid.'),
                 Response::HTTP_METHOD_NOT_ALLOWED
@@ -138,7 +133,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof NotAcceptableHttpException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'not_acceptable_http_error',
                 __('Specified accept header on request not valid.'),
                 Response::HTTP_NOT_ACCEPTABLE
@@ -147,7 +141,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof QueryException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'query_error',
                 __('A error ocurred, cannot process query.'),
                 Response::HTTP_CONFLICT
@@ -156,7 +149,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof PostTooLargeException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'post_too_large_error',
                 __('Request body is too large.'),
                 Response::HTTP_REQUEST_ENTITY_TOO_LARGE
@@ -165,7 +157,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof UnsupportedMediaTypeHttpException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'unsupported_media_type_http_error',
                 __('Specified media type on request not valid.'),
                 Response::HTTP_UNSUPPORTED_MEDIA_TYPE
@@ -174,7 +165,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof ValidationException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'validation_error',
                 $e->validator->errors()->getMessages(),
                 Response::HTTP_UNPROCESSABLE_ENTITY
@@ -183,7 +173,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof ThrottleRequestsException) {
             return $this->customErrorResponse(
-                $e->getCode(),
                 'throttle_requests_error',
                 __('Too many attempts. Please try again later.'),
                 Response::HTTP_TOO_MANY_REQUESTS
@@ -191,7 +180,6 @@ class Handler extends ExceptionHandler
         }
 
         return $this->customErrorResponse(
-            $e->getCode(),
             'internal_server_error',
             __('A server error has ocurred.'),
             Response::HTTP_INTERNAL_SERVER_ERROR
@@ -201,18 +189,18 @@ class Handler extends ExceptionHandler
     /**
      * Print custom error response
      *
-     * @param  string  $code
+     * @param  string  $error
      * @param  string  $type
-     * @param  string|object|array  $body
+     * @param  string|object|array  $message
      * @param  int  $statusCode
      * @return \Illuminate\Http\Response|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse
      */
-    private function customErrorResponse(string $code, string $type, string|object|array $body, int $statusCode)
+    private function customErrorResponse(string $error, string|object|array $message, int $statusCode)
     {
         return response()->json([
-            'code' => $code,
-            'type' => $type,
-            'body' => $body,
+            'error' => $error,
+            'message' => $message,
+            'status' => $statusCode,
         ], $statusCode);
     }
 }

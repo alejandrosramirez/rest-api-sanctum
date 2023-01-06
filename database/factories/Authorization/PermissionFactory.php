@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Factories\Permission;
+namespace Database\Factories\Authorization;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Permission\Role>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Authorization\Permission>
  */
-class RoleFactory extends Factory
+class PermissionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -24,7 +24,7 @@ class RoleFactory extends Factory
     /**
      * Indicate that the model's email address should be unverified.
      *
-     * @return static
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
     public function unverified()
     {

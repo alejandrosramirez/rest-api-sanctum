@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Permission;
+namespace App\Models\Authorization;
 
 use App\Models\Admin;
 use App\Models\User;
@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Models\Permission as PermissionModel;
 
 /**
- * App\Models\Permission\Permission
+ * App\Models\Authorization\Permission
  *
  * @property int $id
  * @property string $uuid
@@ -24,11 +24,11 @@ use Spatie\Permission\Models\Permission as PermissionModel;
  * @property-read int|null $admins_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Permission[] $permissions
  * @property-read int|null $permissions_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Permission\Role[] $roles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Authorization\Role[] $roles
  * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection|User[] $users
  * @property-read int|null $users_count
- * @method static \Database\Factories\Permission\PermissionFactory factory(...$parameters)
+ * @method static \Database\Factories\Authorization\PermissionFactory factory(...$parameters)
  * @method static Builder|Permission newModelQuery()
  * @method static Builder|Permission newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Permission permission($permissions)

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\ApiAdmin\Permission;
+namespace App\Http\Controllers\ApiAdmin\Authorization;
 
 use App\Http\Controllers\Controller;
-use App\Models\Permission\Role;
+use App\Models\Authorization\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -51,7 +51,7 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Permission\Role  $role
+     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function show(Role $role)
@@ -63,7 +63,7 @@ class RoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Permission\Role  $role
+     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Role $role)
@@ -83,7 +83,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Permission\Role  $role
+     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function destroy(Role $role)
