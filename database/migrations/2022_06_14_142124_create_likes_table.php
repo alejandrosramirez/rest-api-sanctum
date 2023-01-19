@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+return new class() extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::create('markable_likes', function (Blueprint $table) {
+        Schema::create('markable_likes', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->morphs('markable');
@@ -18,7 +18,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('markable_likes');
     }

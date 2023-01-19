@@ -8,21 +8,19 @@ use Illuminate\Support\Str;
 trait HasUuid
 {
     /**
-     * Setup model event hooks
-     *
-     * @return void
+     * Setup model event hooks.
      */
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 
-        static::creating(function (Model $model) {
+        static::creating(function (Model $model): void {
             $model->uuid = Str::uuid()->toString();
         });
     }
 
     /**
-     * Get the route key for the model
+     * Get the route key for the model.
      *
      * @return string
      */

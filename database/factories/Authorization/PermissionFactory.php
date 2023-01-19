@@ -17,7 +17,6 @@ class PermissionFactory extends Factory
     public function definition()
     {
         return [
-            //
         ];
     }
 
@@ -30,7 +29,6 @@ class PermissionFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                //
             ];
         });
     }

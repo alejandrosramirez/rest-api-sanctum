@@ -18,7 +18,6 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
@@ -37,7 +36,6 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
@@ -67,7 +65,6 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function show(Admin $admin)
@@ -78,8 +75,6 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Admin $admin)
@@ -107,7 +102,6 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function destroy(Admin $admin)
@@ -118,7 +112,6 @@ class AdminController extends Controller
     /**
      * Disable the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function disable(Admin $admin)
@@ -130,18 +123,16 @@ class AdminController extends Controller
     }
 
     /**
-     * Handler for request validation
+     * Handler for request validation.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string  $uuid
      * @return object
      */
     private function handleRequest(Request $request, string $uuid = 'NULL')
     {
         $validated = (object) [];
 
-        $requiredPasswordValidation = $uuid == 'NULL' ? 'required' : 'sometimes';
-        $uniqueEmailValidation = $uuid == 'NULL' ? 'unique:admins,email,' . $uuid . ',id,deleted_at,NULL' : '';
+        $requiredPasswordValidation = 'NULL' == $uuid ? 'required' : 'sometimes';
+        $uniqueEmailValidation = 'NULL' == $uuid ? 'unique:admins,email,'.$uuid.',id,deleted_at,NULL' : '';
 
         $request->validate([
             'avatar' => ['sometimes', 'image', 'mimes:jpeg,png,jpg', 'max:4096'],

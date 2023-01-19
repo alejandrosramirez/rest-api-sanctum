@@ -13,7 +13,6 @@ class IsValidEmailPattern implements Rule
      */
     public function __construct()
     {
-        //
     }
 
     /**

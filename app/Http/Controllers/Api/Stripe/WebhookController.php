@@ -8,6 +8,7 @@ use Laravel\Cashier\Http\Controllers\WebhookController as CashierController;
 
 /**
  * @group Stripe Webhook Endpoints
+ *
  * @unauthenticated
  */
 class WebhookController extends CashierController
@@ -16,17 +17,14 @@ class WebhookController extends CashierController
      * Handle stripe events.
      * <aside class='notice'>
      * For more info, check the <a href='https://stripe.com/docs/webhooks' target='_blank'>stripe official docs</a> about stripe webhooks.
-     * </aside>
+     * </aside>.
      *
      * @bodyParam payload object required The stripe payload from webhook.
      * @bodyParam payload.id string required The stripe id event from webhook payload. Example: evt_2Zj5zzFU3a9abcZ1aYYYaaZ1
      * @bodyParam payload.object string required The stripe event type from webhook payload. Example: event
      * @bodyParam payload.type string required The stripe event from webhook payload. Example: payment_intent.succeeded
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
      */
-    public function handle(Request $request)
+    public function handle(Request $request): void
     {
         $event = $request->input('type');
 
@@ -40,73 +38,55 @@ class WebhookController extends CashierController
     }
 
     /**
-     * Handle event when payment intent is created
-     *
-     * @param  array  $payload
-     * @return void
+     * Handle event when payment intent is created.
      */
-    public function whenPaymentIntentCreated(array $payload)
+    public function whenPaymentIntentCreated(array $payload): void
     {
     }
 
     /**
-     * Handle event when payment intent is processing
-     *
-     * @param  array  $payload
-     * @return void
+     * Handle event when payment intent is processing.
      */
-    public function whenPaymentIntentProcessing(array $payload)
+    public function whenPaymentIntentProcessing(array $payload): void
     {
     }
 
     /**
-     * Handle event when payment intent requires action
-     *
-     * @param  array  $payload
-     * @return void
+     * Handle event when payment intent requires action.
      */
-    public function whenPaymentIntentRequiresAction(array $payload)
+    public function whenPaymentIntentRequiresAction(array $payload): void
     {
     }
 
     /**
-     * Handle event when payment intent is canceled
-     *
-     * @param  array  $payload
-     * @return void
+     * Handle event when payment intent is canceled.
      */
-    public function whenPaymentIntentCanceled(array $payload)
+    public function whenPaymentIntentCanceled(array $payload): void
     {
     }
 
     /**
-     * Handle event when payment intent payment failed
-     *
-     * @param  array  $payload
-     * @return void
+     * Handle event when payment intent payment failed.
      */
-    public function whenPaymentIntentPaymentFailed(array $payload)
+    public function whenPaymentIntentPaymentFailed(array $payload): void
     {
     }
 
     /**
-     * Handle event when payment intent is succeeded
-     *
-     * @param  array  $payload
-     * @return void
+     * Handle event when payment intent is succeeded.
      */
-    public function whenPaymentIntentSucceeded(array $payload)
+    public function whenPaymentIntentSucceeded(array $payload): void
     {
     }
 
     /**
-     * Transform an stripe event to stripe method
+     * Transform an stripe event to stripe method.
      *
      * @param  string  $event
      * @return string
      */
     protected function eventToMethod($event)
     {
-        return 'when' . Str::of(str_replace('.', '_', $event))->studly();
+        return 'when'.Str::of(str_replace('.', '_', $event))->studly();
     }
 }

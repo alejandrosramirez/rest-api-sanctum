@@ -19,30 +19,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('api')->group(function () {
-    Route::prefix('auth')->group(function () {
-        Route::controller(AuthenticateController::class)->group(function () {
+Route::middleware('api')->group(function (): void {
+    Route::prefix('auth')->group(function (): void {
+        Route::controller(AuthenticateController::class)->group(function (): void {
             Route::post('/login', 'login');
         });
     });
 
-    Route::prefix('webhook')->controller(WebhookController::class)->group(function () {
+    Route::prefix('webhook')->controller(WebhookController::class)->group(function (): void {
         Route::post('/stripe', 'handle');
     });
 });
 
-Route::middleware('auth:api')->group(function () {
-    Route::prefix('auth')->group(function () {
-        Route::controller(AuthenticateController::class)->group(function () {
+Route::middleware('auth:api')->group(function (): void {
+    Route::prefix('auth')->group(function (): void {
+        Route::controller(AuthenticateController::class)->group(function (): void {
             Route::post('/logout', 'logout');
         });
     });
 
-    Route::prefix('permissions')->controller(PermissionController::class)->group(function () {
+    Route::prefix('permissions')->controller(PermissionController::class)->group(function (): void {
         Route::get('/', 'index')->middleware('permission:roles_create');
     });
 
-    Route::prefix('roles')->controller(RoleController::class)->group(function () {
+    Route::prefix('roles')->controller(RoleController::class)->group(function (): void {
         Route::get('/', 'index')->middleware('permission:roles_read');
         Route::post('/', 'store')->middleware('permission:roles_create');
         Route::get('/{role}', 'show')->middleware('permission:roles_read');
@@ -50,11 +50,11 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('/{role}', 'destroy')->middleware('permission:roles_delete');
     });
 
-    Route::prefix('states')->controller(StateController::class)->group(function () {
+    Route::prefix('states')->controller(StateController::class)->group(function (): void {
         Route::get('/', 'index')->middleware('permission:states_read');
     });
 
-    Route::prefix('users')->controller(UserController::class)->group(function () {
+    Route::prefix('users')->controller(UserController::class)->group(function (): void {
         Route::get('/', 'index')->middleware('permission:users_read');
         Route::post('/', 'store')->middleware('permission:users_create');
         Route::get('/{user}', 'show')->middleware('permission:users_read');

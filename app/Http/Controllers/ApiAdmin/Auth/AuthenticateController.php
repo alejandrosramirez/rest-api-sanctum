@@ -11,7 +11,6 @@ class AuthenticateController extends Controller
     /**
      * Handle an incoming login request.
      *
-     * @param  \App\Http\Requests\ApiAdmin\Auth\LoginRequest  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function login(LoginRequest $request)
@@ -28,7 +27,7 @@ class AuthenticateController extends Controller
     }
 
     /**
-     * Handle and incoming logout request
+     * Handle and incoming logout request.
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */

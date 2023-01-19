@@ -11,37 +11,39 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Models\Permission as PermissionModel;
 
 /**
- * App\Models\Authorization\Permission
+ * App\Models\Authorization\Permission.
  *
- * @property int $id
- * @property string $uuid
- * @property string $name
- * @property string $description
- * @property string $guard_name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|Admin[] $admins
- * @property-read int|null $admins_count
- * @property-read \Illuminate\Database\Eloquent\Collection|Permission[] $permissions
- * @property-read int|null $permissions_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Authorization\Role[] $roles
- * @property-read int|null $roles_count
- * @property-read \Illuminate\Database\Eloquent\Collection|User[] $users
- * @property-read int|null $users_count
+ * @property int                                                                       $id
+ * @property string                                                                    $uuid
+ * @property string                                                                    $name
+ * @property string                                                                    $description
+ * @property string                                                                    $guard_name
+ * @property \Illuminate\Support\Carbon|null                                           $created_at
+ * @property \Illuminate\Support\Carbon|null                                           $updated_at
+ * @property \Illuminate\Database\Eloquent\Collection|Admin[]                          $admins
+ * @property int|null                                                                  $admins_count
+ * @property \Illuminate\Database\Eloquent\Collection|Permission[]                     $permissions
+ * @property int|null                                                                  $permissions_count
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Authorization\Role[] $roles
+ * @property int|null                                                                  $roles_count
+ * @property \Illuminate\Database\Eloquent\Collection|User[]                           $users
+ * @property int|null                                                                  $users_count
+ *
  * @method static \Database\Factories\Authorization\PermissionFactory factory(...$parameters)
- * @method static Builder|Permission newModelQuery()
- * @method static Builder|Permission newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Permission permission($permissions)
- * @method static Builder|Permission query()
- * @method static \Illuminate\Database\Eloquent\Builder|Permission role($roles, $guard = null)
- * @method static Builder|Permission search(string $search)
- * @method static Builder|Permission whereCreatedAt($value)
- * @method static Builder|Permission whereDescription($value)
- * @method static Builder|Permission whereGuardName($value)
- * @method static Builder|Permission whereId($value)
- * @method static Builder|Permission whereName($value)
- * @method static Builder|Permission whereUpdatedAt($value)
- * @method static Builder|Permission whereUuid($value)
+ * @method static Builder|Permission                                  newModelQuery()
+ * @method static Builder|Permission                                  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission    permission($permissions)
+ * @method static Builder|Permission                                  query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission    role($roles, $guard = null)
+ * @method static Builder|Permission                                  search(string $search)
+ * @method static Builder|Permission                                  whereCreatedAt($value)
+ * @method static Builder|Permission                                  whereDescription($value)
+ * @method static Builder|Permission                                  whereGuardName($value)
+ * @method static Builder|Permission                                  whereId($value)
+ * @method static Builder|Permission                                  whereName($value)
+ * @method static Builder|Permission                                  whereUpdatedAt($value)
+ * @method static Builder|Permission                                  whereUuid($value)
+ *
  * @mixin \Eloquent
  */
 class Permission extends PermissionModel
@@ -106,8 +108,6 @@ class Permission extends PermissionModel
 
     /**
      * A permission belongs to some admins of the model associated with its guard.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function admins(): BelongsToMany
     {
@@ -122,8 +122,6 @@ class Permission extends PermissionModel
 
     /**
      * A permission can be applied to roles.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles(): BelongsToMany
     {
@@ -137,8 +135,6 @@ class Permission extends PermissionModel
 
     /**
      * A permission belongs to some users of the model associated with its guard.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users(): BelongsToMany
     {
@@ -152,14 +148,12 @@ class Permission extends PermissionModel
     }
 
     /**
-     * Scope a query with search
+     * Scope a query with search.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  string  $search
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSearch(Builder $query, string $search)
     {
-        return $query->where('description', 'like', '%' . $search . '%');
+        return $query->where('description', 'like', '%'.$search.'%');
     }
 }

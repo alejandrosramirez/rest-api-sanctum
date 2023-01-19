@@ -11,14 +11,12 @@ class RolesAndPermissionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        /** Permissions related to roles */
+        /* Permissions related to roles */
         Permission::create([
             'name' => 'roles_read',
             'guard_name' => 'web_admin',
@@ -40,7 +38,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'description' => 'Eliminar roles',
         ]);
 
-        /** Permissions related to admins */
+        /* Permissions related to admins */
         Permission::create([
             'name' => 'admins_read',
             'guard_name' => 'web_admin',

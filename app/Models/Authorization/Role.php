@@ -13,47 +13,51 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Models\Role as RoleModel;
 
 /**
- * App\Models\Authorization\Role
+ * App\Models\Authorization\Role.
  *
- * @property int $id
- * @property string $uuid
- * @property string $name
- * @property string $description
- * @property string $guard_name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection|Admin[] $admins
- * @property-read int|null $admins_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Authorization\Permission[] $permissions
- * @property-read int|null $permissions_count
- * @property-read \Illuminate\Database\Eloquent\Collection|User[] $users
- * @property-read int|null $users_count
+ * @property int                                                                             $id
+ * @property string                                                                          $uuid
+ * @property string                                                                          $name
+ * @property string                                                                          $description
+ * @property string                                                                          $guard_name
+ * @property \Illuminate\Support\Carbon|null                                                 $created_at
+ * @property \Illuminate\Support\Carbon|null                                                 $updated_at
+ * @property \Illuminate\Support\Carbon|null                                                 $deleted_at
+ * @property \Illuminate\Database\Eloquent\Collection|Admin[]                                $admins
+ * @property int|null                                                                        $admins_count
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Authorization\Permission[] $permissions
+ * @property int|null                                                                        $permissions_count
+ * @property \Illuminate\Database\Eloquent\Collection|User[]                                 $users
+ * @property int|null                                                                        $users_count
+ *
  * @method static \Database\Factories\Authorization\RoleFactory factory(...$parameters)
- * @method static Builder|Role newModelQuery()
- * @method static Builder|Role newQuery()
- * @method static \Illuminate\Database\Query\Builder|Role onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Role permission($permissions)
- * @method static Builder|Role query()
- * @method static Builder|Role search(string $search)
- * @method static Builder|Role whereCreatedAt($value)
- * @method static Builder|Role whereDeletedAt($value)
- * @method static Builder|Role whereDescription($value)
- * @method static Builder|Role whereGuardName($value)
- * @method static Builder|Role whereId($value)
- * @method static Builder|Role whereName($value)
- * @method static Builder|Role whereUpdatedAt($value)
- * @method static Builder|Role whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|Role withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Role withoutTrashed()
+ * @method static Builder|Role                                  newModelQuery()
+ * @method static Builder|Role                                  newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Role       onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Role    permission($permissions)
+ * @method static Builder|Role                                  query()
+ * @method static Builder|Role                                  search(string $search)
+ * @method static Builder|Role                                  whereCreatedAt($value)
+ * @method static Builder|Role                                  whereDeletedAt($value)
+ * @method static Builder|Role                                  whereDescription($value)
+ * @method static Builder|Role                                  whereGuardName($value)
+ * @method static Builder|Role                                  whereId($value)
+ * @method static Builder|Role                                  whereName($value)
+ * @method static Builder|Role                                  whereUpdatedAt($value)
+ * @method static Builder|Role                                  whereUuid($value)
+ * @method static \Illuminate\Database\Query\Builder|Role       withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Role       withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Role extends RoleModel
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     // Import my own traits
-    use HasUuid, HasRelated;
+    use HasUuid;
+    use HasRelated;
 
     /**
      * The table associated with the model.
@@ -120,8 +124,6 @@ class Role extends RoleModel
 
     /**
      * A role belongs to some admins of the model associated with its guard.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function admins(): BelongsToMany
     {
@@ -136,8 +138,6 @@ class Role extends RoleModel
 
     /**
      * A role may be given various permissions.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function permissions(): BelongsToMany
     {
@@ -151,8 +151,6 @@ class Role extends RoleModel
 
     /**
      * A role belongs to some users of the model associated with its guard.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users(): BelongsToMany
     {
@@ -166,14 +164,12 @@ class Role extends RoleModel
     }
 
     /**
-     * Scope a query with search
+     * Scope a query with search.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  string  $search
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSearch(Builder $query, string $search)
     {
-        return $query->where('description', 'like', '%' . $search . '%');
+        return $query->where('description', 'like', '%'.$search.'%');
     }
 }

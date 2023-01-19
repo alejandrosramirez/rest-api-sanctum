@@ -12,7 +12,6 @@ class EnsureAccountIsVerified
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
      * @param  string|null  $redirectToRoute
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse|null
      */

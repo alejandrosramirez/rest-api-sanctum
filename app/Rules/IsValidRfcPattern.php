@@ -13,7 +13,6 @@ class IsValidRfcPattern implements Rule
      */
     public function __construct()
     {
-        //
     }
 
     /**

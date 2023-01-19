@@ -7,15 +7,11 @@ use Jenssegers\Agent\Agent;
 trait HandleLogger
 {
     /**
-     * Log a message
+     * Log a message.
      *
-     * @param  string  $type
-     * @param  string  $logName
-     * @param  string  $description
      * @param  mixed  $extraData
-     * @return void
      */
-    public function logger(string $type, string $logName, string $description, mixed $extraData = null)
+    public function logger(string $type, string $logName, string $description, mixed $extraData = null): void
     {
         $agent = new Agent();
 
@@ -35,7 +31,7 @@ trait HandleLogger
             $data = array_merge($data, ['info' => $extraData]);
         }
 
-        activity(strtoupper($logName) . '_LOG')
+        activity(strtoupper($logName).'_LOG')
             ->withProperties($data)
             ->log($description);
     }

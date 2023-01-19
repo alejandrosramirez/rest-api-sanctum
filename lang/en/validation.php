@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -175,5 +174,4 @@ return [
         'state_id' => 'state',
         'username' => 'username',
     ],
-
 ];

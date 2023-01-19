@@ -17,7 +17,6 @@ class RoleFactory extends Factory
     public function definition()
     {
         return [
-            //
         ];
     }
 
@@ -30,7 +29,6 @@ class RoleFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                //
             ];
         });
     }

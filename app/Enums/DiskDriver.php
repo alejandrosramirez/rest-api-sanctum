@@ -3,7 +3,7 @@
 namespace App\Enums;
 
 /**
- * Generate basic disk driver names
+ * Generate basic disk driver names.
  */
 enum DiskDriver: string
 {

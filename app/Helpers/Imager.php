@@ -10,11 +10,8 @@ use Intervention\Image\Facades\Image;
 class Imager
 {
     /**
-     * Resize a image from storage
+     * Resize a image from storage.
      *
-     * @param  string  $path
-     * @param  \App\Enums\DiskDriver  $disk
-     * @param  int  $width
      * @return \Intervention\Image\Image
      */
     public static function resize(string $path, DiskDriver $disk = DiskDriver::LOCAL, int $width = 0)
@@ -32,7 +29,7 @@ class Imager
 
         $aspectRatio = $imageIns->height() / $imageIns->width();
 
-        if ($width == 0) {
+        if (0 == $width) {
             $width = $imageIns->width();
         }
 

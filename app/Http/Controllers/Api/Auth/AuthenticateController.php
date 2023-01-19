@@ -15,10 +15,10 @@ class AuthenticateController extends Controller
      * Handle an incoming login request.
      *
      * @unauthenticated
+     *
      * @bodyParam email string required Example: alejandrosram@outlook.com
      * @bodyParam password string required Example: 1234567890
      *
-     * @param  \App\Http\Requests\Api\Auth\LoginRequest  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function login(LoginRequest $request)

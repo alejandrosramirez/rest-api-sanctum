@@ -9,7 +9,9 @@ use Illuminate\Support\Str;
 
 /**
  * @group Permission Endpoints
+ *
  * @subGroup Roles
+ *
  * @authenticated
  */
 class RoleController extends Controller
@@ -20,7 +22,6 @@ class RoleController extends Controller
      * @queryParam size int The number of elements for listing. Example: 20
      * @queryParam search string The criteria to search in list. Example: Administrador
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
@@ -41,7 +42,6 @@ class RoleController extends Controller
      * @bodyParam description string required The description for this role. Example: Super Admin
      * @bodyParam permissions string[] required The selected permissions names for this role. Example: ['users_read']
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
@@ -64,7 +64,6 @@ class RoleController extends Controller
      *
      * @urlParam role_uuid string required The role uuid.
      *
-     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function show(Role $role)
@@ -76,11 +75,10 @@ class RoleController extends Controller
      * Update the specified role.
      *
      * @urlParam role_uuid string required The role uuid.
+     *
      * @bodyParam description string required The description for this role. Example: Super Admin
      * @bodyParam permissions string[] required The selected permission names for this role. Example: ['users_read']
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Role $role)
@@ -101,7 +99,6 @@ class RoleController extends Controller
      *
      * @urlParam role_uuid string required The role uuid.
      *
-     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function destroy(Role $role)
@@ -110,17 +107,15 @@ class RoleController extends Controller
     }
 
     /**
-     * Handler for request validation
+     * Handler for request validation.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string  $uuid
      * @return object
      */
     protected function handleRequest(Request $request, string $uuid = 'NULL')
     {
-        $validated = (object)[];
+        $validated = (object) [];
 
-        $uniqueNameValidation = $uuid == 'NULL' ? 'unique:roles,description,' . $uuid . ',id' : '';
+        $uniqueNameValidation = 'NULL' == $uuid ? 'unique:roles,description,'.$uuid.',id' : '';
 
         $request->validate([
             'description' => ['required', 'string', 'max:255', $uniqueNameValidation],

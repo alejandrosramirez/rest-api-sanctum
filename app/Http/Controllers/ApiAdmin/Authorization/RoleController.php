@@ -12,7 +12,6 @@ class RoleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
@@ -30,7 +29,6 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
@@ -51,7 +49,6 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function show(Role $role)
@@ -62,8 +59,6 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Role $role)
@@ -83,7 +78,6 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Authorization\Role  $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function destroy(Role $role)
@@ -92,17 +86,15 @@ class RoleController extends Controller
     }
 
     /**
-     * Handler for request validation
+     * Handler for request validation.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string  $uuid
      * @return object
      */
     protected function handleRequest(Request $request, string $uuid = 'NULL')
     {
         $validated = (object) [];
 
-        $uniqueNameValidation = $uuid == 'NULL' ? 'unique:roles,description,' . $uuid . ',id' : '';
+        $uniqueNameValidation = 'NULL' == $uuid ? 'unique:roles,description,'.$uuid.',id' : '';
 
         $request->validate([
             'description' => ['required', 'string', 'max:255', $uniqueNameValidation],

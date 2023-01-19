@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validación del idioma
@@ -171,5 +170,4 @@ return [
         'state_id' => 'estado',
         'username' => 'nombre de usuario',
     ],
-
 ];

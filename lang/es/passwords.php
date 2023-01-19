@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Restablecer contraseña de líneas de idioma
@@ -18,5 +17,4 @@ return [
     'throttled' => 'Espere antes de volver a intentarlo.',
     'token' => 'El código de cambio de contraseña es inválido.',
     'user' => 'No podemos encontrar un usuario con ese nombre.',
-
 ];

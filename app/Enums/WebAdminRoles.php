@@ -3,7 +3,7 @@
 namespace App\Enums;
 
 /**
- * Generate names of web admin panel roles
+ * Generate names of web admin panel roles.
  */
 enum WebAdminRoles: string
 {

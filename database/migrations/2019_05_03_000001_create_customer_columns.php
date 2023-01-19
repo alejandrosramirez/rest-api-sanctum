@@ -4,16 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+return new class() extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->string('stripe_id')->nullable()->index();
             $table->string('pm_type')->nullable();
             $table->string('pm_last_four', 4)->nullable();
@@ -23,12 +21,10 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->dropColumn([
                 'stripe_id',
                 'pm_type',

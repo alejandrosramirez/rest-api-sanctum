@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 /**
  * @group State Endpoints
+ *
  * @authenticated
  */
 class StateController extends Controller
@@ -18,7 +19,6 @@ class StateController extends Controller
      * @queryParam size int The number of elements for listing. Example: 20
      * @queryParam search string The criteria to search in list. Example: Jalisco
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function index(Request $request)

@@ -11,39 +11,43 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * App\Models\State
+ * App\Models\State.
  *
- * @property int $id
- * @property string $uuid
- * @property string $name
- * @property string $short_name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Address[] $addresses
- * @property-read int|null $addresses_count
- * @method static Builder|State newModelQuery()
- * @method static Builder|State newQuery()
+ * @property int                                                            $id
+ * @property string                                                         $uuid
+ * @property string                                                         $name
+ * @property string                                                         $short_name
+ * @property \Illuminate\Support\Carbon|null                                $created_at
+ * @property \Illuminate\Support\Carbon|null                                $updated_at
+ * @property \Illuminate\Support\Carbon|null                                $deleted_at
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Address[] $addresses
+ * @property int|null                                                       $addresses_count
+ *
+ * @method static Builder|State                            newModelQuery()
+ * @method static Builder|State                            newQuery()
  * @method static \Illuminate\Database\Query\Builder|State onlyTrashed()
- * @method static Builder|State query()
- * @method static Builder|State search(?mixed $search)
- * @method static Builder|State whereCreatedAt($value)
- * @method static Builder|State whereDeletedAt($value)
- * @method static Builder|State whereId($value)
- * @method static Builder|State whereName($value)
- * @method static Builder|State whereShortName($value)
- * @method static Builder|State whereUpdatedAt($value)
- * @method static Builder|State whereUuid($value)
+ * @method static Builder|State                            query()
+ * @method static Builder|State                            search(?mixed $search)
+ * @method static Builder|State                            whereCreatedAt($value)
+ * @method static Builder|State                            whereDeletedAt($value)
+ * @method static Builder|State                            whereId($value)
+ * @method static Builder|State                            whereName($value)
+ * @method static Builder|State                            whereShortName($value)
+ * @method static Builder|State                            whereUpdatedAt($value)
+ * @method static Builder|State                            whereUuid($value)
  * @method static \Illuminate\Database\Query\Builder|State withTrashed()
  * @method static \Illuminate\Database\Query\Builder|State withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class State extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     // Import my own traits
-    use HasUuid, HasRelated;
+    use HasUuid;
+    use HasRelated;
 
     /**
      * The table associated with the model.
@@ -108,9 +112,7 @@ class State extends Model
     public $relateds = ['addresses'];
 
     /**
-     * Get addresses
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get addresses.
      */
     public function addresses(): HasMany
     {
@@ -118,14 +120,13 @@ class State extends Model
     }
 
     /**
-     * Scope a query with search
+     * Scope a query with search.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSearch(Builder $query, mixed $search)
     {
-        return $query->where('name', 'like', '%' . $search . '%')
-            ->orWhere('short_name', 'like', '%' . $search . '%');
+        return $query->where('name', 'like', '%'.$search.'%')
+            ->orWhere('short_name', 'like', '%'.$search.'%');
     }
 }

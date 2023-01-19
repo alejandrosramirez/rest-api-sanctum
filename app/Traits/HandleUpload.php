@@ -13,18 +13,12 @@ trait HandleUpload
     /**
      * Load image from request and save it to storage.
      *
-     * @param  \Illuminate\Http\UploadedFile  $file
-     * @param  \App\Enums\DiskDriver  $disk
      * @param  string  $lastFile
-     * @param  int  $width
-     * @param  int  $height
-     * @param  int  $x
-     * @param  int  $y
      * @return array<string, string>
      */
     public function saveImage(UploadedFile $file, DiskDriver $disk = DiskDriver::LOCAL, string $lastFile = null, int $width = 0, int $height = 0, int $x = 0, int $y = 0)
     {
-        if (!is_null($lastFile)) {
+        if (null !== $lastFile) {
             $url = explode('/', $lastFile);
             $lastFile = $url[count($url) - 1];
 
@@ -35,11 +29,11 @@ trait HandleUpload
             }
         }
 
-        if ($width == 0) {
+        if (0 == $width) {
             $width = Image::make($file)->width();
         }
 
-        if ($height == 0) {
+        if (0 == $height) {
             $height = Image::make($file)->height();
         }
 
@@ -47,7 +41,7 @@ trait HandleUpload
 
         $image = Image::make($file)->fit($width, $height)->encode($extension);
 
-        $imageName = 'image_' . md5($image->__toString() . rand()) . '.' . $extension;
+        $imageName = 'image_'.md5($image->__toString().rand()).'.'.$extension;
 
         $imageSaved = Storage::disk($disk->value)->put($imageName, $image);
 
@@ -70,15 +64,13 @@ trait HandleUpload
     /**
      * Load file/document from request and save it to storage.
      *
-     * @param  \Illuminate\Http\UploadedFile  $file
-     * @param  \App\Enums\DiskDriver  $disk
      * @return array<string, string>
      */
     public function saveFile(UploadedFile $file, DiskDriver $disk = DiskDriver::LOCAL)
     {
         $extension = $file->extension();
 
-        $fileName = 'doc_' . md5($file->__toString() . rand()) . '.' . $extension;
+        $fileName = 'doc_'.md5($file->__toString().rand()).'.'.$extension;
 
         $fileSaved = Storage::disk($disk->value)->put($fileName, $file);
 
@@ -100,12 +92,8 @@ trait HandleUpload
 
     /**
      * Delete image/file from request and save it to storage.
-     *
-     * @param  string  $file
-     * @param  \App\Enums\DiskDriver  $disk
-     * @return void
      */
-    public function deleteFile(string $file, DiskDriver $disk = DiskDriver::LOCAL)
+    public function deleteFile(string $file, DiskDriver $disk = DiskDriver::LOCAL): void
     {
         $url = explode('/', $file);
         $file = $url[count($url) - 1];

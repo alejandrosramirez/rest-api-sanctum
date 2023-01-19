@@ -12,9 +12,6 @@ class Pagination
     /**
      * Paginate a collection/array.
      *
-     * @param  \Illuminate\Support\Collection|array  $items
-     * @param  int  $perPage
-     * @param  string  $pageName
      * @param  int  $page
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -45,7 +42,11 @@ class Pagination
     protected static function paginator($items, $total, $perPage, $currentPage, $options)
     {
         return Container::getInstance()->makeWith(LengthAwarePaginator::class, compact(
-            'items', 'total', 'perPage', 'currentPage', 'options'
+            'items',
+            'total',
+            'perPage',
+            'currentPage',
+            'options'
         ));
     }
 }

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 /**
  * @group User Endpoints
+ *
  * @authenticated
  */
 class UserController extends Controller
@@ -25,7 +26,6 @@ class UserController extends Controller
      * @queryParam size int The number of elements for listing. Example: 20
      * @queryParam search string The criteria to search in list. Example: alejandrosram@outlook.com
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
@@ -52,7 +52,6 @@ class UserController extends Controller
      * @bodyParam password string required The password for this user. Example: 1234567890
      * @bodyParam role string required The roles name for this user. Example: administrator
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
@@ -84,7 +83,6 @@ class UserController extends Controller
      *
      * @urlParam user_uuid string required The user uuid.
      *
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function show(User $user)
@@ -96,6 +94,7 @@ class UserController extends Controller
      * Update the specified user.
      *
      * @urlParam user_uuid string required The user uuid.
+     *
      * @bodyParam avatar file The avatar image for this user.
      * @bodyParam name string required The name for this user. Example: Luis
      * @bodyParam lastname string required The lastname for this user. Example: Gonzalez
@@ -104,8 +103,6 @@ class UserController extends Controller
      * @bodyParam password string required The password for this user. Example: 1234567890
      * @bodyParam role string required The roles name for this user. Example: administrator
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function update(Request $request, User $user)
@@ -136,7 +133,6 @@ class UserController extends Controller
      *
      * @urlParam user_uuid string required The user uuid.
      *
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function destroy(User $user)
@@ -149,7 +145,6 @@ class UserController extends Controller
      *
      * @urlParam user_uuid string required The user uuid.
      *
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function disable(User $user)
@@ -161,18 +156,16 @@ class UserController extends Controller
     }
 
     /**
-     * Handler for request validation
+     * Handler for request validation.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string  $uuid
      * @return object
      */
     private function handleRequest(Request $request, string $uuid = 'NULL')
     {
-        $validated = (object)[];
+        $validated = (object) [];
 
-        $passwordValidation = $uuid == 'NULL' ? 'required' : 'sometimes';
-        $uniqueEmailValidation = $uuid == 'NULL' ? 'unique:users,email,' . $uuid . ',id,deleted_at,NULL' : '';
+        $passwordValidation = 'NULL' == $uuid ? 'required' : 'sometimes';
+        $uniqueEmailValidation = 'NULL' == $uuid ? 'unique:users,email,'.$uuid.',id,deleted_at,NULL' : '';
 
         $request->validate([
             'avatar' => ['sometimes', 'image', 'mimes:jpeg,png,jpg', 'max:4096'],

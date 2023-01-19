@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -16,5 +15,4 @@ return [
     'failed' => 'Las credecnciales introducidas son incorrectas.',
     'password' => 'La contraseña proporcionada es incorrecta.',
     'throttle' => 'Demasiados intentos de acceso. Inténtelo de nuevo en :seconds segundos.',
-
 ];

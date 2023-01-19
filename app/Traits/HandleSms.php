@@ -11,23 +11,19 @@ trait HandleSms
 {
     /**
      * Send sms.
-     *
-     * @param  string  $phone
-     * @param  string  $message
-     * @return void
      */
-    public function sendSms(string $phone, string $message)
+    public function sendSms(string $phone, string $message): void
     {
         $basic = new Basic(env('VONAGE_KEY'), env('VONAGE_SECRET'));
         $client = new Client($basic);
 
         $response = $client->sms()->send(
-            new SMS('52' . $phone, env('APP_NAME'), $message)
+            new SMS('52'.$phone, env('APP_NAME'), $message)
         );
 
         $message = $response->current();
 
-        if ($message->getStatus() != 0) {
+        if (0 != $message->getStatus()) {
             throw new DefaultException(__('SMS could not be sent'));
         }
     }

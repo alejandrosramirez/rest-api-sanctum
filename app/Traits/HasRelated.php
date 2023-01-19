@@ -8,13 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 trait HasRelated
 {
     /**
-     * Setup model event hooks
-     *
-     * @return void
+     * Setup model event hooks.
      */
-    public static function bootHasRelated()
+    public static function bootHasRelated(): void
     {
-        static::deleting(function (Model $model) {
+        static::deleting(function (Model $model): void {
             $relateds = $model->relateds;
 
             foreach ($relateds as $related) {

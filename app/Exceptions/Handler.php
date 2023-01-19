@@ -12,7 +12,6 @@ use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Response;
 use Illuminate\Validation\UnauthorizedException;
 use Illuminate\Validation\ValidationException;
-use Log;
 use Spatie\Permission\Exceptions\UnauthorizedException as SpatieUnauthorizedException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
@@ -29,7 +28,6 @@ class Handler extends ExceptionHandler
      * @var array<int, class-string<Throwable>>
      */
     protected $dontReport = [
-        //
     ];
 
     /**
@@ -45,23 +43,17 @@ class Handler extends ExceptionHandler
 
     /**
      * Register the exception handling callbacks for the application.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->reportable(function (Throwable $e): void {
         });
     }
 
     /**
      * Report or log an exception.
-     *
-     * @param  \Throwable  $e
-     * @return void
      */
-    public function report(Throwable $e)
+    public function report(Throwable $e): void
     {
         parent::report($e);
     }
@@ -70,7 +62,6 @@ class Handler extends ExceptionHandler
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Throwable  $e
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Throwable $e)
@@ -187,12 +178,9 @@ class Handler extends ExceptionHandler
     }
 
     /**
-     * Print custom error response
+     * Print custom error response.
      *
-     * @param  string  $error
      * @param  string  $type
-     * @param  string|object|array  $message
-     * @param  int  $statusCode
      * @return \Illuminate\Http\Response|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse
      */
     private function customErrorResponse(string $error, string|object|array $message, int $statusCode)
