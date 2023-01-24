@@ -29,6 +29,10 @@ Route::middleware('api')->group(function (): void {
     Route::prefix('webhook')->controller(WebhookController::class)->group(function (): void {
         Route::post('/stripe', 'handle');
     });
+
+    Route::get('/holiwis', function () {
+        return response()->json(['message' => 'Bien, pasaste los cors, fuiste una ruta https.']);
+    });
 });
 
 Route::middleware('auth:api')->group(function (): void {
