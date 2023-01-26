@@ -30,6 +30,7 @@
 		"laravel/socialite": "^5.5",
 		"laravel/telescope": "^4.8",
 		"laravel/tinker": "^2.7",
+		"laravel/vonage-notification-channel": "^3.1",
 		"maatwebsite/excel": "^3.1",
 		"maize-tech/laravel-markable": "^1.0",
 		"rezaamini-ir/migrator": "^1.5",

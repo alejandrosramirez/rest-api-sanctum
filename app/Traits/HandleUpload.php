@@ -16,7 +16,7 @@ trait HandleUpload
      * @param  string  $lastFile
      * @return array<string, string>
      */
-    public function saveImage(UploadedFile $file, DiskDriver $disk = DiskDriver::LOCAL, string $lastFile = null, int $width = 0, int $height = 0, int $x = 0, int $y = 0)
+    public function saveImage(UploadedFile $file, DiskDriver $disk = DiskDriver::LOCAL, string $lastFile = null, int $width = 0, int $height = 0)
     {
         if (null !== $lastFile) {
             $url = explode('/', $lastFile);
@@ -41,7 +41,7 @@ trait HandleUpload
 
         $image = Image::make($file)->fit($width, $height)->encode($extension);
 
-        $imageName = 'image_'.md5($image->__toString().rand()).'.'.$extension;
+        $imageName = 'image_' . md5($image->__toString().rand()) . '.' . $extension;
 
         $imageSaved = Storage::disk($disk->value)->put($imageName, $image);
 
@@ -51,14 +51,14 @@ trait HandleUpload
 
         $imageUrl = Storage::disk($disk->value)->url($imageName);
 
-        if ($imageUrl) {
-            return [
-                'url' => $imageUrl,
-                'name' => $file->getClientOriginalName(),
-            ];
-        } else {
+        if (!$imageUrl) {
             throw new DefaultException(__('File :filename not found', ['filename' => $imageName]));
         }
+
+        return [
+            'url' => $imageUrl,
+            'name' => $file->getClientOriginalName(),
+        ];
     }
 
     /**
@@ -70,7 +70,7 @@ trait HandleUpload
     {
         $extension = $file->extension();
 
-        $fileName = 'doc_'.md5($file->__toString().rand()).'.'.$extension;
+        $fileName = 'doc_' . md5($file->__toString().rand()) . '.' . $extension;
 
         $fileSaved = Storage::disk($disk->value)->put($fileName, $file);
 
@@ -80,14 +80,14 @@ trait HandleUpload
 
         $fileUrl = Storage::disk($disk->value)->url($fileName);
 
-        if ($fileUrl) {
-            return [
-                'url' => $fileUrl,
-                'name' => $file->getClientOriginalName(),
-            ];
-        } else {
+        if (!$fileUrl) {
             throw new DefaultException(__('File :filename not found', ['filename' => $fileName]));
         }
+
+        return [
+            'url' => $fileUrl,
+            'name' => $file->getClientOriginalName(),
+        ];
     }
 
     /**
