@@ -7,6 +7,425 @@ servers:
   -
     url: 'http://rest-api-sanctum.develop:8080'
 paths:
+  /api_admin/admins:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters:
+        -
+          in: query
+          name: size
+          description: 'The number of elements for listing.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'The number of elements for listing.'
+            example: 20
+        -
+          in: query
+          name: search
+          description: 'The criteria to search in list.'
+          example: alejandrosram@outlook.com
+          required: false
+          schema:
+            type: string
+            description: 'The criteria to search in list.'
+            example: alejandrosram@outlook.com
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
+                properties:
+                  error:
+                    type: string
+                    example: authentication_error
+                  message:
+                    type: string
+                    example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
+      tags:
+        - 'Admin Endpoints'
+    post:
+      summary: 'Store a new admin.'
+      operationId: storeANewAdmin
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
+                properties:
+                  error:
+                    type: string
+                    example: authentication_error
+                  message:
+                    type: string
+                    example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
+      tags:
+        - 'Admin Endpoints'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                  description: 'The avatar image for this admin.'
+                name:
+                  type: string
+                  description: 'The name for this admin.'
+                  example: Luis
+                lastname:
+                  type: string
+                  description: 'The lastname for this admin.'
+                  example: Gonzalez
+                phone:
+                  type: string
+                  description: 'The phone for this admin.'
+                  example: '3322332233'
+                email:
+                  type: string
+                  description: 'The email for this admin.'
+                  example: luis@mail.com
+                password:
+                  type: string
+                  description: 'The password for this admin.'
+                  example: '1234567890'
+                role:
+                  type: string
+                  description: 'The roles name for this admin.'
+                  example: administrator
+              required:
+                - name
+                - lastname
+                - phone
+                - email
+                - password
+                - role
+  '/api_admin/admins/{admin_uuid}':
+    get:
+      summary: 'Display the specified admin.'
+      operationId: displayTheSpecifiedAdmin
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
+                properties:
+                  error:
+                    type: string
+                    example: authentication_error
+                  message:
+                    type: string
+                    example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
+      tags:
+        - 'Admin Endpoints'
+    put:
+      summary: 'Update the specified admin.'
+      operationId: updateTheSpecifiedAdmin
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
+                properties:
+                  error:
+                    type: string
+                    example: authentication_error
+                  message:
+                    type: string
+                    example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
+      tags:
+        - 'Admin Endpoints'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                  description: 'The avatar image for this admin.'
+                name:
+                  type: string
+                  description: 'The name for this admin.'
+                  example: Luis
+                lastname:
+                  type: string
+                  description: 'The lastname for this admin.'
+                  example: Gonzalez
+                phone:
+                  type: string
+                  description: 'The phone for this admin.'
+                  example: '3322332233'
+                email:
+                  type: string
+                  description: 'The email for this admin.'
+                  example: luis@mail.com
+                password:
+                  type: string
+                  description: 'The password for this admin.'
+                  example: '1234567890'
+                role:
+                  type: string
+                  description: 'The roles name for this admin.'
+                  example: administrator
+              required:
+                - name
+                - lastname
+                - phone
+                - email
+                - password
+                - role
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
+                properties:
+                  error:
+                    type: string
+                    example: authentication_error
+                  message:
+                    type: string
+                    example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
+      tags:
+        - 'Admin Endpoints'
+    parameters:
+      -
+        in: path
+        name: admin_uuid
+        description: 'The admin uuid.'
+        example: 26037d5e-0b4c-3a2f-a862-51b74ac21d0f
+        required: true
+        schema:
+          type: string
+  '/api_admin/admins/{admin_uuid}/disable':
+    patch:
+      summary: 'Disable the specified resource from storage.'
+      operationId: disableTheSpecifiedResourceFromStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
+                properties:
+                  error:
+                    type: string
+                    example: authentication_error
+                  message:
+                    type: string
+                    example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
+      tags:
+        - 'Admin Endpoints'
+    parameters:
+      -
+        in: path
+        name: admin_uuid
+        description: 'The admin uuid.'
+        example: cb46fac4-b72f-30fa-b589-63f8ec46adef
+        required: true
+        schema:
+          type: string
   /api_admin/auth/login:
     post:
       summary: 'Handle an incoming login request.'
@@ -35,19 +454,16 @@ paths:
               schema:
                 type: object
                 example:
-                  code: '0'
-                  type: validation_error
-                  body:
+                  error: validation_error
+                  message:
                     email:
                       - 'Las credecnciales introducidas son incorrectas.'
+                  status: 422
                 properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
+                  error:
                     type: string
                     example: validation_error
-                  body:
+                  message:
                     type: object
                     properties:
                       email:
@@ -56,8 +472,11 @@ paths:
                           - 'Las credecnciales introducidas son incorrectas.'
                         items:
                           type: string
+                  status:
+                    type: integer
+                    example: 422
       tags:
-        - Endpoints
+        - 'Auth Endpoints'
       requestBody:
         required: true
         content:
@@ -67,24 +486,31 @@ paths:
               properties:
                 email:
                   type: string
-                  description: 'El formato del value es inválido.'
-                  example: stroman.emerald@example.com
+                  description: ''
+                  example: alejandrosram@outlook.com
                 password:
                   type: string
-                  description: 'El campo value debe tener al menos 8 caracteres.'
-                  example: 'z~a}F]LU>*cE'
+                  description: ''
+                  example: '1234567890'
               required:
                 - email
                 - password
       security: []
   /api_admin/auth/logout:
     post:
-      summary: 'Handle and incoming logout request'
+      summary: 'Handle and incoming logout request.'
       operationId: handleAndIncomingLogoutRequest
       description: ''
       parameters:
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -105,28 +531,54 @@ paths:
               schema:
                 type: object
                 example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
                 properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
+                  error:
                     type: string
                     example: authentication_error
-                  body:
+                  message:
                     type: string
                     example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
       tags:
-        - Endpoints
-      security: []
+        - 'Auth Endpoints'
   /api_admin/permissions:
     get:
-      summary: 'Display a listing of the resource.'
-      operationId: displayAListingOfTheResource
+      summary: 'Display a paginated permissions.'
+      operationId: displayAPaginatedPermissions
       description: ''
       parameters:
+        -
+          in: query
+          name: size
+          description: 'The number of items by page.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'The number of items by page.'
+            example: 20
+        -
+          in: query
+          name: search
+          description: 'The criteria to search.'
+          example: 'Editar administradores'
+          required: false
+          schema:
+            type: string
+            description: 'The criteria to search.'
+            example: 'Editar administradores'
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -149,28 +601,54 @@ paths:
               schema:
                 type: object
                 example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
                 properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
+                  error:
                     type: string
                     example: authentication_error
-                  body:
+                  message:
                     type: string
                     example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
       tags:
-        - Endpoints
-      security: []
+        - 'Authorization Endpoints'
   /api_admin/roles:
     get:
-      summary: 'Display a listing of the resource.'
-      operationId: displayAListingOfTheResource
+      summary: 'Display a paginated roles.'
+      operationId: displayAPaginatedRoles
       description: ''
       parameters:
+        -
+          in: query
+          name: size
+          description: 'The number of elements for listing.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'The number of elements for listing.'
+            example: 20
+        -
+          in: query
+          name: search
+          description: 'The criteria to search in list.'
+          example: Administrador
+          required: false
+          schema:
+            type: string
+            description: 'The criteria to search in list.'
+            example: Administrador
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -193,27 +671,33 @@ paths:
               schema:
                 type: object
                 example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
                 properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
+                  error:
                     type: string
                     example: authentication_error
-                  body:
+                  message:
                     type: string
                     example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
       tags:
-        - Endpoints
-      security: []
+        - 'Authorization Endpoints'
     post:
-      summary: 'Store a newly created resource in storage.'
-      operationId: storeANewlyCreatedResourceInStorage
+      summary: 'Store a new role.'
+      operationId: storeANewRole
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -236,28 +720,55 @@ paths:
               schema:
                 type: object
                 example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
                 properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
+                  error:
                     type: string
                     example: authentication_error
-                  body:
+                  message:
                     type: string
                     example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
       tags:
-        - Endpoints
-      security: []
+        - 'Authorization Endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: 'The description for this role.'
+                  example: 'Super Admin'
+                permissions:
+                  type: array
+                  description: 'The selected permissions names for this role.'
+                  example:
+                    - libero
+                  items:
+                    type: string
+              required:
+                - description
+                - permissions
   '/api_admin/roles/{role_uuid}':
     get:
-      summary: 'Display the specified resource.'
-      operationId: displayTheSpecifiedResource
+      summary: 'Display the specified role.'
+      operationId: displayTheSpecifiedRole
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -280,27 +791,33 @@ paths:
               schema:
                 type: object
                 example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
                 properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
+                  error:
                     type: string
                     example: authentication_error
-                  body:
+                  message:
                     type: string
                     example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
       tags:
-        - Endpoints
-      security: []
+        - 'Authorization Endpoints'
     put:
-      summary: 'Update the specified resource in storage.'
-      operationId: updateTheSpecifiedResourceInStorage
+      summary: 'Update the specified role.'
+      operationId: updateTheSpecifiedRole
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -323,27 +840,54 @@ paths:
               schema:
                 type: object
                 example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
                 properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
+                  error:
                     type: string
                     example: authentication_error
-                  body:
+                  message:
                     type: string
                     example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
       tags:
-        - Endpoints
-      security: []
+        - 'Authorization Endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: 'The description for this role.'
+                  example: 'Super Admin'
+                permissions:
+                  type: array
+                  description: 'The selected permission names for this role.'
+                  example:
+                    - corporis
+                  items:
+                    type: string
+              required:
+                - description
+                - permissions
     delete:
-      summary: 'Remove the specified resource from storage.'
-      operationId: removeTheSpecifiedResourceFromStorage
+      summary: 'Remove the specified role.'
+      operationId: removeTheSpecifiedRole
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -366,313 +910,39 @@ paths:
               schema:
                 type: object
                 example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
+                  error: authentication_error
+                  message: 'No autenticado.'
+                  status: 401
                 properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
+                  error:
                     type: string
                     example: authentication_error
-                  body:
+                  message:
                     type: string
                     example: 'No autenticado.'
+                  status:
+                    type: integer
+                    example: 401
       tags:
-        - Endpoints
-      security: []
+        - 'Authorization Endpoints'
     parameters:
       -
         in: path
         name: role_uuid
-        description: ''
-        example: 49e03671-83ef-4edb-b5c9-416fefbe0f87
-        required: true
-        schema:
-          type: string
-  /api_admin/admins:
-    get:
-      summary: 'Display a listing of the resource.'
-      operationId: displayAListingOfTheResource
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: '*/*'
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
-                properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
-                    type: string
-                    example: authentication_error
-                  body:
-                    type: string
-                    example: 'No autenticado.'
-      tags:
-        - Endpoints
-      security: []
-    post:
-      summary: 'Store a newly created resource in storage.'
-      operationId: storeANewlyCreatedResourceInStorage
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: '*/*'
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
-                properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
-                    type: string
-                    example: authentication_error
-                  body:
-                    type: string
-                    example: 'No autenticado.'
-      tags:
-        - Endpoints
-      security: []
-  '/api_admin/admins/{admin_uuid}':
-    get:
-      summary: 'Display the specified resource.'
-      operationId: displayTheSpecifiedResource
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: '*/*'
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
-                properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
-                    type: string
-                    example: authentication_error
-                  body:
-                    type: string
-                    example: 'No autenticado.'
-      tags:
-        - Endpoints
-      security: []
-    put:
-      summary: 'Update the specified resource in storage.'
-      operationId: updateTheSpecifiedResourceInStorage
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: '*/*'
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
-                properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
-                    type: string
-                    example: authentication_error
-                  body:
-                    type: string
-                    example: 'No autenticado.'
-      tags:
-        - Endpoints
-      security: []
-    delete:
-      summary: 'Remove the specified resource from storage.'
-      operationId: removeTheSpecifiedResourceFromStorage
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: '*/*'
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
-                properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
-                    type: string
-                    example: authentication_error
-                  body:
-                    type: string
-                    example: 'No autenticado.'
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: admin_uuid
-        description: ''
-        example: 456b0dd8-d10d-4800-a48e-bdab84343648
-        required: true
-        schema:
-          type: string
-  '/api_admin/admins/{admin_uuid}/disable':
-    patch:
-      summary: 'Disable the specified resource from storage.'
-      operationId: disableTheSpecifiedResourceFromStorage
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: '*/*'
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  code: '0'
-                  type: authentication_error
-                  body: 'No autenticado.'
-                properties:
-                  code:
-                    type: string
-                    example: '0'
-                  type:
-                    type: string
-                    example: authentication_error
-                  body:
-                    type: string
-                    example: 'No autenticado.'
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: admin_uuid
-        description: ''
-        example: 456b0dd8-d10d-4800-a48e-bdab84343648
+        description: 'The role uuid.'
+        example: 9737af4d-9ab1-3475-98f0-9fa308191da0
         required: true
         schema:
           type: string
 tags:
   -
-    name: Endpoints
+    name: 'Admin Endpoints'
+    description: ''
+  -
+    name: 'Auth Endpoints'
+    description: ''
+  -
+    name: 'Authorization Endpoints'
     description: ''
 components:
   securitySchemes:

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 /**
- * @group Permission Endpoints
+ * @group Authorization Endpoints
  *
  * @subGroup Roles
  *

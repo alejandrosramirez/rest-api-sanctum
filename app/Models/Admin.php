@@ -172,7 +172,7 @@ class Admin extends Authenticatable
     public function fullname(): Attribute
     {
         return Attribute::make(
-            fn () => $this->name.' '.$this->lastname
+            fn () => $this->name . ' ' . $this->lastname
         )->shouldCache();
     }
 
@@ -182,7 +182,6 @@ class Admin extends Authenticatable
     public function avatar(): Attribute
     {
         return Attribute::make(
-            // https://www.gravatar.com/avatar/' . md5(strtolower($this->profileable->username)) . '?d=identicon&s=200&f=y
             fn () => $this->attributes['avatar'] ?? 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&s=200&f=y'
         )->shouldCache();
     }

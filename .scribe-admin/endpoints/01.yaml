@@ -4,7 +4,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/permissions
+    uri: api_admin/permissions
     metadata:
       groupName: 'Authorization Endpoints'
       groupDescription: ''
@@ -32,32 +32,29 @@ endpoints:
         name: search
         description: 'The criteria to search.'
         required: false
-        example: 'Editar usuarios'
+        example: 'Editar administradores'
         type: string
         custom: []
     cleanQueryParameters:
       size: 20
-      search: 'Editar usuarios'
+      search: 'Editar administradores'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"current_page":1,"data":[{"id":19,"uuid":"4e6aa5f5-5e5b-4b30-84f0-fa65fa9737ca","name":"users_update","description":"Editar usuarios","guard_name":"web","created_at":"2022-12-24T04:39:09.000000Z","updated_at":"2022-12-24T04:39:09.000000Z"}],"first_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/permissions?page=1","from":1,"last_page":1,"last_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/permissions?page=1","links":[{"url":null,"label":"&laquo; Anterior","active":false},{"url":"http:\/\/rest-api-sanctum.develop:8080\/api\/permissions?page=1","label":"1","active":true},{"url":null,"label":"Siguiente &raquo;","active":false}],"next_page_url":null,"path":"http:\/\/rest-api-sanctum.develop:8080\/api\/permissions","per_page":20,"prev_page_url":null,"to":1,"total":1}'
+        status: 401
+        content: '{"error":"authentication_error","message":"No autenticado.","status":401}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
-          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6a51d3v4a8cEPebgk6DZhVf'
+      - 'Bearer v6h6Zc3VPak8451dgEDbafe'
     controller: null
     method: null
     route: null
@@ -65,7 +62,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/roles
+    uri: api_admin/roles
     metadata:
       groupName: 'Authorization Endpoints'
       groupDescription: ''
@@ -104,21 +101,18 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"current_page":1,"data":[{"id":2,"uuid":"e61d12c0-3644-4cc4-8b5f-7db4188405f6","name":"administrator","description":"Administrador","guard_name":"web","created_at":"2022-12-24T04:39:09.000000Z","updated_at":"2022-12-24T04:39:09.000000Z","deleted_at":null}],"first_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/roles?page=1","from":1,"last_page":1,"last_page_url":"http:\/\/rest-api-sanctum.develop:8080\/api\/roles?page=1","links":[{"url":null,"label":"&laquo; Anterior","active":false},{"url":"http:\/\/rest-api-sanctum.develop:8080\/api\/roles?page=1","label":"1","active":true},{"url":null,"label":"Siguiente &raquo;","active":false}],"next_page_url":null,"path":"http:\/\/rest-api-sanctum.develop:8080\/api\/roles","per_page":20,"prev_page_url":null,"to":1,"total":1}'
+        status: 401
+        content: '{"error":"authentication_error","message":"No autenticado.","status":401}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
-          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer EgDVk6f5Pvd1h3bcZa4a6e8'
+      - 'Bearer a5b6EaPgck1fVhd3e46Z8vD'
     controller: null
     method: null
     route: null
@@ -126,7 +120,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/roles
+    uri: api_admin/roles
     metadata:
       groupName: 'Authorization Endpoints'
       groupDescription: ''
@@ -157,31 +151,28 @@ endpoints:
         description: 'The selected permissions names for this role.'
         required: true
         example:
-          - sit
+          - libero
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       description: 'Super Admin'
       permissions:
-        - sit
+        - libero
     fileParameters: []
     responses:
       -
-        status: 422
-        content: '{"error":"validation_error","message":{"description":["El campo descripci\u00f3n ya ha sido tomado."]},"status":422}'
+        status: 401
+        content: '{"error":"authentication_error","message":"No autenticado.","status":401}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
-          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer DEeVaZPd648fha1cgkv65b3'
+      - 'Bearer h4Eca6aD6b5fPZ38ekdvVg1'
     controller: null
     method: null
     route: null
@@ -189,7 +180,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/roles/{role_uuid}'
+    uri: 'api_admin/roles/{role_uuid}'
     metadata:
       groupName: 'Authorization Endpoints'
       groupDescription: ''
@@ -208,11 +199,11 @@ endpoints:
         name: role_uuid
         description: 'The role uuid.'
         required: true
-        example: ca0bce36-9a5d-31e3-a3e3-045b8a2b6f23
+        example: 9737af4d-9ab1-3475-98f0-9fa308191da0
         type: string
         custom: []
     cleanUrlParameters:
-      role_uuid: ca0bce36-9a5d-31e3-a3e3-045b8a2b6f23
+      role_uuid: 9737af4d-9ab1-3475-98f0-9fa308191da0
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -220,21 +211,18 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 404
-        content: '{"error":"model_error","message":"Rol no encontrado\/a.","status":404}'
+        status: 401
+        content: '{"error":"authentication_error","message":"No autenticado.","status":401}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '54'
-          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer a6cfD6a3V8Pev1gEhb4d5kZ'
+      - 'Bearer cf3bkEv6Dg5ha4deaZ8VP16'
     controller: null
     method: null
     route: null
@@ -242,7 +230,7 @@ endpoints:
   -
     httpMethods:
       - PUT
-    uri: 'api/roles/{role_uuid}'
+    uri: 'api_admin/roles/{role_uuid}'
     metadata:
       groupName: 'Authorization Endpoints'
       groupDescription: ''
@@ -261,11 +249,11 @@ endpoints:
         name: role_uuid
         description: 'The role uuid.'
         required: true
-        example: 4274b558-866a-3171-a0ce-c9bf60daf48f
+        example: e8ed1761-693a-3008-b1ea-e62223da2557
         type: string
         custom: []
     cleanUrlParameters:
-      role_uuid: 4274b558-866a-3171-a0ce-c9bf60daf48f
+      role_uuid: e8ed1761-693a-3008-b1ea-e62223da2557
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -281,31 +269,28 @@ endpoints:
         description: 'The selected permission names for this role.'
         required: true
         example:
-          - aut
+          - corporis
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       description: 'Super Admin'
       permissions:
-        - aut
+        - corporis
     fileParameters: []
     responses:
       -
-        status: 404
-        content: '{"error":"model_error","message":"Rol no encontrado\/a.","status":404}'
+        status: 401
+        content: '{"error":"authentication_error","message":"No autenticado.","status":401}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '53'
-          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer kh8gab14Pvad66DfcEZ53eV'
+      - 'Bearer VPbc1dfD8hg6Ekv453eaaZ6'
     controller: null
     method: null
     route: null
@@ -313,7 +298,7 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/roles/{role_uuid}'
+    uri: 'api_admin/roles/{role_uuid}'
     metadata:
       groupName: 'Authorization Endpoints'
       groupDescription: ''
@@ -332,11 +317,11 @@ endpoints:
         name: role_uuid
         description: 'The role uuid.'
         required: true
-        example: b902d457-90cd-3440-99d4-e2be76b3ff4d
+        example: 2ec41896-3207-3c78-a962-efbecd0f0f95
         type: string
         custom: []
     cleanUrlParameters:
-      role_uuid: b902d457-90cd-3440-99d4-e2be76b3ff4d
+      role_uuid: 2ec41896-3207-3c78-a962-efbecd0f0f95
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -344,21 +329,18 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 404
-        content: '{"error":"model_error","message":"Rol no encontrado\/a.","status":404}'
+        status: 401
+        content: '{"error":"authentication_error","message":"No autenticado.","status":401}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '52'
-          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6V8k51Zc3daPvEfb46gDahe'
+      - 'Bearer dagEaZD3v56fVP46c81hekb'
     controller: null
     method: null
     route: null

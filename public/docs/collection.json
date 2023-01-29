@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Rest API Sanctum",
-        "_postman_id": "84bf29da-abac-4678-a770-aa47a0faef8e",
+        "_postman_id": "10f99595-33eb-4eca-9bd5-aef36f8a335e",
         "description": "Rest API Sanctum general api docs.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -68,12 +68,12 @@
                                     "value": "59"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"47|XQRM3yqWKuS9zWNHBGCV3wvzGUoZkhSjPARlMGKC\",\"user\":{\"id\":1,\"uuid\":\"effee139-e612-43d8-8560-d99133bdd14c\",\"avatar\":\"https:\\\/\\\/www.gravatar.com\\\/avatar\\\/00000000000000000000000000000000?d=mp&s=200&f=y\",\"name\":\"Miguel Alejandro\",\"lastname\":\"Salgado Ram\\u00edrez\",\"phone\":\"3330204397\",\"email\":\"alejandrosram@outlook.com\",\"email_verified_at\":\"2022-12-24T04:39:09.000000Z\",\"disabled\":false,\"created_at\":\"2022-12-24T04:39:09.000000Z\",\"updated_at\":\"2022-12-24T04:39:09.000000Z\",\"deleted_at\":null,\"stripe_id\":null,\"pm_type\":null,\"pm_last_four\":null,\"trial_ends_at\":null,\"fullname\":\"Miguel Alejandro Salgado Ram\\u00edrez\"}}",
+                            "body": "{\"token\":\"59|9jsJFjqarSO9oDsrgKeJ1p0Vom1z7An1BMZIZvZu\",\"user\":{\"id\":1,\"uuid\":\"effee139-e612-43d8-8560-d99133bdd14c\",\"avatar\":\"https:\\\/\\\/www.gravatar.com\\\/avatar\\\/00000000000000000000000000000000?d=mp&s=200&f=y\",\"name\":\"Miguel Alejandro\",\"lastname\":\"Salgado Ram\\u00edrez\",\"phone\":\"3330204397\",\"email\":\"alejandrosram@outlook.com\",\"email_verified_at\":\"2022-12-24T04:39:09.000000Z\",\"disabled\":false,\"created_at\":\"2022-12-24T04:39:09.000000Z\",\"updated_at\":\"2022-12-24T04:39:09.000000Z\",\"deleted_at\":null,\"stripe_id\":null,\"pm_type\":null,\"pm_last_four\":null,\"trial_ends_at\":null,\"fullname\":\"Miguel Alejandro Salgado Ram\\u00edrez\"}}",
                             "name": ""
                         }
                     ]
@@ -121,12 +121,12 @@
                                     "value": "58"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"logout\":5}",
+                            "body": "{\"logout\":15}",
                             "name": ""
                         }
                     ]
@@ -134,7 +134,7 @@
             ]
         },
         {
-            "name": "Permission Endpoints",
+            "name": "Authorization Endpoints",
             "description": "",
             "item": [
                 {
@@ -197,8 +197,8 @@
                                             "value": "57"
                                         },
                                         {
-                                            "key": "access-control-allow-origin",
-                                            "value": "*"
+                                            "key": "vary",
+                                            "value": "Origin"
                                         }
                                     ],
                                     "code": 200,
@@ -269,8 +269,8 @@
                                             "value": "56"
                                         },
                                         {
-                                            "key": "access-control-allow-origin",
-                                            "value": "*"
+                                            "key": "vary",
+                                            "value": "Origin"
                                         }
                                     ],
                                     "code": 200,
@@ -301,7 +301,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"Super Admin\",\"permissions\":[\"quas\"]}"
+                                    "raw": "{\"description\":\"Super Admin\",\"permissions\":[\"sit\"]}"
                                 },
                                 "description": ""
                             },
@@ -325,12 +325,12 @@
                                             "value": "55"
                                         },
                                         {
-                                            "key": "access-control-allow-origin",
-                                            "value": "*"
+                                            "key": "vary",
+                                            "value": "Origin"
                                         }
                                     ],
                                     "code": 422,
-                                    "body": "{\"code\":\"0\",\"type\":\"validation_error\",\"body\":{\"description\":[\"El campo descripci\\u00f3n ya ha sido tomado.\"]}}",
+                                    "body": "{\"error\":\"validation_error\",\"message\":{\"description\":[\"El campo descripci\\u00f3n ya ha sido tomado.\"]},\"status\":422}",
                                     "name": ""
                                 }
                             ]
@@ -347,7 +347,7 @@
                                         {
                                             "id": "role_uuid",
                                             "key": "role_uuid",
-                                            "value": "d19d0d92-82be-3289-88e8-4dabea77dfb7",
+                                            "value": "ca0bce36-9a5d-31e3-a3e3-045b8a2b6f23",
                                             "description": "The role uuid."
                                         }
                                     ]
@@ -386,12 +386,12 @@
                                             "value": "54"
                                         },
                                         {
-                                            "key": "access-control-allow-origin",
-                                            "value": "*"
+                                            "key": "vary",
+                                            "value": "Origin"
                                         }
                                     ],
                                     "code": 404,
-                                    "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Rol no encontrado\\\/a.\"}",
+                                    "body": "{\"error\":\"model_error\",\"message\":\"Rol no encontrado\\\/a.\",\"status\":404}",
                                     "name": ""
                                 }
                             ]
@@ -408,7 +408,7 @@
                                         {
                                             "id": "role_uuid",
                                             "key": "role_uuid",
-                                            "value": "b31f1fd7-4054-3797-a7d4-8786036c5a6f",
+                                            "value": "4274b558-866a-3171-a0ce-c9bf60daf48f",
                                             "description": "The role uuid."
                                         }
                                     ]
@@ -426,7 +426,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"Super Admin\",\"permissions\":[\"et\"]}"
+                                    "raw": "{\"description\":\"Super Admin\",\"permissions\":[\"aut\"]}"
                                 },
                                 "description": ""
                             },
@@ -450,12 +450,12 @@
                                             "value": "53"
                                         },
                                         {
-                                            "key": "access-control-allow-origin",
-                                            "value": "*"
+                                            "key": "vary",
+                                            "value": "Origin"
                                         }
                                     ],
                                     "code": 404,
-                                    "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Rol no encontrado\\\/a.\"}",
+                                    "body": "{\"error\":\"model_error\",\"message\":\"Rol no encontrado\\\/a.\",\"status\":404}",
                                     "name": ""
                                 }
                             ]
@@ -472,7 +472,7 @@
                                         {
                                             "id": "role_uuid",
                                             "key": "role_uuid",
-                                            "value": "a6685aca-89db-3852-8ef2-2e7b53af9291",
+                                            "value": "b902d457-90cd-3440-99d4-e2be76b3ff4d",
                                             "description": "The role uuid."
                                         }
                                     ]
@@ -511,12 +511,12 @@
                                             "value": "52"
                                         },
                                         {
-                                            "key": "access-control-allow-origin",
-                                            "value": "*"
+                                            "key": "vary",
+                                            "value": "Origin"
                                         }
                                     ],
                                     "code": 404,
-                                    "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Rol no encontrado\\\/a.\"}",
+                                    "body": "{\"error\":\"model_error\",\"message\":\"Rol no encontrado\\\/a.\",\"status\":404}",
                                     "name": ""
                                 }
                             ]
@@ -585,8 +585,8 @@
                                     "value": "51"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 200,
@@ -625,7 +625,7 @@
                             "mode": "raw",
                             "raw": "{\"payload\":{\"id\":\"evt_2Zj5zzFU3a9abcZ1aYYYaaZ1\",\"object\":\"event\",\"type\":\"payment_intent.succeeded\"}}"
                         },
-                        "description": "<aside class='notice'>\nFor more info, check the <a href='https:\/\/stripe.com\/docs\/webhooks' target='_blank'>stripe official docs<\/a> about stripe webhooks.\n<\/aside>",
+                        "description": "<aside class='notice'>\nFor more info, check the <a href='https:\/\/stripe.com\/docs\/webhooks' target='_blank'>stripe official docs<\/a> about stripe webhooks.\n<\/aside>.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -650,8 +650,8 @@
                                     "value": "59"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 200,
@@ -722,8 +722,8 @@
                                     "value": "50"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 200,
@@ -820,12 +820,12 @@
                                     "value": "49"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 500,
-                            "body": "{\"code\":\"0\",\"type\":\"internal_server_error\",\"body\":\"Un error de servidor ha ocurrido.\"}",
+                            "body": "{\"error\":\"internal_server_error\",\"message\":\"Un error de servidor ha ocurrido.\",\"status\":500}",
                             "name": ""
                         }
                     ]
@@ -842,7 +842,7 @@
                                 {
                                     "id": "user_uuid",
                                     "key": "user_uuid",
-                                    "value": "635c116e-bb14-3274-8579-9e2dafb922bc",
+                                    "value": "f2b46f05-327c-38a3-a467-4d52d9b6bcf9",
                                     "description": "The user uuid."
                                 }
                             ]
@@ -881,12 +881,12 @@
                                     "value": "48"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 404,
-                            "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Usuario no encontrado\\\/a.\"}",
+                            "body": "{\"error\":\"model_error\",\"message\":\"Usuario no encontrado\\\/a.\",\"status\":404}",
                             "name": ""
                         }
                     ]
@@ -903,7 +903,7 @@
                                 {
                                     "id": "user_uuid",
                                     "key": "user_uuid",
-                                    "value": "4a2ac7e6-b176-3344-b13b-5de2074721be",
+                                    "value": "ea4b774b-2cdd-3feb-b659-92680f49a6c5",
                                     "description": "The user uuid."
                                 }
                             ]
@@ -992,12 +992,12 @@
                                     "value": "47"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 404,
-                            "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Usuario no encontrado\\\/a.\"}",
+                            "body": "{\"error\":\"model_error\",\"message\":\"Usuario no encontrado\\\/a.\",\"status\":404}",
                             "name": ""
                         }
                     ]
@@ -1014,7 +1014,7 @@
                                 {
                                     "id": "user_uuid",
                                     "key": "user_uuid",
-                                    "value": "098fd37c-21f1-3a6c-ad88-d8d012285125",
+                                    "value": "861810af-3d50-3181-b29f-038278a08a76",
                                     "description": "The user uuid."
                                 }
                             ]
@@ -1053,12 +1053,12 @@
                                     "value": "46"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 404,
-                            "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Usuario no encontrado\\\/a.\"}",
+                            "body": "{\"error\":\"model_error\",\"message\":\"Usuario no encontrado\\\/a.\",\"status\":404}",
                             "name": ""
                         }
                     ]
@@ -1075,7 +1075,7 @@
                                 {
                                     "id": "user_uuid",
                                     "key": "user_uuid",
-                                    "value": "01bb2aea-7474-377c-b15c-ab665f153de3",
+                                    "value": "3e52eba6-68ed-3c43-bc93-50b0a6d818d9",
                                     "description": "The user uuid."
                                 }
                             ]
@@ -1114,12 +1114,12 @@
                                     "value": "45"
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "vary",
+                                    "value": "Origin"
                                 }
                             ],
                             "code": 404,
-                            "body": "{\"code\":\"0\",\"type\":\"model_error\",\"body\":\"Usuario no encontrado\\\/a.\"}",
+                            "body": "{\"error\":\"model_error\",\"message\":\"Usuario no encontrado\\\/a.\",\"status\":404}",
                             "name": ""
                         }
                     ]

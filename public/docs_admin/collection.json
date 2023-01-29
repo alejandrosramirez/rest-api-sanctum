@@ -10,13 +10,405 @@
     ],
     "info": {
         "name": "Rest API Sanctum",
-        "_postman_id": "517c3eaf-1212-421b-80f9-ddf50c8e3f59",
+        "_postman_id": "2535deed-a9c4-4898-a380-1ef975246e75",
         "description": "Rest API Sanctum general api admin docs.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
+            "name": "Admin Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api_admin\/admins",
+                            "query": [
+                                {
+                                    "key": "size",
+                                    "value": "20",
+                                    "description": "The number of elements for listing.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "alejandrosram%40outlook.com",
+                                    "description": "The criteria to search in list.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api_admin\/admins?size=20&search=alejandrosram%40outlook.com"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a new admin.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api_admin\/admins",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api_admin\/admins"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Luis",
+                                    "type": "text",
+                                    "description": "The name for this admin."
+                                },
+                                {
+                                    "key": "lastname",
+                                    "value": "Gonzalez",
+                                    "type": "text",
+                                    "description": "The lastname for this admin."
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "3322332233",
+                                    "type": "text",
+                                    "description": "The phone for this admin."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "luis@mail.com",
+                                    "type": "text",
+                                    "description": "The email for this admin."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "1234567890",
+                                    "type": "text",
+                                    "description": "The password for this admin."
+                                },
+                                {
+                                    "key": "role",
+                                    "value": "administrator",
+                                    "type": "text",
+                                    "description": "The roles name for this admin."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified admin.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api_admin\/admins\/:admin_uuid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api_admin\/admins\/:admin_uuid",
+                            "variable": [
+                                {
+                                    "id": "admin_uuid",
+                                    "key": "admin_uuid",
+                                    "value": "26037d5e-0b4c-3a2f-a862-51b74ac21d0f",
+                                    "description": "The admin uuid."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified admin.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api_admin\/admins\/:admin_uuid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api_admin\/admins\/:admin_uuid",
+                            "variable": [
+                                {
+                                    "id": "admin_uuid",
+                                    "key": "admin_uuid",
+                                    "value": "bdb8fcf5-852c-35f1-952d-079d3d897d87",
+                                    "description": "The admin uuid."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Luis",
+                                    "type": "text",
+                                    "description": "The name for this admin."
+                                },
+                                {
+                                    "key": "lastname",
+                                    "value": "Gonzalez",
+                                    "type": "text",
+                                    "description": "The lastname for this admin."
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "3322332233",
+                                    "type": "text",
+                                    "description": "The phone for this admin."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "luis@mail.com",
+                                    "type": "text",
+                                    "description": "The email for this admin."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "1234567890",
+                                    "type": "text",
+                                    "description": "The password for this admin."
+                                },
+                                {
+                                    "key": "role",
+                                    "value": "administrator",
+                                    "type": "text",
+                                    "description": "The roles name for this admin."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api_admin\/admins\/:admin_uuid",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api_admin\/admins\/:admin_uuid",
+                            "variable": [
+                                {
+                                    "id": "admin_uuid",
+                                    "key": "admin_uuid",
+                                    "value": "4c4a54e2-6869-3bdc-b0ab-5fd9efee7688",
+                                    "description": "The admin uuid."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Disable the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api_admin\/admins\/:admin_uuid\/disable",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api_admin\/admins\/:admin_uuid\/disable",
+                            "variable": [
+                                {
+                                    "id": "admin_uuid",
+                                    "key": "admin_uuid",
+                                    "value": "cb46fac4-b72f-30fa-b589-63f8ec46adef",
+                                    "description": "The admin uuid."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Auth Endpoints",
             "description": "",
             "item": [
                 {
@@ -41,7 +433,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"stroman.emerald@example.com\",\"password\":\"z~a}F]LU>*cE\"}"
+                            "raw": "{\"email\":\"alejandrosram@outlook.com\",\"password\":\"1234567890\"}"
                         },
                         "description": "",
                         "auth": {
@@ -69,13 +461,13 @@
                                 }
                             ],
                             "code": 422,
-                            "body": "{\"code\":\"0\",\"type\":\"validation_error\",\"body\":{\"email\":[\"Las credecnciales introducidas son incorrectas.\"]}}",
+                            "body": "{\"error\":\"validation_error\",\"message\":{\"email\":[\"Las credecnciales introducidas son incorrectas.\"]},\"status\":422}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Handle and incoming logout request",
+                    "name": "Handle and incoming logout request.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -95,10 +487,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -113,592 +502,328 @@
                                 }
                             ],
                             "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
+                            "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
                             "name": ""
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "name": "Authorization Endpoints",
+            "description": "",
+            "item": [
                 {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/permissions",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/permissions"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
+                    "name": "Permissions",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Display a paginated permissions.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api_admin\/permissions",
+                                    "query": [
+                                        {
+                                            "key": "size",
+                                            "value": "20",
+                                            "description": "The number of items by page.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "search",
+                                            "value": "Editar+administradores",
+                                            "description": "The criteria to search.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api_admin\/permissions?size=20&search=Editar+administradores"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
                             },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
+                            "response": [
                                 {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                                    "name": ""
                                 }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
+                            ]
                         }
                     ]
                 },
                 {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/roles",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/roles"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
+                    "name": "Roles",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Display a paginated roles.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api_admin\/roles",
+                                    "query": [
+                                        {
+                                            "key": "size",
+                                            "value": "20",
+                                            "description": "The number of elements for listing.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "search",
+                                            "value": "Administrador",
+                                            "description": "The criteria to search in list.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api_admin\/roles?size=20&search=Administrador"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
                             },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
+                            "response": [
                                 {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/roles",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/roles"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/roles\/:role_uuid",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/roles\/:role_uuid",
-                            "variable": [
-                                {
-                                    "id": "role_uuid",
-                                    "key": "role_uuid",
-                                    "value": "49e03671-83ef-4edb-b5c9-416fefbe0f87",
-                                    "description": ""
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                                    "name": ""
                                 }
                             ]
                         },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
+                            "name": "Store a new role.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api_admin\/roles",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api_admin\/roles"
                                 },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"description\":\"Super Admin\",\"permissions\":[\"libero\"]}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
                                 {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/roles\/:role_uuid",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/roles\/:role_uuid",
-                            "variable": [
-                                {
-                                    "id": "role_uuid",
-                                    "key": "role_uuid",
-                                    "value": "49e03671-83ef-4edb-b5c9-416fefbe0f87",
-                                    "description": ""
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                                    "name": ""
                                 }
                             ]
                         },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
+                            "name": "Display the specified role.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api_admin\/roles\/:role_uuid",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api_admin\/roles\/:role_uuid",
+                                    "variable": [
+                                        {
+                                            "id": "role_uuid",
+                                            "key": "role_uuid",
+                                            "value": "9737af4d-9ab1-3475-98f0-9fa308191da0",
+                                            "description": "The role uuid."
+                                        }
+                                    ]
                                 },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
                                 {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Remove the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/roles\/:role_uuid",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/roles\/:role_uuid",
-                            "variable": [
-                                {
-                                    "id": "role_uuid",
-                                    "key": "role_uuid",
-                                    "value": "49e03671-83ef-4edb-b5c9-416fefbe0f87",
-                                    "description": ""
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                                    "name": ""
                                 }
                             ]
                         },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
+                            "name": "Update the specified role.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api_admin\/roles\/:role_uuid",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api_admin\/roles\/:role_uuid",
+                                    "variable": [
+                                        {
+                                            "id": "role_uuid",
+                                            "key": "role_uuid",
+                                            "value": "e8ed1761-693a-3008-b1ea-e62223da2557",
+                                            "description": "The role uuid."
+                                        }
+                                    ]
                                 },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/admins",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/admins"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"description\":\"Super Admin\",\"permissions\":[\"corporis\"]}"
+                                },
+                                "description": ""
                             },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
+                            "response": [
                                 {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/admins",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/admins"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/admins\/:admin_uuid",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/admins\/:admin_uuid",
-                            "variable": [
-                                {
-                                    "id": "admin_uuid",
-                                    "key": "admin_uuid",
-                                    "value": "456b0dd8-d10d-4800-a48e-bdab84343648",
-                                    "description": ""
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                                    "name": ""
                                 }
                             ]
                         },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
+                            "name": "Remove the specified role.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api_admin\/roles\/:role_uuid",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api_admin\/roles\/:role_uuid",
+                                    "variable": [
+                                        {
+                                            "id": "role_uuid",
+                                            "key": "role_uuid",
+                                            "value": "2ec41896-3207-3c78-a962-efbecd0f0f95",
+                                            "description": "The role uuid."
+                                        }
+                                    ]
                                 },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "*\/*"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
                                 {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/admins\/:admin_uuid",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/admins\/:admin_uuid",
-                            "variable": [
-                                {
-                                    "id": "admin_uuid",
-                                    "key": "admin_uuid",
-                                    "value": "456b0dd8-d10d-4800-a48e-bdab84343648",
-                                    "description": ""
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"error\":\"authentication_error\",\"message\":\"No autenticado.\",\"status\":401}",
+                                    "name": ""
                                 }
                             ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Remove the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/admins\/:admin_uuid",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/admins\/:admin_uuid",
-                            "variable": [
-                                {
-                                    "id": "admin_uuid",
-                                    "key": "admin_uuid",
-                                    "value": "456b0dd8-d10d-4800-a48e-bdab84343648",
-                                    "description": ""
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Disable the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api_admin\/admins\/:admin_uuid\/disable",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api_admin\/admins\/:admin_uuid\/disable",
-                            "variable": [
-                                {
-                                    "id": "admin_uuid",
-                                    "key": "admin_uuid",
-                                    "value": "456b0dd8-d10d-4800-a48e-bdab84343648",
-                                    "description": ""
-                                }
-                            ]
-                        },
-                        "method": "PATCH",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "*\/*"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"code\":\"0\",\"type\":\"authentication_error\",\"body\":\"No autenticado.\"}",
-                            "name": ""
                         }
                     ]
                 }

@@ -43,13 +43,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"token":"47|XQRM3yqWKuS9zWNHBGCV3wvzGUoZkhSjPARlMGKC","user":{"id":1,"uuid":"effee139-e612-43d8-8560-d99133bdd14c","avatar":"https:\/\/www.gravatar.com\/avatar\/00000000000000000000000000000000?d=mp&s=200&f=y","name":"Miguel Alejandro","lastname":"Salgado Ram\u00edrez","phone":"3330204397","email":"alejandrosram@outlook.com","email_verified_at":"2022-12-24T04:39:09.000000Z","disabled":false,"created_at":"2022-12-24T04:39:09.000000Z","updated_at":"2022-12-24T04:39:09.000000Z","deleted_at":null,"stripe_id":null,"pm_type":null,"pm_last_four":null,"trial_ends_at":null,"fullname":"Miguel Alejandro Salgado Ram\u00edrez"}}'
+        content: '{"token":"59|9jsJFjqarSO9oDsrgKeJ1p0Vom1z7An1BMZIZvZu","user":{"id":1,"uuid":"effee139-e612-43d8-8560-d99133bdd14c","avatar":"https:\/\/www.gravatar.com\/avatar\/00000000000000000000000000000000?d=mp&s=200&f=y","name":"Miguel Alejandro","lastname":"Salgado Ram\u00edrez","phone":"3330204397","email":"alejandrosram@outlook.com","email_verified_at":"2022-12-24T04:39:09.000000Z","disabled":false,"created_at":"2022-12-24T04:39:09.000000Z","updated_at":"2022-12-24T04:39:09.000000Z","deleted_at":null,"stripe_id":null,"pm_type":null,"pm_last_four":null,"trial_ends_at":null,"fullname":"Miguel Alejandro Salgado Ram\u00edrez"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '59'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
@@ -85,20 +85,20 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"logout":5}'
+        content: '{"logout":15}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '58'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6DaEah3e61b4d85cPgVkZvf'
+      - 'Bearer 6gfEaa6Vkd4De3PbhvZ8c51'
     controller: null
     method: null
     route: null

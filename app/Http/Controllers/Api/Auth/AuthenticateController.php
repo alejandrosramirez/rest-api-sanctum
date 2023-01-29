@@ -46,8 +46,6 @@ class AuthenticateController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
-        return response()->json([
-            'logout' => $user->tokens()->delete(),
-        ]);
+        return response()->json(['logout' => $user->tokens()->delete()]);
     }
 }

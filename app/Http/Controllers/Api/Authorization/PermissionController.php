@@ -7,7 +7,7 @@ use App\Models\Authorization\Permission;
 use Illuminate\Http\Request;
 
 /**
- * @group Permission Endpoints
+ * @group Authorization Endpoints
  *
  * @subGroup Permissions
  *

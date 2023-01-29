@@ -11,12 +11,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group Admin Endpoints
+ *
+ * @authenticated
+ */
 class AdminController extends Controller
 {
     use HandleUpload;
 
     /**
      * Display a listing of the resource.
+     *
+     * @queryParam size int The number of elements for listing. Example: 20
+     * @queryParam search string The criteria to search in list. Example: alejandrosram@outlook.com
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
@@ -34,7 +42,15 @@ class AdminController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new admin.
+     *
+     * @bodyParam avatar file The avatar image for this admin.
+     * @bodyParam name string required The name for this admin. Example: Luis
+     * @bodyParam lastname string required The lastname for this admin. Example: Gonzalez
+     * @bodyParam phone string required The phone for this admin. Example: 3322332233
+     * @bodyParam email string required The email for this admin. Example: luis@mail.com
+     * @bodyParam password string required The password for this admin. Example: 1234567890
+     * @bodyParam role string required The roles name for this admin. Example: administrator
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
@@ -63,7 +79,9 @@ class AdminController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified admin.
+     *
+     * @urlParam admin_uuid string required The admin uuid.
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
@@ -73,7 +91,17 @@ class AdminController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified admin.
+     *
+     * @urlParam admin_uuid string required The admin uuid.
+     *
+     * @bodyParam avatar file The avatar image for this admin.
+     * @bodyParam name string required The name for this admin. Example: Luis
+     * @bodyParam lastname string required The lastname for this admin. Example: Gonzalez
+     * @bodyParam phone string required The phone for this admin. Example: 3322332233
+     * @bodyParam email string required The email for this admin. Example: luis@mail.com
+     * @bodyParam password string required The password for this admin. Example: 1234567890
+     * @bodyParam role string required The roles name for this admin. Example: administrator
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
@@ -102,6 +130,8 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @urlParam admin_uuid string required The admin uuid.
+     *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function destroy(Admin $admin)
@@ -111,6 +141,8 @@ class AdminController extends Controller
 
     /**
      * Disable the specified resource from storage.
+     *
+     * @urlParam admin_uuid string required The admin uuid.
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */

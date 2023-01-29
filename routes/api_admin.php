@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ApiAdmin\Admin\AdminController;
 use App\Http\Controllers\ApiAdmin\Auth\AuthenticateController;
-use App\Http\Controllers\ApiAdmin\Permission\PermissionController;
-use App\Http\Controllers\ApiAdmin\Permission\RoleController;
+use App\Http\Controllers\ApiAdmin\Authorization\PermissionController;
+use App\Http\Controllers\ApiAdmin\Authorization\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*

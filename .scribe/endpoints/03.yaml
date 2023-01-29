@@ -50,14 +50,14 @@ endpoints:
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '51'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer PZa4k6dE5D3cgV8efb1h6av'
+      - 'Bearer 3Pbc1VaDek668dah45ZvgfE'
     controller: null
     method: null
     route: null

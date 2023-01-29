@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\AuthenticateController;
-use App\Http\Controllers\Api\Permission\PermissionController;
-use App\Http\Controllers\Api\Permission\RoleController;
+use App\Http\Controllers\Api\Authorization\PermissionController;
+use App\Http\Controllers\Api\Authorization\RoleController;
 use App\Http\Controllers\Api\State\StateController;
 use App\Http\Controllers\Api\Stripe\WebhookController;
 use App\Http\Controllers\Api\User\UserController;
@@ -29,8 +29,6 @@ Route::middleware('api')->group(function (): void {
     Route::prefix('webhook')->controller(WebhookController::class)->group(function (): void {
         Route::post('/stripe', 'handle');
     });
-
-    Route::get('/holiwis', fn () => response()->json(['message' => 'Bien, pasaste los cors, fuiste una ruta https.']));
 });
 
 Route::middleware('auth:api')->group(function (): void {

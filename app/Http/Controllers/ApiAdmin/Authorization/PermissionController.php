@@ -6,10 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Authorization\Permission;
 use Illuminate\Http\Request;
 
+/**
+ * @group Authorization Endpoints
+ *
+ * @subGroup Permissions
+ *
+ * @authenticated
+ */
 class PermissionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a paginated permissions.
+     *
+     * @queryParam size int The number of items by page. Example: 20
+     * @queryParam search string The criteria to search. Example: Editar administradores
      *
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */

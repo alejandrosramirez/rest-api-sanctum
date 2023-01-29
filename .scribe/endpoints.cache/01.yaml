@@ -16,7 +16,7 @@ endpoints:
       description: |-
         <aside class='notice'>
         For more info, check the <a href='https://stripe.com/docs/webhooks' target='_blank'>stripe official docs</a> about stripe webhooks.
-        </aside>
+        </aside>.
       authenticated: false
       custom: []
     headers:
@@ -70,7 +70,7 @@ endpoints:
           cache-control: 'no-cache, private'
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '59'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []

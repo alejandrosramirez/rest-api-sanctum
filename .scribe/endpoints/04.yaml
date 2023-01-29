@@ -50,14 +50,14 @@ endpoints:
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '50'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer gcvha4Ef8b566aVedZ1kPD3'
+      - 'Bearer 31d4Eav66Pfe8akhgb5VZcD'
     controller: null
     method: null
     route: null
@@ -145,20 +145,20 @@ endpoints:
     responses:
       -
         status: 500
-        content: '{"code":"0","type":"internal_server_error","body":"Un error de servidor ha ocurrido."}'
+        content: '{"error":"internal_server_error","message":"Un error de servidor ha ocurrido.","status":500}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '49'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 5vPehfV86cgkZab631D4Eda'
+      - 'Bearer daPbhZD6851fcg4VvaE3ke6'
     controller: null
     method: null
     route: null
@@ -185,11 +185,11 @@ endpoints:
         name: user_uuid
         description: 'The user uuid.'
         required: true
-        example: 635c116e-bb14-3274-8579-9e2dafb922bc
+        example: f2b46f05-327c-38a3-a467-4d52d9b6bcf9
         type: string
         custom: []
     cleanUrlParameters:
-      user_uuid: 635c116e-bb14-3274-8579-9e2dafb922bc
+      user_uuid: f2b46f05-327c-38a3-a467-4d52d9b6bcf9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -198,20 +198,20 @@ endpoints:
     responses:
       -
         status: 404
-        content: '{"code":"0","type":"model_error","body":"Usuario no encontrado\/a."}'
+        content: '{"error":"model_error","message":"Usuario no encontrado\/a.","status":404}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '48'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer e6dEDf3g18ahbV54vPcZka6'
+      - 'Bearer bDV6hv3PEkgfa184dZ6c5ae'
     controller: null
     method: null
     route: null
@@ -238,11 +238,11 @@ endpoints:
         name: user_uuid
         description: 'The user uuid.'
         required: true
-        example: 4a2ac7e6-b176-3344-b13b-5de2074721be
+        example: ea4b774b-2cdd-3feb-b659-92680f49a6c5
         type: string
         custom: []
     cleanUrlParameters:
-      user_uuid: 4a2ac7e6-b176-3344-b13b-5de2074721be
+      user_uuid: ea4b774b-2cdd-3feb-b659-92680f49a6c5
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -307,20 +307,20 @@ endpoints:
     responses:
       -
         status: 404
-        content: '{"code":"0","type":"model_error","body":"Usuario no encontrado\/a."}'
+        content: '{"error":"model_error","message":"Usuario no encontrado\/a.","status":404}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '47'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 4DaP368keaghVd1ZfEvcb65'
+      - 'Bearer cvDa6k4gh1b8fd5a36VPEZe'
     controller: null
     method: null
     route: null
@@ -347,11 +347,11 @@ endpoints:
         name: user_uuid
         description: 'The user uuid.'
         required: true
-        example: 098fd37c-21f1-3a6c-ad88-d8d012285125
+        example: 861810af-3d50-3181-b29f-038278a08a76
         type: string
         custom: []
     cleanUrlParameters:
-      user_uuid: 098fd37c-21f1-3a6c-ad88-d8d012285125
+      user_uuid: 861810af-3d50-3181-b29f-038278a08a76
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -360,20 +360,20 @@ endpoints:
     responses:
       -
         status: 404
-        content: '{"code":"0","type":"model_error","body":"Usuario no encontrado\/a."}'
+        content: '{"error":"model_error","message":"Usuario no encontrado\/a.","status":404}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '46'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer aVd8f5Pvac1k346gZbEDe6h'
+      - 'Bearer 864DEPcvkVh5a61eZ3gafdb'
     controller: null
     method: null
     route: null
@@ -400,11 +400,11 @@ endpoints:
         name: user_uuid
         description: 'The user uuid.'
         required: true
-        example: 01bb2aea-7474-377c-b15c-ab665f153de3
+        example: 3e52eba6-68ed-3c43-bc93-50b0a6d818d9
         type: string
         custom: []
     cleanUrlParameters:
-      user_uuid: 01bb2aea-7474-377c-b15c-ab665f153de3
+      user_uuid: 3e52eba6-68ed-3c43-bc93-50b0a6d818d9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -413,20 +413,20 @@ endpoints:
     responses:
       -
         status: 404
-        content: '{"code":"0","type":"model_error","body":"Usuario no encontrado\/a."}'
+        content: '{"error":"model_error","message":"Usuario no encontrado\/a.","status":404}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '45'
-          access-control-allow-origin: '*'
+          vary: Origin
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer b1ZVefEkh45c86adaP6gD3v'
+      - 'Bearer eE1dcP6aZD3vfgbV8h56k4a'
     controller: null
     method: null
     route: null
