@@ -34,7 +34,7 @@ Route::middleware('api')->group(function (): void {
 Route::middleware('auth:api')->group(function (): void {
     Route::prefix('auth')->group(function (): void {
         Route::controller(AuthenticateController::class)->group(function (): void {
-            Route::post('/logout', 'logout');
+            Route::get('/logout', 'logout');
         });
     });
 
