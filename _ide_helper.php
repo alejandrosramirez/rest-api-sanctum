@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 9.49.0.
+ * Generated for Laravel 9.50.2.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -6566,13 +6566,14 @@
          *
          * @param string $path
          * @param string $content
+         * @param int|null $mode
          * @return void 
          * @static 
          */ 
-        public static function replace($path, $content)
+        public static function replace($path, $content, $mode = null)
         {
                         /** @var \Illuminate\Filesystem\Filesystem $instance */
-                        $instance->replace($path, $content);
+                        $instance->replace($path, $content, $mode);
         }
                     /**
          * Replace a given string within a given file.
@@ -7027,7 +7028,7 @@
          *
          * @template TWhenParameter
          * @template TWhenReturnType
-         * @param \Illuminate\Filesystem\(\Closure($this):  TWhenParameter)|TWhenParameter|null $value
+         * @param \Illuminate\Filesystem\(\Closure($this):  TWhenParameter)|TWhenParameter|null  $value
          * @param \Illuminate\Filesystem\(callable($this,  TWhenParameter): TWhenReturnType)|null  $callback
          * @param \Illuminate\Filesystem\(callable($this,  TWhenParameter): TWhenReturnType)|null  $default
          * @return $this|\Illuminate\Filesystem\TWhenReturnType 
@@ -8167,6 +8168,19 @@
         {
                         /** @var \Illuminate\Translation\Translator $instance */
                         $instance->setLoaded($loaded);
+        }
+                    /**
+         * Add a handler to be executed in order to format a given class to a string during translation replacements.
+         *
+         * @param callable|string $class
+         * @param callable|null $handler
+         * @return void 
+         * @static 
+         */ 
+        public static function stringable($class, $handler = null)
+        {
+                        /** @var \Illuminate\Translation\Translator $instance */
+                        $instance->stringable($class, $handler);
         }
                     /**
          * Set the parsed value of a key.
@@ -15617,7 +15631,7 @@
          *
          * @template TWhenParameter
          * @template TWhenReturnType
-         * @param \Illuminate\Filesystem\(\Closure($this):  TWhenParameter)|TWhenParameter|null $value
+         * @param \Illuminate\Filesystem\(\Closure($this):  TWhenParameter)|TWhenParameter|null  $value
          * @param \Illuminate\Filesystem\(callable($this,  TWhenParameter): TWhenReturnType)|null  $callback
          * @param \Illuminate\Filesystem\(callable($this,  TWhenParameter): TWhenReturnType)|null  $default
          * @return $this|\Illuminate\Filesystem\TWhenReturnType 
@@ -17814,10 +17828,10 @@
          *
          * @static 
          */ 
-        public static function save($filename)
+        public static function save($filename, $disk = null)
         {
                         /** @var \Barryvdh\DomPDF\PDF $instance */
-                        return $instance->save($filename);
+                        return $instance->save($filename, $disk);
         }
                     /**
          * Make the PDF downloadable by the user
@@ -17986,10 +18000,10 @@
          *
          * @static 
          */ 
-        public static function save($filename)
+        public static function save($filename, $disk = null)
         {
                         /** @var \Barryvdh\DomPDF\PDF $instance */
-                        return $instance->save($filename);
+                        return $instance->save($filename, $disk);
         }
                     /**
          * Make the PDF downloadable by the user
@@ -21008,7 +21022,7 @@ namespace  {
              *
              * @template TWhenParameter
              * @template TWhenReturnType
-             * @param \Illuminate\Database\Eloquent\(\Closure($this):  TWhenParameter)|TWhenParameter|null $value
+             * @param \Illuminate\Database\Eloquent\(\Closure($this):  TWhenParameter)|TWhenParameter|null  $value
              * @param \Illuminate\Database\Eloquent\(callable($this,  TWhenParameter): TWhenReturnType)|null  $callback
              * @param \Illuminate\Database\Eloquent\(callable($this,  TWhenParameter): TWhenReturnType)|null  $default
              * @return $this|\Illuminate\Database\Eloquent\TWhenReturnType 
