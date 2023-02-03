@@ -22,5 +22,9 @@ class UsersSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
         $user->assignRole('administrator');
+
+        User::factory(35)->create()->each(function (User $user) {
+            $user->assignRole('administrator');
+        });
     }
 }

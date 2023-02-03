@@ -35,7 +35,7 @@ class UserController extends Controller
 
         $users = User::with(['roles'])
             ->search($search)
-            ->where('id', '!=', Auth::guard('api')->user()->id)
+            // ->where('id', '!=', Auth::guard('api')->user()->id)
             ->paginate($size);
 
         return response()->json($users);
