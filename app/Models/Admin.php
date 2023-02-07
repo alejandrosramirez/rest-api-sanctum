@@ -14,55 +14,53 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
- * App\Models\Admin.
+ * App\Models\Admin
  *
- * @property int                                                                                                       $id
- * @property string                                                                                                    $uuid
- * @property string|null                                                                                               $avatar
- * @property string                                                                                                    $name
- * @property string|null                                                                                               $lastname
- * @property string                                                                                                    $email
- * @property \Illuminate\Support\Carbon|null                                                                           $email_verified_at
- * @property string                                                                                                    $password
- * @property string|null                                                                                               $remember_token
- * @property bool                                                                                                      $disabled
- * @property \Illuminate\Support\Carbon|null                                                                           $created_at
- * @property \Illuminate\Support\Carbon|null                                                                           $updated_at
- * @property \Illuminate\Support\Carbon|null                                                                           $deleted_at
- * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property int|null                                                                                                  $notifications_count
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Authorization\Permission[]                           $permissions
- * @property int|null                                                                                                  $permissions_count
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Authorization\Role[]                                 $roles
- * @property int|null                                                                                                  $roles_count
- * @property \Illuminate\Database\Eloquent\Collection|\Laravel\Cashier\Subscription[]                                  $subscriptions
- * @property int|null                                                                                                  $subscriptions_count
- * @property \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[]                           $tokens
- * @property int|null                                                                                                  $tokens_count
- *
- * @method static Builder|Admin                            newModelQuery()
- * @method static Builder|Admin                            newQuery()
- * @method static \Illuminate\Database\Query\Builder|Admin onlyTrashed()
- * @method static Builder|Admin                            permission($permissions)
- * @method static Builder|Admin                            query()
- * @method static Builder|Admin                            role($roles, $guard = null)
- * @method static Builder|Admin                            search(string $search)
- * @method static Builder|Admin                            whereAvatar($value)
- * @method static Builder|Admin                            whereCreatedAt($value)
- * @method static Builder|Admin                            whereDeletedAt($value)
- * @method static Builder|Admin                            whereDisabled($value)
- * @method static Builder|Admin                            whereEmail($value)
- * @method static Builder|Admin                            whereEmailVerifiedAt($value)
- * @method static Builder|Admin                            whereId($value)
- * @method static Builder|Admin                            whereLastname($value)
- * @method static Builder|Admin                            whereName($value)
- * @method static Builder|Admin                            wherePassword($value)
- * @method static Builder|Admin                            whereRememberToken($value)
- * @method static Builder|Admin                            whereUpdatedAt($value)
- * @method static Builder|Admin                            whereUuid($value)
- * @method static \Illuminate\Database\Query\Builder|Admin withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Admin withoutTrashed()
- *
+ * @property int $id
+ * @property string $uuid
+ * @property string|null $avatar
+ * @property string $name
+ * @property string|null $lastname
+ * @property string $email
+ * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property string $password
+ * @property string|null $remember_token
+ * @property bool $disabled
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Authorization\Permission> $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Authorization\Role> $roles
+ * @property-read int|null $roles_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Cashier\Subscription> $subscriptions
+ * @property-read int|null $subscriptions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
+ * @property-read int|null $tokens_count
+ * @method static Builder|Admin newModelQuery()
+ * @method static Builder|Admin newQuery()
+ * @method static Builder|Admin onlyTrashed()
+ * @method static Builder|Admin permission($permissions)
+ * @method static Builder|Admin query()
+ * @method static Builder|Admin role($roles, $guard = null)
+ * @method static Builder|Admin search(string $search)
+ * @method static Builder|Admin whereAvatar($value)
+ * @method static Builder|Admin whereCreatedAt($value)
+ * @method static Builder|Admin whereDeletedAt($value)
+ * @method static Builder|Admin whereDisabled($value)
+ * @method static Builder|Admin whereEmail($value)
+ * @method static Builder|Admin whereEmailVerifiedAt($value)
+ * @method static Builder|Admin whereId($value)
+ * @method static Builder|Admin whereLastname($value)
+ * @method static Builder|Admin whereName($value)
+ * @method static Builder|Admin wherePassword($value)
+ * @method static Builder|Admin whereRememberToken($value)
+ * @method static Builder|Admin whereUpdatedAt($value)
+ * @method static Builder|Admin whereUuid($value)
+ * @method static Builder|Admin withTrashed()
+ * @method static Builder|Admin withoutTrashed()
  * @mixin \Eloquent
  */
 class Admin extends Authenticatable

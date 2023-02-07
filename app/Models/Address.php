@@ -11,31 +11,30 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * App\Models\Address.
+ * App\Models\Address
  *
- * @property int                             $id
- * @property string                          $uuid
- * @property int                             $addressable_id
- * @property string                          $addressable_type
- * @property string                          $street
- * @property string                          $outer_number
- * @property string|null                     $inner_number
- * @property string                          $zip_code
- * @property string                          $colony
- * @property string                          $city
- * @property int                             $state_id
- * @property string|null                     $references
- * @property float|null                      $lat
- * @property float|null                      $lng
+ * @property int $id
+ * @property string $uuid
+ * @property int $addressable_id
+ * @property string $addressable_type
+ * @property string $street
+ * @property string $outer_number
+ * @property string|null $inner_number
+ * @property string $zip_code
+ * @property string $colony
+ * @property string $city
+ * @property int $state_id
+ * @property string|null $references
+ * @property float|null $lat
+ * @property float|null $lng
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property Model|Eloquent                  $addressable
- * @property \App\Models\State               $state
- *
+ * @property-read Model|\Eloquent $addressable
+ * @property-read \App\Models\State $state
  * @method static \Illuminate\Database\Eloquent\Builder|Address newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Address newQuery()
- * @method static \Illuminate\Database\Query\Builder|Address    onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Address onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Address query()
  * @method static \Illuminate\Database\Eloquent\Builder|Address whereAddressableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Address whereAddressableType($value)
@@ -54,10 +53,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Address whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Address whereUuid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Address whereZipCode($value)
- * @method static \Illuminate\Database\Query\Builder|Address    withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Address    withoutTrashed()
- *
- * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|Address withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Address withoutTrashed()
+ * @mixin Eloquent
  */
 class Address extends Model
 {
