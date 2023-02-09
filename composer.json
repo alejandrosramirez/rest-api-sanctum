@@ -26,6 +26,7 @@
 		"jenssegers/agent": "^2.6",
 		"laravel/cashier": "^13.8",
 		"laravel/framework": "^9.2",
+		"laravel/octane": "^1.4",
 		"laravel/sanctum": "^2.14.1",
 		"laravel/socialite": "^5.5",
 		"laravel/telescope": "^4.8",
