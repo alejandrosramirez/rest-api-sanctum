@@ -19,7 +19,6 @@
 	"require": {
 		"php": "^8.0.2",
 		"barryvdh/laravel-dompdf": "^2.0",
-		"based/laravel-typescript": "^0.0.3",
 		"cerbero/eloquent-inspector": "^1.0",
 		"guzzlehttp/guzzle": "^7.2",
 		"intervention/image": "^2.7",
