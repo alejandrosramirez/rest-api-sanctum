@@ -9,6 +9,8 @@ trait HasRelated
 {
     /**
      * Setup model event hooks.
+     *
+     * @return void
      */
     public static function bootHasRelated(): void
     {

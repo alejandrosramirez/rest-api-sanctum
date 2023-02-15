@@ -2,6 +2,7 @@
 
 namespace Database\Factories\Authorization;
 
+use App\Models\Authorization\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class RoleFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Role::class;
+
     /**
      * Define the model's default state.
      *

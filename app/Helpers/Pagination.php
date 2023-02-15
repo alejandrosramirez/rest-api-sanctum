@@ -12,7 +12,10 @@ class Pagination
     /**
      * Paginate a collection/array.
      *
-     * @param  int  $page
+     * @param  \Illuminate\Support\Collection|array  $items
+     * @param  int  $perPage
+     * @param  string  $pageName
+     * @param  ?int  $page
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public static function paginate(Collection|array $items, int $perPage, string $pageName = 'page', int $page = null)

@@ -9,7 +9,11 @@ trait HandleLogger
     /**
      * Log a message.
      *
-     * @param  mixed  $extraData
+     * @param  string  $type
+     * @param  string  $logName
+     * @param  string  $description
+     * @param  ?mixed  $extraData
+     * @return void
      */
     public function logger(string $type, string $logName, string $description, mixed $extraData = null): void
     {

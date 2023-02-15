@@ -12,6 +12,9 @@ class Imager
     /**
      * Resize a image from storage.
      *
+     * @param  string  $path
+     * @param  \App\Enums\DiskDriver  $disk
+     * @param  int  $width
      * @return \Intervention\Image\Image
      */
     public static function resize(string $path, DiskDriver $disk = DiskDriver::LOCAL, int $width = 0)

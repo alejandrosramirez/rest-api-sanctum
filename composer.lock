@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b25f1cdb1df861fc967ca73667a72356",
+    "content-hash": "885edf3c371575b67b3408eebaebc221",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -3665,27 +3665,27 @@
         },
         {
             "name": "maize-tech/laravel-markable",
-            "version": "1.0.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maize-tech/laravel-markable.git",
-                "reference": "6f8e5ccef933cd2e456680bf6b9acf93a2141b5a"
+                "reference": "642b6e715f5ca76db5217eac079f91c419e6c746"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maize-tech/laravel-markable/zipball/6f8e5ccef933cd2e456680bf6b9acf93a2141b5a",
-                "reference": "6f8e5ccef933cd2e456680bf6b9acf93a2141b5a",
+                "url": "https://api.github.com/repos/maize-tech/laravel-markable/zipball/642b6e715f5ca76db5217eac079f91c419e6c746",
+                "reference": "642b6e715f5ca76db5217eac079f91c419e6c746",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^8.0|^9.0",
-                "illuminate/support": "^8.0|^9.0",
-                "php": "^7.4|^8.0",
-                "spatie/laravel-package-tools": "^1.11.3"
+                "illuminate/database": "^9.0|^10.0",
+                "illuminate/support": "^9.0|^10.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.14.1"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.7",
-                "orchestra/testbench": "^6.23|^7.0",
+                "orchestra/testbench": "^7.0|^8.0",
                 "phpunit/phpunit": "^9.5",
                 "spatie/laravel-ray": "^1.29",
                 "vimeo/psalm": "^4.22"
@@ -3734,7 +3734,7 @@
             ],
             "support": {
                 "issues": "https://github.com/maize-tech/laravel-markable/issues",
-                "source": "https://github.com/maize-tech/laravel-markable/tree/1.0.2"
+                "source": "https://github.com/maize-tech/laravel-markable/tree/2.0.0"
             },
             "funding": [
                 {
@@ -3742,7 +3742,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-29T08:54:39+00:00"
+            "time": "2023-02-13T16:16:40+00:00"
         },
         {
             "name": "markbaker/complex",
@@ -8819,16 +8819,16 @@
         },
         {
             "name": "vonage/nexmo-bridge",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nexmo/vonage-php-nexmo-bridge.git",
-                "reference": "36490dcc5915f12abeaa233c6098e0dce14bbb0a"
+                "reference": "e9f63cd468b7e0edd73d0c90d0406d6b961f9eb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nexmo/vonage-php-nexmo-bridge/zipball/36490dcc5915f12abeaa233c6098e0dce14bbb0a",
-                "reference": "36490dcc5915f12abeaa233c6098e0dce14bbb0a",
+                "url": "https://api.github.com/repos/Nexmo/vonage-php-nexmo-bridge/zipball/e9f63cd468b7e0edd73d0c90d0406d6b961f9eb7",
+                "reference": "e9f63cd468b7e0edd73d0c90d0406d6b961f9eb7",
                 "shasum": ""
             },
             "require": {
@@ -8861,9 +8861,9 @@
             "description": "Provides a bridge for using the Vonage PHP SDK with the older Nexmo namespace",
             "support": {
                 "issues": "https://github.com/Nexmo/vonage-php-nexmo-bridge/issues",
-                "source": "https://github.com/Nexmo/vonage-php-nexmo-bridge/tree/0.1.1"
+                "source": "https://github.com/Nexmo/vonage-php-nexmo-bridge/tree/0.1.2"
             },
-            "time": "2022-01-18T13:39:33+00:00"
+            "time": "2023-02-14T15:54:06+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -9527,16 +9527,16 @@
         },
         {
             "name": "knuckleswtf/scribe",
-            "version": "4.14.0",
+            "version": "4.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/knuckleswtf/scribe.git",
-                "reference": "750e949202167a4f25c736ba48a3a9965fb1751a"
+                "reference": "6799496e3fa0e79cdcf48f68785c16a942dbc756"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knuckleswtf/scribe/zipball/750e949202167a4f25c736ba48a3a9965fb1751a",
-                "reference": "750e949202167a4f25c736ba48a3a9965fb1751a",
+                "url": "https://api.github.com/repos/knuckleswtf/scribe/zipball/6799496e3fa0e79cdcf48f68785c16a942dbc756",
+                "reference": "6799496e3fa0e79cdcf48f68785c16a942dbc756",
                 "shasum": ""
             },
             "require": {
@@ -9551,7 +9551,7 @@
                 "league/flysystem": "^1.1.4|^2.1.1|^3.0",
                 "mpociot/reflection-docblock": "^1.0.1",
                 "nikic/php-parser": "^4.10",
-                "nunomaduro/collision": "^5.10|^6.0",
+                "nunomaduro/collision": "^5.10|^6.0|^7.0",
                 "php": ">=8.0",
                 "ramsey/uuid": "^4.2.2",
                 "shalvah/clara": "^3.1.0",
@@ -9610,7 +9610,7 @@
             ],
             "support": {
                 "issues": "https://github.com/knuckleswtf/scribe/issues",
-                "source": "https://github.com/knuckleswtf/scribe/tree/4.14.0"
+                "source": "https://github.com/knuckleswtf/scribe/tree/4.15.0"
             },
             "funding": [
                 {
@@ -9618,20 +9618,20 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-02-07T19:29:29+00:00"
+            "time": "2023-02-14T20:18:36+00:00"
         },
         {
             "name": "laravel/pint",
-            "version": "v1.4.1",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "80ddf23a5d97825e79bb1018eebb6f3f985d4fa8"
+                "reference": "e0a8cef58b74662f27355be9cdea0e726bbac362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/80ddf23a5d97825e79bb1018eebb6f3f985d4fa8",
-                "reference": "80ddf23a5d97825e79bb1018eebb6f3f985d4fa8",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/e0a8cef58b74662f27355be9cdea0e726bbac362",
+                "reference": "e0a8cef58b74662f27355be9cdea0e726bbac362",
                 "shasum": ""
             },
             "require": {
@@ -9642,13 +9642,13 @@
                 "php": "^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.14",
-                "illuminate/view": "^9.32.0",
+                "friendsofphp/php-cs-fixer": "^3.14.4",
+                "illuminate/view": "^9.51.0",
                 "laravel-zero/framework": "^9.2.0",
                 "mockery/mockery": "^1.5.1",
-                "nunomaduro/larastan": "^2.2.0",
-                "nunomaduro/termwind": "^1.14.0",
-                "pestphp/pest": "^1.22.1"
+                "nunomaduro/larastan": "^2.4.0",
+                "nunomaduro/termwind": "^1.15.1",
+                "pestphp/pest": "^1.22.4"
             },
             "bin": [
                 "builds/pint"
@@ -9684,20 +9684,20 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2023-01-31T15:50:45+00:00"
+            "time": "2023-02-14T16:31:02+00:00"
         },
         {
             "name": "laravel/sail",
-            "version": "v1.20.1",
+            "version": "v1.20.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "4b85dbfa3dceeaf7227e3029707562fd60297e86"
+                "reference": "5ae072b182b1efbec927409e8a3ce3b1078cc42c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/4b85dbfa3dceeaf7227e3029707562fd60297e86",
-                "reference": "4b85dbfa3dceeaf7227e3029707562fd60297e86",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/5ae072b182b1efbec927409e8a3ce3b1078cc42c",
+                "reference": "5ae072b182b1efbec927409e8a3ce3b1078cc42c",
                 "shasum": ""
             },
             "require": {
@@ -9745,7 +9745,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2023-02-08T02:08:37+00:00"
+            "time": "2023-02-08T20:22:21+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -11671,20 +11671,20 @@
         },
         {
             "name": "shalvah/upgrader",
-            "version": "0.3.0",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shalvah/upgrader.git",
-                "reference": "2a2b1452bd4a1484784deb2af49fb5e1abbcf420"
+                "reference": "c7f1cca8be5cd0114cd816d8bfff9c80565f7390"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shalvah/upgrader/zipball/2a2b1452bd4a1484784deb2af49fb5e1abbcf420",
-                "reference": "2a2b1452bd4a1484784deb2af49fb5e1abbcf420",
+                "url": "https://api.github.com/repos/shalvah/upgrader/zipball/c7f1cca8be5cd0114cd816d8bfff9c80565f7390",
+                "reference": "c7f1cca8be5cd0114cd816d8bfff9c80565f7390",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^8.0|^9.0",
+                "illuminate/support": "^8.0|^9.0|^10.0",
                 "nikic/php-parser": "^4.13",
                 "php": ">=8.0"
             },
@@ -11717,7 +11717,7 @@
             ],
             "support": {
                 "issues": "https://github.com/shalvah/upgrader/issues",
-                "source": "https://github.com/shalvah/upgrader/tree/0.3.0"
+                "source": "https://github.com/shalvah/upgrader/tree/0.3.1"
             },
             "funding": [
                 {
@@ -11725,7 +11725,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-09-10T02:18:15+00:00"
+            "time": "2023-02-06T01:20:37+00:00"
         },
         {
             "name": "spatie/backtrace",

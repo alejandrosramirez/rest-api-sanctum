@@ -13,7 +13,11 @@ trait HandleUpload
     /**
      * Load image from request and save it to storage.
      *
-     * @param  string  $lastFile
+     * @param  \Illuminate\Http\UploadedFile  $file
+     * @param  \App\Enums\DiskDriver  $disk
+     * @param  ?string  $lastFile
+     * @param  int  $width
+     * @param  int  $height
      * @return array<string, string>
      */
     public function saveImage(UploadedFile $file, DiskDriver $disk = DiskDriver::LOCAL, string $lastFile = null, int $width = 0, int $height = 0)
@@ -64,6 +68,8 @@ trait HandleUpload
     /**
      * Load file/document from request and save it to storage.
      *
+     * @param  \Illuminate\Http\UploadedFile  $file
+     * @param  \App\Enums\DiskDriver  $disk
      * @return array<string, string>
      */
     public function saveFile(UploadedFile $file, DiskDriver $disk = DiskDriver::LOCAL)

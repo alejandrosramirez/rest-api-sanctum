@@ -9,6 +9,8 @@ trait HasUuid
 {
     /**
      * Setup model event hooks.
+     *
+     * @return void
      */
     public static function boot(): void
     {
